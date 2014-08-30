@@ -1,0 +1,6 @@
+<%=form_tag("", method: "post") do %>
+    <%= label_tag :提交内容 %>
+    <%= text_area_tag :reason %>
+
+    <%= submit_tag :提交任务 %>
+<% end %>

@@ -1,0 +1,43 @@
+<div id="blind" class="blind">
+  <div id="message_form_container" class="central_form_container">
+    <form method="post" action="" id="msg_form">
+      <div id="message_form" class="central_form">
+        <div id="click_able">
+          <div class="message_user_title">
+            收信人ID： <%= request.taker_allocation.taker_id %>
+            <input type="hidden" name="from_user_id" value="<%=session[:user_id]%>">
+            <input type="hidden" name="request_id" value="<%=request.id%>">
+          </div>
+          <div class="message_text_area">
+            <textarea name="message" class="message_text"></textarea>
+          </div>
+          <div class="message_button_area">
+            <input type="submit" value="发送信息">
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+<script>
+    $('#msg_form').on('submit', function () {
+        console.log(getFormObj('msg_form'))
+        $.ajax({
+            url: '/messages/send_message',
+            type: 'post',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            data: {message: getFormObj('msg_form')},
+            dataType: 'json',
+            success: function () {
+                close_blind()
+            }
+        });
+        return false;
+    })
+</script>
+

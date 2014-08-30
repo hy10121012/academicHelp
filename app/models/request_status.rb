@@ -1,0 +1,12 @@
+module RequestStatus
+  # To change this template use File | Settings | File Templates.
+  DRAFT='DRAFT'
+  SUBMITTED='SUBMITTED'
+  ACCEPTED='ACCEPTED'
+  AWAITING_PAYMENT='AWAITING_PAYMENT'
+  IN_PROCESS='IN_PROCESS'
+  CANCELLED='CANCELLED'
+  HANDED_IN='HANDED_IN'
+  CLOSED='CLOSED'
+  ARGUE='ARGUE'
+end

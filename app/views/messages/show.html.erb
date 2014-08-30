@@ -1,0 +1,33 @@
+<div class="message_container">
+  <div class="message_reply_box ">
+    <h2>关于任务<%=params[:request_id]%>的消息</h2>
+  </div>
+  <%= form_for :message, method: "post", url: "" do |f| %>
+      <div class="message_reply_box message_reply_box_style">
+        <div class="message_reply_field">
+          <%= f.hidden_field :from_user_id, :value => session[:user_id] %>
+          <%= f.hidden_field :request_id, :value => params[:request_id] %>
+          <%= f.text_area :message, :class => 'message_reply_text_box' %>
+        </div>
+        <div class="message_reply_button_area">
+          <%= f.submit :submit, :class => 'message_reply_button', :value => "发送信息" %>
+        </div>
+        <div class="clear"></div>
+      </div>
+  <% end %>
+  <div class="message_main_area">
+    <% @messages.each do |message| %>
+        <div class="message_list_row">
+          <div class="message_list_profile_box <% if (message.from_user_id!=session[:user_id]) %>profile_left<% else %>profile_right<% end %> ">
+            <%=link_to message.from_user_id, nil, :controller => 'users', :action => 'show', :id => message.from_user_id, :class => "link_a" %>
+          </div>
+          <div class="message_list_content  <% if (message.from_user_id!=session[:user_id]) %>profile_left<% else %>profile_right<% end %> ">
+            <%= message.message %>
+          </div>
+          <div class="message_list_profile_box <% if (message.from_user_id!=session[:user_id]) %>profile_right<% else %> profile_left<% end %> ">
+          </div>
+          <div class="clear"></div>
+        </div>
+    <% end %>
+  </div>
+</div>

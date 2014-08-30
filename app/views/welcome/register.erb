@@ -1,0 +1,46 @@
+<div class="register_box">
+  <h3>注册 -     请准确的填写以下信息，他们对帮助您寻找合适的帮助者非常重要</h3>
+  <%= form_for :user,url: users_path do |user| %>
+      <p>
+        <%= user.label :姓 %><br>
+        <%= user.text_field :first %>
+      </p>
+      <p>
+        <%= user.label :名 %><br>
+        <%= user.text_field :last %>
+      </p>
+      <p>
+        <%= user.label :邮箱 %><br>
+        <%= user.text_field :email %>
+      </p>
+      <p>
+        <%= user.label :目前就读学历 %><br>
+        <%= user.select :education_id, Education.all.collect {|e| [ e.name, e.id ] } %>
+      </p>
+      <p>
+        <%= user.label :科目 %><br>
+        <%= user.select :subject_area_id, SubjectArea.all.collect {|e| [ e.name, e.id ] } %>
+      </p>
+      <p>
+        <%= user.label :国家 %><br>
+        <%= user.text_field :country %>
+      </p>
+      <p>
+        <%= user.label :学校 %><br>
+        <%= user.text_field :university %>
+      </p>
+      <p>
+        <%= user.label :我要做 %><br>
+        <%= user.select :user_type_id, UserType.all.collect {|t| [ t.name, t.id ] } %>
+      </p>
+      <p>
+        <%= user.label :密码 %><br>
+        <%= user.password_field :password %>
+      </p>
+
+      <p>
+        <%= user.submit :注册, :class=>'login_button' %>
+      </p>
+  <% end %>
+
+</div>

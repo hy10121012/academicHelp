@@ -1,0 +1,11 @@
+<script>
+get_message_form = function(){
+    var html = "<%=j render(:partial => '/share/message_form',locals: { request: request}) %>";
+        return html;
+}
+
+get_file_upload_form = function(){
+        var html = "<%=j render(:partial => '/share/file_upload_form',locals: { request: request,request_file: request_file}) %>";
+        return html;
+        }
+</script>

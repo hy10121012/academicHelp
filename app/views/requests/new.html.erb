@@ -1,0 +1,59 @@
+<div class="request_form_box">
+  <div>
+    <h2>发布新的任务</h2>
+  </div>
+  <%= form_for :request, url: requests_path do |request| %>
+      <div class="request_form_row">
+        <div class="form_label">任务标题</div>
+        <%= request.text_field :title %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">任务详细要求</div>
+        <%= request.text_area :requirement, :style => 'height: 300px' %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">任务类型</div>
+        <%= request.select :request_type_id, RequestType.all.collect { |e| [e.name, e.id] } %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">学科</div>
+        <%= request.select :subject_area_id, SubjectArea.all.collect { |e| [e.name, e.id] } %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">字数要求</div>
+        <%= request.text_field :words %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">分数要求</div>
+        <%= request.text_field :expected_score %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">价格</div>
+        <%= request.text_field :price %>
+      </div>
+      <div class="request_form_row">
+        <div class="form_label">交稿时间</div>
+        <%= request.text_field :end_date %>
+      </div>
+      <div class="request_form_row">
+        <%= request.submit :提交 %>
+      </div>
+
+  <% end %>
+
+
+</div>
+
+<script>
+    $(function () {
+        $("#request_end_date").datepicker({ dateFormat: "yy/mm/dd", buttonText: "Choose"});
+        $('#search_custom').click(function () {
+            if ($('#from').val() != "" && $('#to').val() != "" && $('#from').val() * 1 < $('#to').val() * 1) {
+                window.location = "?from=" + $('#from').val() + "&to=" + $('#to').val();
+            }
+            else {
+                alert("输入日期不合法")
+            }
+        })
+    });
+</script>

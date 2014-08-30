@@ -1,0 +1,140 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome_container{
+  width: 100%;
+  text-align: center;
+  font-family: 'TitilliumText22L-Thin','微软雅黑';;
+}
+
+
+.welcome_bg{
+  background-color: #000000;
+  background-image: url("/images/bg.jpg");
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media only screen and (min-device-width: 380px) and (max-device-width: 640px){
+  .welcome_header{
+    font-size: 3em;
+    color: #FFFFFF;
+    line-height: 300%;
+    vertical-align: middle;
+    height: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (min-width: 641px) {
+  .welcome_header{
+    font-size: 3em;
+    color: #FFFFFF;
+    line-height: 300%;
+    vertical-align: middle;
+    height: 300px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.welcome_bottom{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  //border: 1px solid #000000;
+}
+
+.login_box{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+}
+
+.login_label{
+  text-align: left;
+  margin-top: 10px;
+}
+
+.login_input{
+  padding: 5px;
+  font-size: 1.2em;
+  width: 95%;
+}
+
+.login_button{
+  background-color:rgb(128, 195, 247) ;
+  color: #FFFFFF;
+  border: 1px solid #1d80cf;
+}
+
+.login_title{
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.login_text{
+  display: inline-block;
+}
+
+.login_text_reg,.login_text_reg a {
+  display: inline-block;
+  float: right;
+  color: #000000;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.login_box_row{
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+.section_gap{
+  height: 200px;
+}
+.artical_gap{
+  height: 100px;
+}
+.welcome_intro{
+  width: 70%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.welcome_intro_wrapper{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.welcome_intro_text{
+  font-size: 1.4em;
+  line-height: 50px;
+}
+
+.join{
+  text-decoration: underline;
+}
+
+.register_box input[type="text"],.register_box input[type="password"],.register_box select{
+  width: 100%;
+  padding: 5px;
+}
+
+.login_button{
+  background-color:rgb(128, 195, 247) ;
+  color: #FFFFFF;
+  width: 40%;
+  padding: 5px;
+  border: 1px solid #1d80cf;
+  font-size: 1.2em;
+}
+.register_box{
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  padding-bottom:19%;
+}

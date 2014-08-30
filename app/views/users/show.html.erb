@@ -1,0 +1,90 @@
+<div class="profile_top_bg">
+  <div class="profile_top">
+    <div class="profile_info_box">
+      <div class="corner_label">用户ID</div>
+      <div class="profile_info_field">
+        <div class="profile_info_box_text"><%= @user.id %></div>
+      </div>
+
+    </div>
+    <div class="profile_info_box">
+      <div class="corner_label">诚信度</div>
+      <div class="profile_info_field">
+        <div class="profile_info_box_text"><%= @user.get_reputation %></div>
+      </div>
+    </div>
+    <div style="border-right: 0px" class="profile_info_box">
+      <div class="corner_label">好评率</div>
+      <div class="profile_info_field">
+        <div class="profile_info_box_text"><%= @user.get_rating %></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div class="profile_detail">
+    <div class="profile_detail_rate"><span>好评</span> ( <%= @votes[VoteType::POSITIVE] %> )</div>
+    <div class="profile_detail_rate"><span>一般</span> ( <%= @votes[VoteType::NATURE] %> )</div>
+    <div class="profile_detail_rate"><span>差评</span> ( <%= @votes[VoteType::NEGATIVE] %> )</div>
+  </div>
+</div>
+
+<div class="profile_bottom">
+  <div class="profile_bottom_half left_half">
+    <div class="profile_bottom_box">
+      <div class="user_request_list">
+        <div ><%=link_to "发信息",nil, class: "user_action",style:"color: #1c94c4;font-weight: bolder;" %></div>
+      </div>
+      <div class="user_request_list">
+        <div ><%=link_to "举报用户",nil, class: "user_action",style:"color: #1c94c4;font-weight: bolder;"  %></div>
+      </div>
+    </div>
+    <div class="profile_bottom_box">
+      <div class="user_request_list">
+        <div style="font-weight: bolder"><%=@user.user_type.name%></div>
+      </div>
+      <div class="user_request_list">
+        <div >所在地</div>
+        <div ><%=@user.country%></div>
+      </div>
+      <div class="user_request_list">
+        <div >学科领域</div>
+        <div ><%=@user.subject_area.name%></div>
+      </div>
+    </div>
+    <div class="profile_bottom_box">
+      <h3>任务情况</h3>
+      <div class="user_request_list">
+        <div ><% if(@user.is_taker?) %>承接任务<%else%>发布任务<%end%></div>
+        <div ><% if(@user.is_taker?) %>0<%else%><%=@request_count['create']%><%end%></div>
+      </div>
+      <div class="user_request_list">
+        <div ><% if(@user.is_taker?) %>完成任务<%else%>完成支付<%end%></div>
+        <div ><% if(@user.is_taker?) %>0<%else%><%=@request_count['pay']%><%end%></div>
+      </div>
+      <div class="user_request_list">
+        <div ><% if(@user.is_taker?) %>放弃任务<%else%>取消任务<%end%></div>
+        <div ><% if(@user.is_taker?) %>0<%else%><%=@request_count['cancel']%><%end%></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="profile_bottom_half right_half">
+    <div class="profile_bottom_box">
+      <h3>用户评价</h3>
+      <div class="comment_box">
+        <% @comments.each do |comment| %>
+            <div class="comment_row">
+              <div class="comment_user"><%= comment.commenter.id %></div>
+              <div class="comment_content"><%= comment.comment %></div>
+            </div>
+        <% end %>
+        <% if(@comments.size==0) %>
+        <span style="color: #929295;font-weight: bold">暂时没有用户评价</span>
+        <% end%>
+      </div>
+    </div>
+  </div>
+
+
+</div>

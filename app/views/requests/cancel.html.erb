@@ -1,0 +1,6 @@
+<%=form_tag("", method: "post") do %>
+    <%= label_tag :取消原因 %>
+    <%= text_area_tag :reason %>
+
+    <%= submit_tag :取消任务 %>
+<% end %>

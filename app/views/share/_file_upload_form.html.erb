@@ -1,0 +1,41 @@
+<div id="blind" class="blind">
+  <div id="message_form_container" class="central_form_container">
+    <%= form_for(request_file,id: "file_upload_form", html: { multipart: true }) do |f| %>
+        <div id="file_upload_form_box" class="central_form">
+          <div id="click_able">
+            <div class="file_upload_title">
+              描述：<%= f.text_field :description ,class: "file_description"%>
+              <%= f.hidden_field :request_id ,value:request.id %>
+            </div>
+            <div class="file_upload_title">
+              <%= f.label :uploaded_file, t('上传文件') %>：<%= f.file_field :file %>
+            </div>
+            <div class="file_upload_title">
+              <%= f.submit '上传文件' %>
+            </div>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+<script>
+    $('#file_upload_form').on('submit', function () {
+        console.log(getFormObj('file_upload_form'))
+        $.ajax({
+            url: '/request_files',
+            type: 'post',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            data: {message: getFormObj('msg_form')},
+            dataType: 'json',
+            success: function () {
+                close_blind()
+            }
+        });
+        return false;
+    })
+</script>
+

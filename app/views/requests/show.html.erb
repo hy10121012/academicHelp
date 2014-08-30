@@ -1,0 +1,162 @@
+<h2>任务详情</h2>
+<div class="request_show_area">
+  <div class="request_form_left">
+    <div class="request_show_form">
+      <div> <%= label_tag :标题 %>
+        <div><%= @request.title %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :目前状态 %>
+        <div><%= get_request_status(@request.status) %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :任务要求 %>
+        <div><%= @request.requirement %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :任务类型 %>
+        <div class="request_cell_row"><%= @request.request_type.name %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :学科 %>
+        <div class="request_cell_row"><%= @request.subject_area.name %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :字数要求 %>
+        <div class="request_cell_row"><%= @request.words %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :分数要求 %>
+        <div class="request_cell_row"><%= @request.expected_score %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :价格 %>
+        <div class="request_cell_row"><%= @request.price %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :交稿时间 %>
+        <div class="request_cell_row"><%= int_to_date(@request.end_date) %></div>
+      </div>
+      <div>
+        <% if @request.is_owner?(session[:user_id]) %>
+
+            <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
+                <%= form_tag url_for(:controller => 'requests', :action => 'cancel'), :method => 'post' do %>
+                    <p>
+                      <a href="javascript:void(0)" id="maker_upload_file">上传文件</a>
+                      <%= submit_tag :取消任务 %>
+                    </p>
+                <% end %>
+            <% end %>
+            <% if @request.status==RequestStatus::ACCEPTED %>
+                <p>
+                  <%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
+                      <input type="hidden" value="1" name="a" id="a">
+                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
+                      <%= submit_tag :确认写手,:id=>'approve' %>
+                  <% end %>
+                  <%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
+                      <input type="hidden" value="0" name="a" id="a">
+                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
+                      <%= submit_tag :否决写手,:id=>'decline' %>
+                  <% end %>
+                </p>
+
+            <% end %>
+            <% if @request.status==RequestStatus::AWAITING_PAYMENT %>
+                <%= form_tag url_for(:controller => 'requests', :action => 'do_pay'), :method => 'post' do %>
+                    <p>
+                      <%= submit_tag :付款 %>
+                    </p>
+                <% end %>
+            <% end %>
+            <% if @request.status==RequestStatus::HANDED_IN %>
+                <%= form_tag url_for(:controller => 'requests', :action => 'close_down'), :method => 'post' do %>
+                    <p>
+                      <%= submit_tag :我对质量感到满意，关闭交易 %>
+                      <%= link_to '我对质量不满意，我要投诉', :controller => 'requests', :action => 'complaint' %>
+                    </p>
+                <% end %>
+            <% end %>
+        <% end %>
+
+        <% if session[:user_type_id]==2 %>
+            <% if  @request.status==RequestStatus::SUBMITTED %>
+                <%= form_tag url_for(:controller => 'requests', :action => 'do_take_request'), :method => 'post' do %>
+                    <p>
+                      <%= submit_tag :领取任务 %>
+                    </p>
+                <% end %>
+            <% end %>
+            <% if !@request.taker.nil? && @request.taker.id==session[:user_id] %>
+                <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED %>
+                    <%= form_tag url_for(:controller => 'requests', :action => 'taker_cancel'), :method => 'post' do %>
+                        <p>
+                          <%= submit_tag :放弃任务 %>
+                        </p>
+                    <% end %>
+                <% end %>
+                <% if  @request.status==RequestStatus::IN_PROCESS %>
+                    <%= link_to '提交任务', :controller => 'requests', :action => 'submit' %>
+                <% end %>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if !@request.taker.nil? && (@request.is_owner?(session[:user_id]) || @request.taker.id==(session[:user_id]))  %>
+      <div class="request_form_right">
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :承接人ID %></div>
+          <div class="row_content"><%= link_to @request.taker.id, :controller => 'users', :action => 'show',:id=>@request.taker.id %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :来自 %></div>
+          <div class="row_content"><%= label_tag @request.taker.country %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :学校 %></div>
+          <div class="row_content"><%= label_tag @request.taker.university %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :任务完成率 %></div>
+          <div class="row_content"><%= label_tag @request.taker.request_complete_rate %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :好评率 %></div>
+          <div class="row_content"><%= label_tag @request.taker.get_rating %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :诚信度 %></div>
+          <div class="row_content"><%= label_tag  @request.taker.get_reputation %></div>
+        </div>
+        <% if @request.is_owner?(session[:user_id]) %>
+        <div>
+          <a href="javascript:void(0)" id="message_button">发送信息</a>
+        </div>
+        <% end %>
+      </div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+
+<script>
+    $('#message_button').on('click', function(event) {
+        $('body').prepend("<div id='blind_area'>" + get_message_form() + '</div>');
+        event.stopPropagation();
+        $('#click_able').on('touchend click', function(event) {
+            event.stopPropagation();
+        });
+    });
+    $('#maker_upload_file').on('click', function(event) {
+        $('body').prepend("<div id='blind_area'>" + get_file_upload_form() + '</div>');
+        event.stopPropagation();
+        $('#click_able').on('touchend click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
+<% if !@request.taker_allocation.nil? %>
+<%= render partial: '/share/load_form.js',locals: {request:@request,request_file:@request_file} %>
+<% end %>

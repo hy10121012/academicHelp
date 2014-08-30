@@ -1,0 +1,185 @@
+// Place all the styles related to the request controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media only screen and (min-device-width: 480px) and (max-device-width: 640px){
+  .request_form_box{
+    max-width: 480px;
+    padding-top: 30px;
+    padding-bottom:19%;
+    padding-left: 10px;
+  }
+  .form_label{
+    position: relative;
+    padding: 7px;
+    font-size: 1;
+    line-height: 1.43;
+    width:480px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #565a5c;
+  }
+}
+
+@media only screen and (min-width: 1204px) {
+  .request_form_box{
+    padding-top: 30px;
+    padding-bottom:19%;
+    padding-left: 10px;
+  }
+  .form_label{
+    float: left;
+    position: absolute;
+    padding: 7px;
+    font-size: 1;
+    line-height: 1.43;
+    width: 120px;
+    left: -110px;
+    text-align: right;
+    font-weight: bolder;
+    color: #565a5c;
+  }
+}
+
+.request_show_area{
+  background-color: #fcfcfe;
+  border: 1px solid #dce0e0;
+  box-shadow: 5px 5px 5px #dcdcdc;
+
+}
+
+.request_show_form{
+
+}
+
+.request_cell_row{
+  width: 100%;
+}
+
+.request_show_form label{
+  display: inline-block;
+  width: 20%;
+  max-width: 100px;
+  padding: 5px;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #565a5c;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.request_show_form div{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.request_show_form hr{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 0;
+  border-top: 1px solid #eff3f3;
+}
+
+.request_form_box input[type="text"],.request_form_box input[type="password"],.request_form_box select,.request_form_box textarea{
+  width: 100%;
+  padding: 5px;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #565a5c;
+  box-sizing: border-box;
+
+}
+
+.request_form_row{
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+.request_list_table{
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: separate;
+  border-top: 1px solid #c9cdcd;
+  border-left: 1px solid #c9cdcd;
+  border-right: 1px solid #c9cdcd;
+  box-shadow: 5px 5px 5px #dcdcdc;
+
+}
+.request_list_row{
+  border-bottom: 1px solid #c9cdcd;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0px;
+  overflow: hidden;
+  text-wrap: none;
+  //white-space: nowrap;
+}
+
+.title_row{
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #edefed;
+
+}
+.normal_row{
+  background-color: #FFFFFF;
+}
+
+.normal_row:hover{
+  background-color: #eff1f2;
+
+}
+
+.request_list_cell{
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-wrap: none;
+  //white-space: nowrap;
+}
+
+.request_list_cell a{
+  color: #1c94c4;
+  font-weight: bolder;
+}
+
+.request_form_left{
+  width: 68%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  background-color: #ffffff;
+  border-right: 1px solid #edf1f1;
+}
+
+.request_form_right{
+  width: 32%;
+  height: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  display: block;
+  float: right;
+}
+
+.request_form_right_row{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.row_title{
+  font-weight: bolder;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.row_content{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

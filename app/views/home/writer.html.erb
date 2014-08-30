@@ -1,0 +1,95 @@
+<div class="dashboard_half_left">
+  <div class="dashboard_item">
+    <div class="dashboard_item_title">我的收支</div>
+    <div class="dashboard_item_content">
+      <div class="dashboard_item_content_row">
+        <div class="dashboard_item_row_title">接受过的任务</div>
+        <div class="dashboard_item_row_figure"><%= @summary['total'] %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="dashboard_item_content_row">
+        <div class="dashboard_item_row_title">未结算账款</div>
+        <div class="dashboard_item_row_figure"><%= @summary['outstanding_amount'] %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="dashboard_item_content_row">
+        <div class="dashboard_item_row_title">进行中任务</div>
+        <div class="dashboard_item_row_figure"><%= @summary['processing'] %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="dashboard_item_content_row">
+        <div class="dashboard_item_row_title">复议中任务</div>
+        <div class="dashboard_item_row_figure"><%= @summary['argue'] %></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard_item">
+    <div class="dashboard_item_title">现有任务</div>
+    <div class="dashboard_item_content">
+      <% if @request_allocations.size==0 %>
+          <div class="dashboard_item_content_row">
+            暂时没有任务
+          </div>
+      <% else %>
+          <% @request_allocations.each do |request_allocation| %>
+              <% if (request_allocation.is_approved==true &&  request_allocation.request.status!=(RequestStatus::CANCELLED || RequestStatus::CLOSED)) %>
+                  <div class="dashboard_item_content_row">
+                    <div class="dashboard_item_row_title"><%= link_to request_allocation.request.title, :controller => 'requests', :action => 'show', :id => request_allocation.request.id %></div>
+                    <div class="dashboard_item_row_figure"><%= get_request_status(request_allocation.request.status) %></div>
+                    <div class="clear"></div>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard_half_right">
+  <div class="dashboard_item">
+    <div class="dashboard_item_title">任务记录</div>
+    <div class="dashboard_item_content">
+      <% if @request_logs.size==0 %>
+          <div class="dashboard_item_content_row">
+            暂时没有历史记录
+          </div>
+      <% else %>
+          <% @request_logs.each do |request_log| %>
+              <div class="dashboard_item_content_row">
+                <%= get_taker_request_action(request_log) %>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="dashboard_item">
+    <div class="dashboard_item_title">消息列表</div>
+    <div class="dashboard_item_content">
+      <% if @messages.size==0 %>
+          <div class="dashboard_item_content_row">
+            暂时没有消息
+          </div>
+      <% else %>
+          <div class="dashboard_item_content_row">
+            <div class="dashboard_message_user">用户</div>
+            <div class="dashboard_message_content">内容</div>
+            <div class="dashboard_message_request">任务</div>
+            <div class="clear"></div>
+          </div>
+          <% @messages.each do |message| %>
+              <div class="dashboard_item_content_row">
+                <div class="dashboard_message_user"><%= link_to message.taker_id, controller: "users", action: "show", id: message.maker_id %></div>
+                <div class="dashboard_message_content"><%= link_to message.message, controller: "messages", action: "show", request_id: message.request_id  %></div>
+                <div class="dashboard_message_request"><%= link_to message.request.title, controller: "requests", action: "show", id: message.request.id %></div>
+                <div class="clear"></div>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+

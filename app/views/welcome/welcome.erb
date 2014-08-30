@@ -1,0 +1,94 @@
+<div class="welcome_container">
+  <div class="welcome_bg">
+    <div class="image_blinder welcome_header">
+      <h1>助学网 -- 帮你找到学海中引路的灯塔</h1>
+    </div>
+  </div>
+  <div class="welcome_bottom">
+    <div class="login_box">
+      <%= form_tag("/login", method: "post") do %>
+          <div class="login_title">
+            <div class="login_text"><%= label_tag '登录助学网' %></div>
+            <div class="login_text_reg"><%= link_to "立即注册!", controller: "welcome", action: "register" %></div>
+          </div>
+          <div class="login_box_row">
+            <%= text_field_tag :email, nil, placeholder: "输入邮箱", class: "login_input" %>
+          </div>
+          <div class="login_box_row">
+
+          <%= password_field_tag :password, nil, placeholder: "输入密码", class: "login_input" %>
+          </div>
+          <div class="login_box_row" style="text-align: center">
+            <%= submit_tag('登 录', class: "login_input login_button") %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="welcome_intro_wrapper" style="background-color: #FFFFFF">
+    <section class="welcome_intro">
+      <h1>助学网是什么？</h1>
+      <article>
+        <p class="welcome_intro_text">
+          助学网是一个基于P2P的文章/学术类需求有偿互助平台，致力于帮助在海外求学的中国学生在学习生活中上遇到无法解决的困难时，提供一条寻求帮助的途径，同时为拥有出色学术能力以及专业背景但经济上不富余的海外华人提供一个改善生活的选择。
+        </p>
+      </article>
+    </section>
+  </div>
+  <div class="welcome_intro_wrapper" style="background-color: #000000;color: #FFFFFF">
+    <section class="welcome_intro">
+      <h1>助学网会怎么帮到我？</h1>
+      <article>
+        <h2>如果你是正在求学，却需要帮助的莘莘学子</h2>
+
+        <p class="welcome_intro_text">
+          不管你是被繁重的数学，会计和计算机每日作业压得喘不过气来，还是被商科，经济和金融的大小论文弄得头昏眼花。你都可以来到助学网求助，让该领域的专家替你解决你的烦恼。你所需要做的仅仅是将自己的需求发布到平台内，并支付一定的劳动费用。
+        </p>
+      </article>
+      <div class="artical_gap"></div>
+      <article>
+        <h2>如果你是来自一流学府，满腹经纶的学术大牛</h2>
+
+        <p class="welcome_intro_text">
+          只要你来自或毕业于一所一流的大学，海外求学超过3年，学历硕士或以上，或在一个特定的学术领域拥有一技之长，能证明自己的能力并通过我们的筛选，你就有机会通过接受求助者的任务，通过完成任务领取到丰富的报酬，改善自己的生活。
+        </p>
+      </article>
+    </section>
+  </div>
+  <div class="welcome_intro_wrapper" style="background-color: #FFFFFF;color: #000000">
+    <section class="welcome_intro">
+      <h1>助学网采用的合作机制是什么？</h1>
+      <article>
+        <p class="welcome_intro_text">
+          助学网采用求助者与帮助者完全匿名的合作方式，以确保双方的隐私绝对保密，双方仅仅根据任务的进程完成各自需要完成的事项。中间环节由本平台负责，以保证公平公正。
+        </p>
+
+        <p class="welcome_intro_text">
+          求助者在发布求助任务，并接受愿意承接任务的帮助者后，必须全额交付任务报酬到平台代为保管，本平台将坚持恪守中立的原则，只有在任务完成，并且发布者对任务完成情况满意的情况下，才会对帮助者全额发放到任务的报酬。如发生双方意见有出入的情况，本平台负责帮助双方协调沟通，以确保合作在公平公正的情况下进行，力求做到求助者放心，帮助者省心。
+        </p>
+      </article>
+
+    </section>
+  </div>
+  <div class="welcome_intro_wrapper" style="background-color: #000000;color: #FFFFFF">
+    <section class="welcome_intro">
+      <h1>助学网如何确保合作的质量？</h1>
+      <article>
+        <p class="welcome_intro_text">
+          助学网使用非常严格的人才选择标准。通过筛选的帮助者都来自世界各地的一流学府，包括英国牛津，剑桥，帝国理工，伦敦政经，美国斯坦福以及哈佛耶鲁为首的常青藤等各大名校，通过在校取得至少硕士，甚至博士的学位，并且其在校学术表现优异。他们都有着丰富的海外求学经验，深知西方世界的教育的考核标准，并且具有极强的责任心，他们会认真对待每一个需要帮助的学生，他们也有能力完成每一份诚恳的求助。
+        </p>
+
+        <p class="welcome_intro_text">
+          我们采取个人信息保密，但个人信用透明原则对待每一个人，求助者可以根据帮助者之前的任务完成表现判断是否将任务委托给该帮助者，帮助者也可以根据求助者的求助历史判断求助者是否有足够寻求帮助的诚意。让每个人在这个以诚为本的平台上各取所需，互惠互利。
+        </p>
+      </article>
+      <div class="artical_gap"></div>
+      <article>
+        <p class="welcome_intro_text">
+          <h2>你还在等什么？ 快<%= link_to "加入我们", {controller: "welcome", action: "register"}, style:"background-color:#FFFFFF;color:#000000"%>吧！</h2>
+        <p>
+      </article>
+    </section>
+  </div>
+
+</div>
+

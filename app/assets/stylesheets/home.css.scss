@@ -1,0 +1,210 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top_bar {
+  color: #000000;
+  background-color: #FFFFFF;
+  padding-top: 5px;
+  position: relative;
+  border-bottom: 1px solid #dacddd;
+}
+
+.top_bar_item {
+  padding: 5px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  font-weight: bolder;
+  padding: 10px 14px;
+}
+
+.top_bar_item_list {
+  display: block;
+  position: relative;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.top_bar_item_list ul::before {
+  display: block;
+}
+
+.top_bar_item_list ul::after {
+  clear: both;
+  box-sizing: border-box;
+}
+
+.top_bar_item_list li {
+  display: inline;
+}
+
+.top_bar_item_list li a[selected="true"] {
+  color: #000000;
+}
+
+.top_bar_item_list li a[selected="true"]:before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 4px;
+  background: #cacccd;
+}
+
+.top_bar_item_list li a {
+  color: #929295;
+  box-sizing: border-box;
+}
+
+.top_bar_item_list li a:hover {
+  color: #000000;
+}
+
+
+.main_container:before {
+  display: table;
+}
+
+.main_container:after {
+  content: " ";
+  clear: both;
+}
+
+.dashboard_item {
+  float: left;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #c9cdcd;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px #dcdcdc;
+
+}
+
+.dashboard_item_content_row {
+  padding: 8px 8px 8px 8px;
+}
+
+.dashboard_item_content_row:hover {
+  background-color: #efefef;
+}
+
+
+.dashboard_item_content {
+  background-color: #FFFFFF;
+}
+
+.dashboard_item_title {
+  background-color: #edefed;
+  color: #565a5c;
+  padding: 8px;
+  font-weight: bolder;
+  border-bottom: 1px solid #c9cdcd;
+
+}
+
+.dashboard_item_row_title {
+  float: left;
+  width: 70%;
+  padding-right: 5px;
+  box-sizing: border-box;
+}
+
+.dashboard_item_row_figure {
+  float: right;
+  width: 30%;
+  box-sizing: border-box;
+
+}
+
+.dashboard_message_user {
+  width: 10%;
+  float: left;
+  height: 100%;
+
+}
+
+.dashboard_message_content {
+  width: 75%;
+  float: left;
+  height: 100%;
+}
+
+.dashboard_message_request {
+  width: 15%;
+  float: right;
+  height: 100%;
+
+}
+
+.dashboard_item_content_row a {
+  color: #1c94c4;
+  font-weight: bolder;
+}
+.dashboard_half_left{
+  box-sizing: border-box;
+}
+.dashboard_half_right{
+  box-sizing: border-box;
+}
+@media only screen and (min-device-width: 10px) and (max-device-width: 640px) {
+  .dashboard_half_left {
+    float: left;
+    width: 100%;
+  }
+  .dashboard_half_right {
+    float: right;
+    width: 100%;
+  }
+  .top_bar_item_list li {
+    display: inline;
+    width: 480px;
+  }
+  .main_container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1045px;
+    position: relative;
+  }
+
+}
+
+@media only screen and (min-width: 641px) {
+  .dashboard_half_left {
+    float: left;
+    width: 34%;
+  }
+  .dashboard_half_right {
+    float: right;
+    width: 65%;
+  }
+  .top_bar_item_list li {
+    display: inline;
+  }
+  .main_container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+    max-width: 1045px;
+    position: relative;
+  }
+
+}
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AcdemicHelp</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="head_nav">
+  <div class="head_nav_logo"><a href="/home">助学网</a></div>
+</div>
+<% if !(controller.controller_name=="welcome" && controller.action_name=="register") %>
+    <div class="top_bar">
+      <div class="main_container">
+        <ul class="top_bar_item_list">
+          <li>
+            <a href="/home" class="top_bar_item"
+               <% if controller.controller_name=="home" && (controller.action_name=="requester" || controller.action_name="writer") %>selected="true"
+               <% end %>>控制面板</a>
+          </li>
+          <li>
+            <a href="/my_request" class="top_bar_item"
+               <% if controller.controller_name=="requests" && (controller.action_name=="maker_index" || controller.action_name=="taker_index") %>selected="true"
+               <% end %>>我的任务列表</a>
+          </li>
+          <li>
+            <% if (session[:user_type_id]==1) %>
+                <a href="/requests/new" class="top_bar_item"
+                   <% if controller.controller_name=="requests" && controller.action_name=="new" %>selected="true"
+                   <% end %>>发布新的任务</a>
+            <% elsif (session[:user_type_id]==2) %>
+                <a href="/request_market" class="top_bar_item"
+                   <% if controller.controller_name=="requests" && controller.action_name=="market_index" %>selected="true"
+                   <% end %>>市场内的任务</a>
+            <% end %>
+          </li>
+          <li>
+            <a href="/my_profile" class="top_bar_item"
+               <% if controller.controller_name=="users" && (controller.action_name=="my_profile") %>selected="true"
+               <% end %>>我的个人资料</a>
+          </li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+<% end %>
+<div class="top_gap"></div>
+<div class="wrapper">
+  <div class="main_container">
+    <%= yield %>
+  </div>
+</div>
+
+
+</body>
+</html>
