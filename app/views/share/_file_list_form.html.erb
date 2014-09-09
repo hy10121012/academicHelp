@@ -1,0 +1,58 @@
+<div id="blind" class="blind">
+  <div id="message_form_container" class="central_form_container">
+    <div id="file_upload_form_box" class="central_form">
+      <div id="click_able">
+        <div class="file_list_title_row">
+          <div style="width: 25%" class="file_list_item">标题</div>
+          <div style="width: 60%" class="file_list_item">描述</div>
+          <div style="width: 15%" class="file_list_item"></div>
+          <div class="clear"></div>
+        </div>
+        <%request_files.each do |file| %>
+            <div class="file_list_list_row" id="file_row_<%=file.id%>">
+              <div style="width: 25%" class="file_list_item"><a target="_blank" href="/request_doc/<%=file.request_id%>/<%=file.id%>_<%=file.file_file_name%>"><%=file.file_file_name%></a></div>
+              <div style="width: 60%" class="file_list_item"><%=file.description%></div>
+              <div style="width: 15%" class="file_list_item"><% if file.user_id == session[:user_id] %><a file_id="<%=file.id%>" class="delete_button" id="delete_<%=file.id%>" href="javascript:void(0)">删除</a><% else %><a target="_blank" href="/request_doc/<%=file.request_id%>/<%=file.id%>_<%=file.file_file_name%>">下载</a><%end%></div>
+              <div class="clear"></div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+    $('#file_upload_form').on('submit', function () {
+        console.log(getFormObj('file_upload_form'))
+        $.ajax({
+            url: '/request_files',
+            type: 'post',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            data: {message: getFormObj('msg_form')},
+            dataType: 'json',
+            success: function () {
+                close_blind()
+            }
+        });
+        return false;
+    })
+    $('.delete_button').on('click',function(){
+        var obj = $(this)
+        $.ajax({
+            url: '/request_files_delete',
+            type: 'post',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            data: {id:obj.attr("file_id")},
+            dataType: 'json',
+            success: function () {
+                $('#file_row_'+obj.attr("file_id")).fadeOut();
+            }
+        });
+    })
+</script>
+

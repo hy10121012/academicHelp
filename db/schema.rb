@@ -11,12 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821204442) do
+ActiveRecord::Schema.define(version: 20140907211319) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
     t.text     "comment"
     t.integer  "to_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "country_code"
+    t.string   "country_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "currencies", force: true do |t|
+    t.string   "currency_code"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140821204442) do
 
   create_table "request_files", force: true do |t|
     t.integer  "request_id"
-    t.integer  "is_deleted"
+    t.integer  "is_deleted",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file_file_name"
@@ -59,6 +73,8 @@ ActiveRecord::Schema.define(version: 20140821204442) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.string   "description"
+    t.boolean  "is_maker_upload"
+    t.integer  "user_id"
   end
 
   create_table "request_logs", force: true do |t|
@@ -68,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140821204442) do
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "value2"
   end
 
   create_table "request_types", force: true do |t|
@@ -101,6 +118,14 @@ ActiveRecord::Schema.define(version: 20140821204442) do
     t.datetime "updated_at"
   end
 
+  create_table "universities", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.integer  "level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -114,7 +139,7 @@ ActiveRecord::Schema.define(version: 20140821204442) do
     t.string   "password"
     t.integer  "education_id"
     t.string   "university"
-    t.string   "country"
+    t.integer  "country_id"
     t.integer  "user_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"

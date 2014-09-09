@@ -5,7 +5,8 @@ class Request < ActiveRecord::Base
   has_many :request_allocations
   has_one :taker_allocation, -> { where "is_approved is null or is_approved=true"} , :class_name => 'RequestAllocation'
   has_one :taker, :class_name => 'User', :through => :taker_allocation
-  has_many :request_files
+  has_many :maker_upload_files, -> { where "is_maker_upload = true and (is_deleted=false or is_deleted is null)"}, :class_name => 'RequestFile'
+  has_many :taker_upload_files, -> { where "is_maker_upload = false and (is_deleted=false or is_deleted is null)"}, :class_name => 'RequestFile'
 
   def is_owner?(user_id)
     self.user_id== user_id

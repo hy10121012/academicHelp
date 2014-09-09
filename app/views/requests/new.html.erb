@@ -24,16 +24,40 @@
         <%= request.text_field :words %>
       </div>
       <div class="request_form_row">
-        <div class="form_label">分数要求</div>
-        <%= request.text_field :expected_score %>
+        <% if @user.country.country_code=='US' %>
+            <div class="form_label">分数要求</div>
+            <%= request.text_field :expected_score, :style=>'width:50px;',:maxlength=>"4" %>/4
+        <% elsif @user.country.country_code=='GB' %>
+            <div class="form_label">分数要求</div>
+            <select name='expected_score' id='expected_score'>
+              <option>
+                First
+              </option>
+              <option>
+                2:1
+              </option>
+              <option>
+                2:2
+              </option>
+              <option>
+                Third
+              </option>
+              <option>
+                Pass
+              </option>
+            </select>
+        <% elsif @user.country.country_code=='AUS' %>
+            <div class="form_label">分数要求</div>
+            <%= request.text_field :expected_score,:style=>'width:50px;',:maxlength=>"3"  %> %
+        <% end %>
       </div>
       <div class="request_form_row">
-        <div class="form_label">价格</div>
+        <div class="form_label">价格（<%= @user.country.currency.currency_code %>）</div>
         <%= request.text_field :price %>
       </div>
       <div class="request_form_row">
         <div class="form_label">交稿时间</div>
-        <%= request.text_field :end_date %>
+        <%= request.text_field :end_date%>
       </div>
       <div class="request_form_row">
         <%= request.submit :提交 %>

@@ -49,6 +49,7 @@ AcdemicHelp::Application.routes.draw do
   post 'request/:id/pay'=>'requests#do_pay'
 
   post 'request_files'=>'request_files#do_upload_file'
+  post 'request_files_delete'=>'request_files#do_delete_file'
 
 
   resources :users

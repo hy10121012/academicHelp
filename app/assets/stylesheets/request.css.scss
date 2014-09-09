@@ -183,3 +183,36 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.request_title{
+  display: inline-block;
+  float: left;
+
+}
+
+
+.request_button_area{
+  display: inline-block;
+  float: right;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  padding: 15px;
+}
+
+.file_list_title_row{
+  padding: 5px;
+  background-color:  #dcdcdc;
+}
+
+.file_list_list_row{
+  padding: 5px;
+}
+
+.file_list_item{
+  float: left;
+  width: 33%;
+  text-align: left;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  white-space: normal;
+}

@@ -1,4 +1,19 @@
-<h2>任务详情</h2>
+<div>
+  <h2 class="request_title" >任务详情</h2>
+  <div class="request_button_area">
+    <% if @request.is_owner?(session[:user_id]) %>
+        <% if @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED%>
+              <a style="color: #FFFFFF" class="button1" href="javascript:void(0)" id="maker_upload_file">上传文件</a>
+        <% end %>
+    <% end %>
+    <% if !@request.taker.nil? && @request.taker.id==session[:user_id] %>
+        <% if  @request.status==RequestStatus::IN_PROCESS%>
+            <a style="color: #FFFFFF" class="button1" href="javascript:void(0)" id="maker_upload_file">上传文件</a>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+</div>
 <div class="request_show_area">
   <div class="request_form_left">
     <div class="request_show_form">
@@ -31,19 +46,23 @@
       </div>
       <hr>
       <div> <%= label_tag :价格 %>
-        <div class="request_cell_row"><%= @request.price %></div>
+        <div class="request_cell_row"><%= @request.price %> <%= @request.taker.country.currency.currency_code %></div>
       </div>
       <hr>
       <div> <%= label_tag :交稿时间 %>
         <div class="request_cell_row"><%= int_to_date(@request.end_date) %></div>
       </div>
+
+      <div>发布者上传的文件：<%=@request.maker_upload_files.size%> <a id="load_file_list" href="javascript:void(0)">查看</a>
+
+      </div>
+
       <div>
         <% if @request.is_owner?(session[:user_id]) %>
 
             <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
                 <%= form_tag url_for(:controller => 'requests', :action => 'cancel'), :method => 'post' do %>
                     <p>
-                      <a href="javascript:void(0)" id="maker_upload_file">上传文件</a>
                       <%= submit_tag :取消任务 %>
                     </p>
                 <% end %>
@@ -112,7 +131,7 @@
         </div>
         <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :来自 %></div>
-          <div class="row_content"><%= label_tag @request.taker.country %></div>
+          <div class="row_content"><%= label_tag @request.taker.country.country_name %></div>
         </div>
         <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :学校 %></div>
@@ -130,7 +149,10 @@
           <div class="row_title"><%= label_tag :诚信度 %></div>
           <div class="row_content"><%= label_tag  @request.taker.get_reputation %></div>
         </div>
-        <% if @request.is_owner?(session[:user_id]) %>
+        <div class="request_form_right_row">
+          <div>发布者上传的文件：<%=@request.taker_upload_files.size%> <a id="load_file_list_taker" href="javascript:void(0)">查看</a></div>
+        </div>
+          <% if @request.is_owner?(session[:user_id]) %>
         <div>
           <a href="javascript:void(0)" id="message_button">发送信息</a>
         </div>
@@ -143,18 +165,28 @@
 <script>
     $('#message_button').on('click', function(event) {
         $('body').prepend("<div id='blind_area'>" + get_message_form() + '</div>');
-        event.stopPropagation();
-        $('#click_able').on('touchend click', function(event) {
-            event.stopPropagation();
-        });
+        clickFix(event)
     });
     $('#maker_upload_file').on('click', function(event) {
         $('body').prepend("<div id='blind_area'>" + get_file_upload_form() + '</div>');
+        clickFix(event)
+    });
+    $('#load_file_list').on('click', function(event) {
+        $('body').prepend("<div id='blind_area'>" + get_file_list_form() + '</div>');
+        clickFix(event)
+    });
+    $('#load_file_list_taker').on('click', function(event) {
+        $('body').prepend("<div id='blind_area'>" + get_taker_file_list_form() + '</div>');
+        clickFix(event)
+    });
+    function clickFix(event){
         event.stopPropagation();
         $('#click_able').on('touchend click', function(event) {
             event.stopPropagation();
         });
-    });
+    }
+
+
 </script>
 
 <% if !@request.taker_allocation.nil? %>

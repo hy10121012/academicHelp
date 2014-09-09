@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :education
+  belongs_to :country
   belongs_to :user_type
   belongs_to :subject_area
 

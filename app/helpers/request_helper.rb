@@ -36,7 +36,13 @@ module RequestHelper
       when RequestAction::REJECT
         content ="你拒绝了承接人<a href='/users/#{request_log.value}'>#{request_log.value}</a>承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction:: UPLOAD
-        content ="承接人在任务<a href='/requests/#{request_log.value}'>#{request_log.request.title}</a>上传了文件<a href=''>#{request_log.value}</a>"
+        if (request_log.user_id==session[:user_id])
+          content ="你在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
+        elsif (request_log.request.user_id==request_log.user_id)
+          content ="发布人在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
+        else
+          content ="承接人在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
+        end
       when RequestAction::CANCEL
         content ="你取消了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction::DROPOUT
@@ -63,7 +69,13 @@ module RequestHelper
       when RequestAction::REJECT
         content ="发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>拒绝了你承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction:: UPLOAD
-        content ="你在任务<a href='/requests/#{request_log.value}'>#{request_log.request.title}</a>上传了文件<a href=''>#{request_log.value}</a>"
+        if (request_log.user_id==session[:user_id])
+          content ="你在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
+        elsif (request_log.request.user_id==request_log.user_id)
+          content ="发布人在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
+        else
+          content ="承接人在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
+        end
       when RequestAction::CANCEL
         content ="发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>取消了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction::DROPOUT
