@@ -1,0 +1,937 @@
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/lib/ruby-debug-ide.rb:86:in `debug_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/lib/ruby-debug-ide.rb:86:in `debug_program'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/bin/rdebug-ide:109:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (1.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-09 23:23:48', '2014-09-09 23:23:48', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-09 23:23:48', '2014-09-09 23:23:48', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-09 23:23:48', '2014-09-09 23:23:48', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-09 23:23:48', '2014-09-09 23:23:48', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-09 23:23:48', '2014-09-09 23:23:48', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-09 23:23:48', '2014-09-09 23:23:48', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-09 23:23:48', '2014-09-09 23:23:48', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-09 23:23:48', '2014-09-09 23:23:48', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-09 23:23:48', '2014-09-09 23:23:48', 980190962)
+Mysql2::Error: Unknown column 'user_id' in 'field list': INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-09 23:23:48', '2014-09-09 23:23:48', 980190962)
+  [1m[36m (294.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (1.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-09 23:24:13', '2014-09-09 23:24:13', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-09 23:24:13', '2014-09-09 23:24:13', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-09 23:24:13', '2014-09-09 23:24:13', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-09 23:24:13', '2014-09-09 23:24:13', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-09 23:24:13', '2014-09-09 23:24:13', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-09 23:24:13', '2014-09-09 23:24:13', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-09 23:24:13', '2014-09-09 23:24:13', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-09 23:24:13', '2014-09-09 23:24:13', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-09 23:24:13', '2014-09-09 23:24:13', 980190962)
+Mysql2::Error: Unknown column 'user_id' in 'field list': INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-09 23:24:13', '2014-09-09 23:24:13', 980190962)
+  [1m[36m (47.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/lib/ruby-debug-ide.rb:86:in `debug_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/lib/ruby-debug-ide.rb:86:in `debug_program'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/bin/rdebug-ide:109:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (1.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-09 23:26:02', '2014-09-09 23:26:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-09 23:26:02', '2014-09-09 23:26:02', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-09 23:26:02', '2014-09-09 23:26:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-09 23:26:02', '2014-09-09 23:26:02', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-09 23:26:02', '2014-09-09 23:26:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-09 23:26:02', '2014-09-09 23:26:02', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-09 23:26:02', '2014-09-09 23:26:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-09 23:26:02', '2014-09-09 23:26:02', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-09 23:26:02', '2014-09-09 23:26:02', 980190962)
+Mysql2::Error: Unknown column 'user_id' in 'field list': INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-09 23:26:02', '2014-09-09 23:26:02', 980190962)
+  [1m[36m (50.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:39:11', '2014-09-10 21:39:11', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:39:11', '2014-09-10 21:39:11', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:39:11', '2014-09-10 21:39:11', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:39:11', '2014-09-10 21:39:11', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:39:11', '2014-09-10 21:39:11', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:39:11', '2014-09-10 21:39:11', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:39:11', '2014-09-10 21:39:11', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:39:11', '2014-09-10 21:39:11', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-10 21:39:11', '2014-09-10 21:39:11', 980190962)
+Mysql2::Error: Unknown column 'user_id' in 'field list': INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-10 21:39:11', '2014-09-10 21:39:11', 980190962)
+  [1m[36m (47.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:41:06', '2014-09-10 21:41:06', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:41:06', '2014-09-10 21:41:06', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:41:06', '2014-09-10 21:41:06', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:41:06', '2014-09-10 21:41:06', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:41:06', '2014-09-10 21:41:06', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:41:06', '2014-09-10 21:41:06', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:41:06', '2014-09-10 21:41:06', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:41:06', '2014-09-10 21:41:06', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-10 21:41:06', '2014-09-10 21:41:06', 980190962)
+Mysql2::Error: Unknown column 'user_id' in 'field list': INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-10 21:41:06', '2014-09-10 21:41:06', 980190962)
+  [1m[36m (43.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/lib/ruby-debug-ide.rb:86:in `debug_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/lib/ruby-debug-ide.rb:86:in `debug_program'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ruby-debug-ide-0.4.17/bin/rdebug-ide:109:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:41:46', '2014-09-10 21:41:46', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:41:46', '2014-09-10 21:41:46', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:41:46', '2014-09-10 21:41:46', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:41:46', '2014-09-10 21:41:46', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:41:46', '2014-09-10 21:41:46', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:41:46', '2014-09-10 21:41:46', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:41:46', '2014-09-10 21:41:46', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:41:46', '2014-09-10 21:41:46', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-10 21:41:46', '2014-09-10 21:41:46', 980190962)
+Mysql2::Error: Unknown column 'user_id' in 'field list': INSERT INTO `messages` (`user_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 1, '2014-09-10 21:41:46', '2014-09-10 21:41:46', 980190962)
+  [1m[36m (52.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (1.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:45:02', '2014-09-10 21:45:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:45:02', '2014-09-10 21:45:02', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:45:02', '2014-09-10 21:45:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:45:02', '2014-09-10 21:45:02', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:45:02', '2014-09-10 21:45:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:45:02', '2014-09-10 21:45:02', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:45:02', '2014-09-10 21:45:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:45:02', '2014-09-10 21:45:02', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, '2014-09-10 21:45:02', '2014-09-10 21:45:02', 980190962)
+Mysql2::Error: Unknown column 'is_deleted' in 'field list': INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, '2014-09-10 21:45:02', '2014-09-10 21:45:02', 980190962)
+  [1m[36m (53.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (1.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:46:06', '2014-09-10 21:46:06', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:46:06', '2014-09-10 21:46:06', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:46:06', '2014-09-10 21:46:06', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:46:06', '2014-09-10 21:46:06', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:46:06', '2014-09-10 21:46:06', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:46:06', '2014-09-10 21:46:06', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:46:06', '2014-09-10 21:46:06', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:46:06', '2014-09-10 21:46:06', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, '2014-09-10 21:46:06', '2014-09-10 21:46:06', 980190962)
+Mysql2::Error: Field 'request_id' doesn't have a default value: INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, '2014-09-10 21:46:06', '2014-09-10 21:46:06', 980190962)
+  [1m[36m (55.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (1.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:46:51', '2014-09-10 21:46:51', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:46:51', '2014-09-10 21:46:51', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:46:51', '2014-09-10 21:46:51', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:46:51', '2014-09-10 21:46:51', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:46:51', '2014-09-10 21:46:51', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:46:51', '2014-09-10 21:46:51', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:46:51', '2014-09-10 21:46:51', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:46:51', '2014-09-10 21:46:51', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, '2014-09-10 21:46:51', '2014-09-10 21:46:51', 980190962)
+Mysql2::Error: Field 'from_user_id' doesn't have a default value: INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, '2014-09-10 21:46:51', '2014-09-10 21:46:51', 980190962)
+  [1m[36m (32.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (1.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:48:10', '2014-09-10 21:48:10', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:48:10', '2014-09-10 21:48:10', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:48:10', '2014-09-10 21:48:10', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:48:10', '2014-09-10 21:48:10', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:48:10', '2014-09-10 21:48:10', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:48:10', '2014-09-10 21:48:10', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:48:10', '2014-09-10 21:48:10', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:48:10', '2014-09-10 21:48:10', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:48:10', '2014-09-10 21:48:10', 980190962)
+Mysql2::Error: Unknown column 'from_id' in 'field list': INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:48:10', '2014-09-10 21:48:10', 980190962)
+  [1m[36m (50.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:49:04', '2014-09-10 21:49:04', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:49:04', '2014-09-10 21:49:04', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_delete`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)
+Mysql2::Error: Unknown column 'is_delete' in 'field list': INSERT INTO `request_files` (`request_id`, `is_delete`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:49:04', '2014-09-10 21:49:04', 980190962)
+  [1m[36m (52.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Unable to load request_taker, underlying cause No such file to load -- request_taker 
+
+ C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `block in require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:214:in `load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:229:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:330:in `require_or_load'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:289:in `depend_on'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activesupport-4.0.4/lib/active_support/dependencies.rb:207:in `require_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `each'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/activerecord-4.0.4/lib/active_record/fixtures.rb:768:in `fixtures'
+C:/workspace/academicHelp/test/test_helper.rb:12:in `<class:TestCase>'
+C:/workspace/academicHelp/test/test_helper.rb:5:in `<top (required)>'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/Systems/RailsInstaller/Ruby1.9.3/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+C:/workspace/academicHelp/test/mailers/writer_mailer_test.rb:1:in `<top (required)>'
+-e:1:in `load'
+-e:1:in `<main>'
+  [1m[35m (1.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:49:45', '2014-09-10 21:49:45', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:49:46', '2014-09-10 21:49:46', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:49:46', '2014-09-10 21:49:46', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_takers`[0m
+Mysql2::Error: Table 'academichelp.request_takers' doesn't exist: DELETE FROM `request_takers`
+  [1m[35m (117.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `request_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `subject_areas`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `universities`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:50:21', '2014-09-10 21:50:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `users` (`first`, `last`, `email`, `password`, `education`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962, 110791571)[0m
+Mysql2::Error: Unknown column 'education' in 'field list': INSERT INTO `users` (`first`, `last`, `email`, `password`, `education`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:50:21', '2014-09-10 21:50:21', 980190962, 110791571)
+  [1m[35m (60.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `request_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `subject_areas`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `universities`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962, 110791571)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374, 110791571)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `user_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `votes`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:50:55', '2014-09-10 21:50:55', 298486374)
+  [1m[36m (93.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+------------------------------------
+WriterMailerTest: test_welcome_email
+------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `subject_areas`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `universities`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962, 110791571)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString2', 'MyString', 1, 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374, 110791571)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `user_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `votes`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:51:58', '2014-09-10 21:51:58', 298486374)
+  [1m[36m (182.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+------------------------------------
+WriterMailerTest: test_welcome_email
+------------------------------------
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `subject_areas`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `universities`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962, 110791571)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString2', 'MyString', 1, 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374, 110791571)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `user_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `votes`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:52:52', '2014-09-10 21:52:52', 298486374)
+  [1m[36m (55.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+------------------------------------
+WriterMailerTest: test_welcome_email
+------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'MyString'
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `request_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `subject_areas`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `universities`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962, 110791571)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString2', 'MyString', 1, 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374, 110791571)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM `user_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `votes`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:54:05', '2014-09-10 21:54:05', 298486374)
+  [1m[36m (56.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+------------------------------------
+WriterMailerTest: test_welcome_email
+------------------------------------
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (1.0ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `comments`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `comments` (`from_user_id`, `comment`, `to_user_id`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyText', 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `countries`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `countries` (`country_code`, `country_name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `currencies`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `currencies` (`currency_code`, `country_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `educations`
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `educations` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `messages`[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (4, 1, 'MyString', 1, 0, 1, 4, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `messages` (`taker_id`, `maker_id`, `message`, `is_taker_deleted`, `is_maker_deleted`, `request_id`, `from_user_id`, `created_at`, `updated_at`, `id`) VALUES (5, 1, 'MyString', 1, 1, 13, 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `requests`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `requests` (`user_id`, `title`, `requirement`, `expected_score`, `subject`, `subject_area_id`, `start_date`, `end_date`, `created_at`, `updated_at`, `id`) VALUES (1, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `request_files`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_files` (`request_id`, `is_deleted`, `created_at`, `updated_at`, `id`) VALUES (1, 0, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `request_logs`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_logs` (`request_id`, `user_id`, `action`, `value`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `request_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `request_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `subject_areas`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `subject_areas` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `universities`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `universities` (`name`, `country_id`, `level`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 1, 1, '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962, 110791571)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `users` (`first`, `last`, `email`, `password`, `education_id`, `university`, `created_at`, `updated_at`, `id`, `country_id`) VALUES ('MyString', 'MyString', 'MyString2', 'MyString', 1, 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374, 110791571)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM `user_types`[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `user_types` (`name`, `created_at`, `updated_at`, `id`) VALUES ('MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM `votes`
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO `votes` (`from_user_id`, `to_user_id`, `vote_type`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2014-09-10 21:54:58', '2014-09-10 21:54:58', 298486374)
+  [1m[36m (101.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+------------------------------------
+WriterMailerTest: test_welcome_email
+------------------------------------
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'MyString'
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m

@@ -2,8 +2,8 @@
 
 one:
   request_id: 1
-  is_delete: false
+  is_deleted: false
 
 two:
   request_id: 1
-  is_delete: false
+  is_deleted: false

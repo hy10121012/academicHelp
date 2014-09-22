@@ -1,0 +1,44 @@
+<div id="blind" class="blind">
+  <div id="message_form_container" class="central_form_container">
+    <%= form_for(request_file,:url => {:controller=> :requests,:action => :do_submit}, id: "file_upload_form", html: {multipart: true}) do |f| %>
+        <div id="file_upload_form_box" class="central_form">
+          <div id="click_able">
+            <div class="submit_form_option"><p><b>提交任务</b></p></div>
+            <div class="submit_form_option"><input type="radio" name="process" value="30"> 已完成30% </div>
+            <div class="submit_form_option"><input type="radio" name="process" value="50"> 已完成50% </div>
+            <div class="submit_form_option"><input type="radio" name="process" value="70"> 已完成70% </div>
+            <div class="submit_form_option"><input type="radio" name="process" value="100"> 已完成100% </div>
+            <div class="file_upload_title">
+              <%= f.hidden_field :request_id, value: request.id %>
+            </div>
+            <div class="file_upload_title">
+              <%= f.label :uploaded_file, t('上传文件') %>：<%= f.file_field :file %>
+            </div>
+            <div class="file_upload_title">
+              <%= f.submit '上传文件' %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+    $('#file_upload_form').on('submit', function () {
+        console.log(getFormObj('file_upload_form'))
+        $.ajax({
+            url: '/request_files',
+            type: 'post',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            data: {message: getFormObj('msg_form')},
+            dataType: 'json',
+            success: function () {
+                close_blind()
+            }
+        });
+        return false;
+    })
+</script>
+

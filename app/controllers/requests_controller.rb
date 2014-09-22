@@ -1,3 +1,4 @@
+#coding: utf-8
 class RequestsController < ApplicationController
   def new
     @user= User.find(session[:user_id])
@@ -9,8 +10,12 @@ class RequestsController < ApplicationController
     request.end_date = params[:request][:end_date].gsub '/', ''
     request.user_id =session[:user_id]
     request.status =RequestStatus::SUBMITTED
-    request.create_request
+    if request.create_request
+      send_email_to_appropriate_write(request)
+    end
+    redirect_to '/my_request'
   end
+
 
   def show
     @request = Request.find(params[:id])
@@ -21,7 +26,7 @@ class RequestsController < ApplicationController
   end
 
   def maker_index
-    @requests = Request.where("user_id=#{session[:user_id]}")
+    @requests = Request.where("user_id=#{session[:user_id]}").order("id desc")
   end
 
   def taker_index
@@ -29,6 +34,45 @@ class RequestsController < ApplicationController
   end
 
   def cancel
+  end
+
+  def payment
+    @request = Request.find(params[:id])
+    @paypal = PaypalInterface.new(@request)
+    @paypal.express_checkout
+    if @paypal.express_checkout_response.success?
+      @paypal_url = @paypal.api.express_checkout_url(@paypal.express_checkout_response)
+    else
+      @error=true;
+    end
+  end
+
+  def paid
+    request = Request.find(params[:id])
+    success,details = request.do_pay(params[:token], params[:PayerID])
+    if success
+      payment_history = PaymentHistory.new
+      payment_history.user_id=request.user_id
+      payment_history.request_id=request.id
+      payment_history.original_amount=request.price
+      payment_history.fee_rate=SysProperty.get_maker_benchmark
+      payment_history.user_pay = true
+      payment_history.payment_token= params[:token]
+      payment_history.payerID = params[:PayerID]
+      payment_history.save
+      send_paid_email_to_taker_and_maker(request)
+      redirect_to :action => 'show', :id => params[:id]
+    else
+      @error_message = details[:details]
+    end
+
+  end
+
+  def revoked
+    redirect_to :action => 'show', :id => params[:id]
+  end
+
+  def ipn
   end
 
   def market_index
@@ -60,25 +104,68 @@ class RequestsController < ApplicationController
 
   def do_submit
     request = Request.find(params[:id])
-    if (request.taker.id == session[:user_id])
-      if (submit_to_us)
-        request.status=RequestStatus::HANDED_IN
-        request.save
+    if request.latest_approved_submit.nil? || request.latest_approved_submit.process< params[:process].to_i
+      request_file = params.require(:request_file).permit(:file,:request_id)
+      if(request.user_id ==session[:user_id])
+        request_file[:is_maker_upload]=true
+      else
+        request_file[:is_maker_upload]=false
       end
+      if(params[:process].to_i<100)
+        request_file[:description] = "#{params[:process]}%完成度预览"
+      else
+        request_file[:description] = "最终版本任务作业上传"
+      end
+
+      request_file[:user_id] =session[:user_id]
+      file = RequestFile.create(request_file)
+       if file.save
+        request_submit = RequestSubmit.new
+        request_submit.user_id = session[:user_id]
+        request_submit.request_id = params[:id]
+        request_submit.request_file_id= file.id
+        request_submit.process=params[:process]
+        request_submit.is_approved=false;
+        request_submit.is_latest_version=1;
+        request_log = RequestLog.new
+        request_log.user_id =  session[:user_id]
+        request_log.action = RequestAction::SUBMIT_PROCESS
+        request_log.request_id= params[:id]
+        request.transaction do
+          if (request.taker.id == session[:user_id])
+            if (submit_to_us)
+              if(params[:process].to_i==100)
+                request.status=RequestStatus::HANDED_IN
+                request.save
+              end
+            end
+          end
+          if !request.latest_submit.nil?
+            request.latest_submit.is_latest_version=0
+            request.latest_submit.save
+          end
+          request_log.save
+          request_submit.save
+        end
+       end
     end
     redirect_to :action => 'show', :id => params[:id]
+  end
+
+  def do_complete
+    request = Request.find(params[:id])
+    if (request.is_owner?(session[:user_id]))
+      request.mark_as_accepted
+      redirect_to :action => 'show', :id => params[:id]
+    end
   end
 
   def close_down
     request = Request.find(params[:id])
     if (request.is_owner?(session[:user_id]))
-      request.status = RequestStatus::CLOSED
-      request.request_allocation.is_success=1
-      request.transaction do
-        request.save
-        request.request_allocation.save
-      end
+      request.close_request
     end
+    redirect_to :action => 'show', :id => params[:id]
   end
 
   def complaint
@@ -88,10 +175,10 @@ class RequestsController < ApplicationController
     request = Request.find(params[:id])
     if (request.is_owner?(session[:user_id]))
       request.status = RequestStatus::ARGUE
-      request.request_allocation.is_success=1
+      request.taker_allocation.is_success=1
       request.transaction do
         request.save
-        request.request_allocation.save
+        request.taker_allocation.save
       end
     end
     redirect_to :action => 'show', :id => params[:id]
@@ -109,24 +196,10 @@ class RequestsController < ApplicationController
     redirect_to '/my_request'
   end
 
-  def do_pay
-    request = Request.find(params[:id])
-    if (pay_to_us)
-      request.do_pay
-    end
-    redirect_to :action => 'show', :id => params[:id]
-  end
-
   def taker_cancel
     request = Request.find(params[:id])
-    if (request.taker.id == session[:user_id])
-      request.status=RequestStatus::SUBMITTED
-      request.request_allocation.is_success=0;
-      request.transaction do
-        request.request_allocation.save
-        request.save
-      end
-    end
+    request.taker_cancel(session[:user_id])
+    redirect_to :action => 'show', :id => params[:id]
   end
 
   private
@@ -140,6 +213,18 @@ class RequestsController < ApplicationController
 
   def submit_to_us
     true
+  end
+
+  def send_email_to_appropriate_write(request)
+     user_list = User.joins("left join educations on educations.id = users.education_id").where("educations.level>#{request.user.education.level} and users.subject_area_id=#{request.subject_area_id} and users.user_type_id=2")
+     user_list.each do |user|
+       WriterMailer.send_new_task_mail(user,request).deliver
+     end
+  end
+
+  def send_paid_email_to_taker_and_maker(request)
+    WriterMailer.send_request_paid_mail_maker(request.user,request).deliver
+    WriterMailer.send_request_paid_mail_taker(request.taker,request).deliver
   end
 
 

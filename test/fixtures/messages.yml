@@ -1,11 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
+  taker_id: 4
+  maker_id: 1
   message: MyString
-  is_deleted: 1
+  is_taker_deleted: 1
+  is_maker_deleted: 0
+  request_id: 1
+  from_user_id: 4
 
 two:
-  user_id: 1
+  taker_id: 5
+  maker_id: 1
   message: MyString
-  is_deleted: 1
+  is_taker_deleted: 1
+  is_maker_deleted: 1
+  request_id: 13
+  from_user_id: 1
+

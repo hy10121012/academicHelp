@@ -18,4 +18,9 @@
         </div>
       </a>
   <% end %>
+  <% if@requests.size==0 %>
+      <div style="text-align: center;font-weight: bolder;color: #929295" class="request_list_row normal_row">
+        还没有接受任何任务
+      </div>
+  <%end%>
 </div>

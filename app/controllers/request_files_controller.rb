@@ -18,7 +18,7 @@ class RequestFilesController < ApplicationController
     request_log.value = file.file_file_name
     request_log.value2= file.id
     request_log.save
-
+    redirect_to :action => 'show', :id => request_file[:request_id]
   end
 
 

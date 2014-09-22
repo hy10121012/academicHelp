@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  request_id: 1
+  process: MyString
+  is_latest_version: false
+
+two:
+  user_id: 1
+  request_id: 1
+  process: MyString
+  is_latest_version: false

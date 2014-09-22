@@ -41,7 +41,7 @@
     </div>
     <div class="profile_bottom_box">
       <div class="user_request_list">
-        <div style="font-weight: bolder"><%=@user.user_type.name%></div>
+        <div style="font-weight: bolder"><% if @user.user_type_id==1%>任务发布人<%else%>任务承接人 <%end%></div>
       </div>
       <div class="user_request_list">
         <div >所在地</div>
@@ -56,15 +56,15 @@
       <h3>任务情况</h3>
       <div class="user_request_list">
         <div ><% if(@user.is_taker?) %>承接任务<%else%>发布任务<%end%></div>
-        <div ><% if(@user.is_taker?) %>0<%else%><%=@request_count['create']%><%end%></div>
+        <div ><%=@request_count['create']%></div>
       </div>
       <div class="user_request_list">
         <div ><% if(@user.is_taker?) %>完成任务<%else%>完成支付<%end%></div>
-        <div ><% if(@user.is_taker?) %>0<%else%><%=@request_count['pay']%><%end%></div>
+        <div ><%=@request_count['pay']%></div>
       </div>
       <div class="user_request_list">
         <div ><% if(@user.is_taker?) %>放弃任务<%else%>取消任务<%end%></div>
-        <div ><% if(@user.is_taker?) %>0<%else%><%=@request_count['cancel']%><%end%></div>
+        <div ><%=@request_count['cancel']%></div>
       </div>
     </div>
 

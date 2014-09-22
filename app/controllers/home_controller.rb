@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   end
 
   def requester
-    @requests = Request.find_all_by_user_id(session[:user_id])
+    @requests = Request.where(:user_id=>session[:user_id])
     @summary = {'total'=>0,'outstanding_amount'=>0,'argue'=>0,'processing'=>0};
     @summary['total'] =@requests.count
     @requests.each do |request|

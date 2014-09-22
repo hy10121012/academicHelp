@@ -19,6 +19,8 @@ module RequestHelper
         "已交货"
       when RequestStatus::CLOSED
         "交易关闭"
+      when RequestStatus::COMPLETED
+        "任务结束，等待最终结果"
       when RequestStatus::ARGUE
         "任务复议中"
     end
@@ -46,11 +48,15 @@ module RequestHelper
       when RequestAction::CANCEL
         content ="你取消了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction::DROPOUT
-        content ="<a href='/users/#{request_log.value}'>#{request_log.value}</a>放弃了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        content ="承接人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>放弃了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction::PAY
         content = "你支付了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>所需酬劳"
-      when RequestAction::COMPLETE
+      when RequestAction::MARK_AS_ACCEPTED
+        content ="您审核通过了<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>交付的任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+      when RequestAction::HAND_IN
         content ="任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>完成"
+      when RequestAction::SUBMIT_PROCESS
+        content ="承接人标记任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>#{request_log.request.latest_submit.process}%完成"
       when RequestAction::FINISHED
         content = "你关闭了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
     end
@@ -82,8 +88,12 @@ module RequestHelper
         content ="你放弃了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
       when RequestAction::PAY
         content = "发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>支付了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>所需酬劳"
-      when RequestAction::COMPLETE
+      when RequestAction::HAND_IN
         content ="你以交付任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+      when RequestAction::MARK_AS_ACCEPTED
+        content ="发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>以审核您交付的任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+      when RequestAction::SUBMIT_PROCESS
+        content ="你已标记任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>#{request_log.request.latest_submit.process}%完成"
       when RequestAction::FINISHED
         content = "发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>关闭了任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
     end

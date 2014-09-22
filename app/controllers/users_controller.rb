@@ -1,3 +1,4 @@
+#coding: utf-8
 class UsersController < ApplicationController
   skip_before_filter :authorize, :only => ['create']
 
@@ -5,10 +6,16 @@ class UsersController < ApplicationController
     if (!User.exist?(params[:user][:email]))
       puts params[:user].except(:submit).inspect
       user = User.create(user_params)
-      user.save
-      session[:user_id] = user.id
-      session[:user_type_id] = user.user_type_id
-      redirect_to '/home'
+      if user.save
+        session[:user_id] = user.id
+        session[:user_type_id] = user.user_type_id
+        WriterMailer.welcome_email(user).deliver
+        redirect_to '/home'
+      else
+        redirect_to '/'
+      end
+
+
     else
       redirect_to '/'
     end
@@ -19,17 +26,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @votes = Vote.find_vote(params[:id])
-    @comments = Comment.find_all_by_to_user_id(params[:id])
-    @request_count = Request.count_request_by_type(params[:id])
+    do_user_stats(params[:id])
   end
 
   def my_profile
-    @user = User.find(session[:user_id])
-    @votes = Vote.find_vote(session[:user_id])
-    @comments = Comment.find_all_by_to_user_id(session[:user_id])
-    @request_count = Request.count_request_by_type(session[:user_id])
+    do_user_stats(session[:user_id])
     render :show
   end
 
@@ -42,7 +43,18 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :university, :country, :user_type_id, :subject_area_id)
+    params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :university, :country_id, :user_type_id, :subject_area_id)
+  end
+
+  def do_user_stats(user_id)
+    @user = User.find(user_id)
+    @votes = Vote.find_vote(user_id)
+    @comments = Comment.where(:to_user_id=>user_id)
+    if(session[:user_type_id]==2)
+      @request_count =Request.count_request_by_type_taker(user_id)
+    else
+      @request_count = Request.count_request_by_type_maker(user_id)
+    end
   end
 
 end

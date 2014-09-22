@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907211319) do
+ActiveRecord::Schema.define(version: 20140921143825) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140907211319) do
 
   create_table "educations", force: true do |t|
     t.string   "name"
+    t.integer  "level",      limit: 2, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,6 +52,18 @@ ActiveRecord::Schema.define(version: 20140907211319) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "from_user_id",     null: false
+  end
+
+  create_table "payment_histories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "request_id"
+    t.float    "original_amount"
+    t.boolean  "user_pay"
+    t.float    "fee_rate"
+    t.string   "payment_token"
+    t.string   "payerID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "request_allocations", force: true do |t|
@@ -87,6 +100,17 @@ ActiveRecord::Schema.define(version: 20140907211319) do
     t.integer  "value2"
   end
 
+  create_table "request_submits", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "request_id"
+    t.integer  "request_id"
+    t.integer   "process"
+    t.boolean  "is_latest_version"
+    t.boolean  "is_approved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "request_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -110,10 +134,19 @@ ActiveRecord::Schema.define(version: 20140907211319) do
     t.string   "status",          limit: 16
     t.integer  "is_cancel"
     t.string   "cancel_reason"
+    t.string   "payment_token"
+    t.string   "payerID",         limit: 100
   end
 
   create_table "subject_areas", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sys_properties", force: true do |t|
+    t.string   "name"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

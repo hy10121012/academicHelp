@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<p>你好,<%= @user.first %> <%= @user.last %></p>
+<p>
+  用户发布人<%=@request.user.id%>已经全额支付了任务所需的报酬，本资金将由本平台代为保管，请您开始履行您的责任
+</p>
+<p>
+  任务详情
+</p>
+<p>
+  来自:  <%=@request.user.country.country_name%> <%=@request.user.university%>    <br />
+  任务性质： <%=@request.user.education.name%> <%=@request.request_type.name%>     <br />
+  任务名称：<%=@request.title%>    <br />
+  任务详情：<%=@request.requirement%>    <br />
+  科目： <%=@request.subject_area.name%>    <br />
+  成绩要求：<%=@request.expected_score%>    <br />
+  字数要求：<%=@request.expected_score%>    <br />
+  报酬：<%= @request.user.country.currency.currency_code%> <%= @request.price%>    <br />
+</p>
+
+
+<p>
+  具体情况请登入查看  <%= @url %>
+</p>
+<p>助学网团队</p>
+</body>
+</html>

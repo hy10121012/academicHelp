@@ -1,0 +1,35 @@
+<div class="request_show_area request_show_form">
+  <div>
+    <p><b>付款信息</b></p>
+
+    <p>作业：<%= @request.title %> （任务ID: <%= @request.id %> ）</p>
+
+    <p>类型：<%= @request.request_type.name %></p>
+
+    <p>薪酬：<%= @request.user.country.currency.currency_code %> <%= @request.price.round(2) %></p>
+
+    <p>平台费用 (<%= SysProperty.get_maker_benchmark.to_f*100 %>
+      %)：<%= @request.user.country.currency.currency_code %> <%= (@request.price*SysProperty.get_maker_benchmark.to_f).round(2) %></p>
+
+    <p>总共支付：<%= @request.user.country.currency.currency_code %> <%= (@request.price.round(2)+@request.price*SysProperty.get_maker_benchmark.to_f).round(2) %></p>
+
+   <hr />
+    <p>
+      <b>立即通过Paypal支付</b>
+    </p>
+    <p>
+        <span style="color: red">请注意！一旦支付费用您将无法更改任务报酬，请先确认金额再付款！</span><br/>
+      <%= link_to @paypal_url do %>
+          <img src="https://www.paypalobjects.com/it_IT/IT/Marketing/i/bnr/bnr_horizontal_solutiongraphic_335x80.gif" style="margin-right:7px;"/>
+      <% end %>
+    </p>
+    <%if @error%>
+    <p style="font-weight: bolder;color: red">
+     支付细节出现异常，请联系管理员
+    </p>
+    <%end%>
+    <p>
+      <%= link_to "先不支付，回到上一页", :controller => 'requests', :action => 'show', :id => @request.id %>
+    </p>
+  </div>
+</div>

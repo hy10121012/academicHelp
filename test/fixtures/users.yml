@@ -5,15 +5,15 @@ one:
   last: MyString
   email: MyString
   password: MyString
-  education: 1
+  education_id: 1
   university: MyString
   country: MyString
 
 two:
   first: MyString
   last: MyString
-  email: MyString
+  email: MyString2
   password: MyString
-  education: 1
+  education_id: 1
   university: MyString
   country: MyString

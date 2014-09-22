@@ -1,0 +1,17 @@
+<div id="blind" class="blind">
+  <div id="message_form_container" class="central_form_container">
+    <%= form_tag url_for(:controller => 'requests', :action => 'taker_cancel'), :method => 'post' do %>
+        <div id="file_upload_form_box" class="central_form">
+          <div id="click_able">
+            <div style="text-align: left" >
+               你确定你要放弃任务么？
+            </div>
+            <div>
+              <%= submit_tag :放弃任务 %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+</div>

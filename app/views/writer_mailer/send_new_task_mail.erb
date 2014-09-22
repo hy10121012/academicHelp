@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<p>你好,<%= @user.first %> <%= @user.last %></p>
+<p>
+           有用户发布了新的适合您的新任务，任务详情如下:
+</p>
+<p>
+  来自:  <%=@request.user.country.country_name%> <%=@request.user.university%>    <br />
+  任务性质： <%=@request.user.education.name%> <%=@request.request_type.name%>     <br />
+  任务名称：<%=@request.title%>    <br />
+  任务详情：<%=@request.requirement%>    <br />
+  科目： <%=@request.subject_area.name%>    <br />
+  成绩要求：<%=@request.expected_score%>    <br />
+  字数要求：<%=@request.expected_score%>    <br />
+  报酬：<%= @request.user.country.currency.currency_code%> <%= @request.price%>    <br />
+</p>
+
+
+<p>
+ .具体情况请登入查看  <%= @url %>
+</p>
+<p>感谢您的支持！</p>
+</body>
+</html>

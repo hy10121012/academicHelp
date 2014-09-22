@@ -32,7 +32,10 @@
       </p>
       <p>
         <%= user.label :我要做 %><br>
-        <%= user.select :user_type_id, UserType.all.collect {|t| [ t.name, t.id ] } %>
+        <select id="user_user_type_id" name="user[user_type_id]">
+          <option value="1">我要做任务发布人</option>
+          <option value="2">我要做任务承接人</option>
+        </select>
       </p>
       <p>
         <%= user.label :密码 %><br>

@@ -42,18 +42,25 @@ AcdemicHelp::Application.routes.draw do
 
   post 'request/:id/submit'=>'requests#do_submit'
   post 'request/:id/close_down'=>'requests#close_down'
+  post 'request/:id/complete_request'=>'requests#do_complete'
   post 'request/:id/cancel'=>'requests#do_cancel' ,constraints: IsRequester
   post 'request/:id/cancel'=>'requests#taker_cancel' ,constraints: IsWriter
   post 'request/:id/take'=>'requests#do_take_request'
   post 'request/:id/approve'=>'requests#confirm_taker'
-  post 'request/:id/pay'=>'requests#do_pay'
+  get 'request/:id/payment'=>'requests#payment'
 
   post 'request_files'=>'request_files#do_upload_file'
   post 'request_files_delete'=>'request_files#do_delete_file'
 
 
   resources :users
-  resources :requests
+  resources :requests  do
+    member do
+      get :paid
+      get :revoked
+      post :ipn
+    end
+  end
 
 
   # Example of regular route:

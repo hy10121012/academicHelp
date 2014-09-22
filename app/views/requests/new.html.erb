@@ -16,6 +16,11 @@
         <%= request.select :request_type_id, RequestType.all.collect { |e| [e.name, e.id] } %>
       </div>
       <div class="request_form_row">
+        <div class="form_label">科目</div>
+        <%= request.text_field :subject %>
+      </div>
+
+      <div class="request_form_row">
         <div class="form_label">学科</div>
         <%= request.select :subject_area_id, SubjectArea.all.collect { |e| [e.name, e.id] } %>
       </div>
@@ -29,7 +34,7 @@
             <%= request.text_field :expected_score, :style=>'width:50px;',:maxlength=>"4" %>/4
         <% elsif @user.country.country_code=='GB' %>
             <div class="form_label">分数要求</div>
-            <select name='expected_score' id='expected_score'>
+            <select name="request[expected_score]" id='request_expected_score'>
               <option>
                 First
               </option>
