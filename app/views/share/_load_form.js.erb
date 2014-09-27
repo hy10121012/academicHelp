@@ -25,4 +25,13 @@ get_taker_cancel_form = function(){
         var html = "<%=j render(:partial => '/share/taker_cancel_form',locals: { request: request}) %>";
         return html;
         }
+get_maker_approve_form = function(){
+        var html = "<%=j render(:partial => '/share/maker_approve_form',locals: { request: request,request_submits: request_submits}) %>";
+        return html;
+        }
+get_maker_cancel_form = function(){
+        var html = "<%=j render(:partial => '/share/maker_cancel_form',locals: { request: request,request_submits: request_submits}) %>";
+        return html;
+        }
+
 </script>

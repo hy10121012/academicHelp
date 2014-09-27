@@ -1,11 +1,14 @@
 #coding: utf-8
 class UsersController < ApplicationController
-  skip_before_filter :authorize, :only => ['create']
+  skip_before_filter :authorize, :only => ['create','activate_user']
 
   def create
     if (!User.exist?(params[:user][:email]))
       puts params[:user].except(:submit).inspect
-      user = User.create(user_params)
+      u  = user_params
+      u[:password] = Digest::MD5.hexdigest(u[:password])
+      u[:is_active] =false
+      user = User.create(u)
       if user.save
         session[:user_id] = user.id
         session[:user_type_id] = user.user_type_id
@@ -14,8 +17,6 @@ class UsersController < ApplicationController
       else
         redirect_to '/'
       end
-
-
     else
       redirect_to '/'
     end
@@ -40,6 +41,24 @@ class UsersController < ApplicationController
 
   def new
   end
+
+  def activate_user
+    email = params[:email]
+    user = User.find_by_email(email)
+    if(Digest::MD5.hexdigest(user.id.to_s+user.email)==params[:token])
+      if(user.is_active.nil? || user.is_active==false)
+        user.is_active=true;
+        user.save
+      else
+        puts "already activated"
+      end
+    else
+      puts "incorrect_token #{Digest::MD5.hexdigest(user.id.to_s+user.email)}== #{params[:token]}"
+    end
+    redirect_to :controller => "welcome", :action => "welcome"
+  end
+
+
 
   private
   def user_params

@@ -9,12 +9,14 @@
           <div class="clear"></div>
         </div>
         <%request_files.each do |file| %>
+            <% if file.valid_submit? %>
             <div class="file_list_list_row" id="file_row_<%=file.id%>">
               <div style="width: 25%" class="file_list_item"><a target="_blank" href="/request_doc/<%=file.request_id%>/<%=file.id%>_<%=file.file_file_name%>"><%=file.file_file_name%></a></div>
               <div style="width: 60%" class="file_list_item"><%=file.description || "上传者没有添加描述"%></div>
               <div style="width: 15%" class="file_list_item"><% if file.user_id == session[:user_id] %><a file_id="<%=file.id%>" class="delete_button" id="delete_<%=file.id%>" href="javascript:void(0)">删除</a><% else %><a target="_blank" href="/request_doc/<%=file.request_id%>/<%=file.id%>_<%=file.file_file_name%>">下载</a><%end%></div>
               <div class="clear"></div>
             </div>
+            <%end%>
         <% end %>
       </div>
     </div>

@@ -22,6 +22,7 @@ AcdemicHelp::Application.routes.draw do
 
   root 'welcome#welcome'
   get 'login'=>'welcome#login'
+  get 'logout'=>'welcome#logout'
   post 'login'=>'welcome#login_check'
   get 'register'=>'welcome#register'
   post 'register'=>'users#create'
@@ -41,13 +42,20 @@ AcdemicHelp::Application.routes.draw do
   post 'messages/:request_id'=>'messages#send_message_in_list'
 
   post 'request/:id/submit'=>'requests#do_submit'
+  post 'request_submit/progress'=>'requests#approve_process'
   post 'request/:id/close_down'=>'requests#close_down'
   post 'request/:id/complete_request'=>'requests#do_complete'
-  post 'request/:id/cancel'=>'requests#do_cancel' ,constraints: IsRequester
+  post 'request/:id/cancel'=>'requests#do_maker_cancel' ,constraints: IsRequester
   post 'request/:id/cancel'=>'requests#taker_cancel' ,constraints: IsWriter
   post 'request/:id/take'=>'requests#do_take_request'
   post 'request/:id/approve'=>'requests#confirm_taker'
   get 'request/:id/payment'=>'requests#payment'
+  get 'user_activate/'=>'users#activate_user'
+  get 'resend_email'=>'welcome#resend_email'
+  get 'forgot'=>'welcome#forgot'
+  post 'resend_email'=>'welcome#do_resend_email'
+
+
 
   post 'request_files'=>'request_files#do_upload_file'
   post 'request_files_delete'=>'request_files#do_delete_file'

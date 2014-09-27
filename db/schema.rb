@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921143825) do
+ActiveRecord::Schema.define(version: 20140926220946) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 20140921143825) do
   create_table "request_submits", force: true do |t|
     t.integer  "user_id"
     t.integer  "request_id"
-    t.integer  "request_id"
-    t.integer   "process"
+    t.integer  "request_file_id",             null: false
+    t.integer  "process",           limit: 2
     t.boolean  "is_latest_version"
     t.boolean  "is_approved"
     t.datetime "created_at"
@@ -178,12 +178,24 @@ ActiveRecord::Schema.define(version: 20140921143825) do
     t.datetime "updated_at"
     t.string   "subject"
     t.integer  "subject_area_id"
+    t.boolean  "is_active"
+    t.boolean  "is_validated"
   end
 
   create_table "votes", force: true do |t|
     t.integer  "from_user_id"
     t.integer  "to_user_id"
     t.string   "vote_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "writer_validations", force: true do |t|
+    t.integer  "user_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

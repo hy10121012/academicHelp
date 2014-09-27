@@ -9,6 +9,9 @@
         <% if @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
             <a style="color: #FFFFFF" class="button_blue" href="javascript:void(0)" id="maker_upload_file">上传文件</a>
         <% end %>
+        <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
+            <a style="color: #FFFFFF" class="button_red" href="javascript:void(0)" id="maker_cancel_task">取消任务</a>
+        <% end %>
     <% end %>
     <% if !@request.taker.nil? && @request.taker.id==session[:user_id] %>
         <% if  @request.status==RequestStatus::IN_PROCESS %>
@@ -32,11 +35,14 @@
       </div>
       <hr>
       <div> <%= label_tag :目前状态 %>
-        <div><%= get_request_status(@request.status) %>
-
+        <div>
           <% if @request.status==RequestStatus::IN_PROCESS %>
-              <span style="color: #929295">(完成度:<%= @request.latest_approved_submit.nil? ? "0" : @request.latest_approved_submit.process %>
-              %)</span>
+              <%= get_request_status(@request.status) %> <span style="color: #929295">(完成度:<%= @request.latest_approved_submit.nil? ? "0" : @request.latest_approved_submit.process %>
+                %)</span>
+          <%elsif @request.status==RequestStatus::CANCELLED %>
+             <span style="color: red"> <%= get_request_status(@request.status) %></span>
+          <%else%>
+              <%= get_request_status(@request.status) %>
           <% end %></div>
       </div>
       <hr>
@@ -74,13 +80,7 @@
       <div>
         <% if @request.is_owner?(session[:user_id]) %>
 
-            <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
-                <%= form_tag url_for(:controller => 'requests', :action => 'cancel'), :method => 'post' do %>
-                    <p>
-                      <%= submit_tag :取消任务 %>
-                    </p>
-                <% end %>
-            <% end %>
+
             <% if @request.status==RequestStatus::ACCEPTED %>
                 <p>
                   <%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
@@ -115,7 +115,7 @@
 
         <% if session[:user_type_id]==2 %>
             <% if  @request.status==RequestStatus::SUBMITTED %>
-                <% if RequestAllocation.where(:taker_id => session[:user_id],:request_id =>@request.id ).count==0 %>
+                <% if RequestAllocation.where(:taker_id => session[:user_id], :request_id => @request.id).count==0 %>
                     <%= form_tag url_for(:controller => 'requests', :action => 'do_take_request'), :method => 'post' do %>
                         <p>
                           <%= submit_tag :领取任务 %>
@@ -158,13 +158,13 @@
           <div class="row_content"><%= label_tag @request.taker.get_reputation %></div>
         </div>
         <div class="request_form_right_row">
-          <div>发布者上传的文件：<%= @request.taker_upload_files.size %>
+          <div>发布者上传的文件：<%= @request.get_taker_upload_files.size %>
             <a id="load_file_list_taker" href="javascript:void(0)">查看</a></div>
         </div>
-        <% if (!@request.latest_submit.nil? && !@request.latest_submit.is_approved && @request.is_owner?(session[:user_id])) %>
+        <% if (!@request.latest_submit.nil? && @request.latest_submit.is_approved.nil? && @request.is_owner?(session[:user_id])) %>
             <div class="request_form_right_row">
               <div class="request_cell_row">
-                <a style="color: red" id="load_file_list" href="javascript:void(0)">有未审核进度报告</a>
+                <a style="color: red" id="maker_approve_form" href="javascript:void(0)">有未审核进度报告</a>
               </div>
             </div>
         <% end %>
@@ -178,7 +178,7 @@
   <div class="clear"></div>
 </div>
 <% if !@request.taker_allocation.nil? %>
-    <%= render partial: '/share/load_form.js', locals: {request: @request, request_file: @request_file} %>
+    <%= render partial: '/share/load_form.js', locals: {request: @request, request_file: @request_file, request_submits: @request_submits} %>
 <% end %>
 <script>
     $(document).ready(function () {
@@ -202,10 +202,19 @@
             $('body').prepend("<div id='blind_area'>" + get_taker_submit_form() + '</div>');
             clickFix(event)
         });
+        $('#maker_cancel_task').on('click', function (event) {
+            $('body').prepend("<div id='blind_area'>" + get_maker_cancel_form() + '</div>');
+            clickFix(event)
+        });
         $('#taker_cancel_task').on('click', function (event) {
             $('body').prepend("<div id='blind_area'>" + get_taker_cancel_form() + '</div>');
             clickFix(event)
         });
+        $('#maker_approve_form').on('click', function (event) {
+            $('body').prepend("<div id='blind_area'>" + get_maker_approve_form() + '</div>');
+            clickFix(event)
+        });
+
         function clickFix(event) {
             event.stopPropagation();
             $('#click_able').on('touchend click', function (event) {

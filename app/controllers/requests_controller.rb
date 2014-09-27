@@ -19,10 +19,11 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    if(!@request.taker.nil?)
+    if (!@request.taker.nil?)
       @votes = Vote.find_vote(@request.taker.id)
     end
     @request_file = RequestFile.new
+    @request_submits = RequestSubmit.request_grouped_submits(@request.id)
   end
 
   def maker_index
@@ -49,7 +50,7 @@ class RequestsController < ApplicationController
 
   def paid
     request = Request.find(params[:id])
-    success,details = request.do_pay(params[:token], params[:PayerID])
+    success, details = request.do_pay(params[:token], params[:PayerID])
     if success
       payment_history = PaymentHistory.new
       payment_history.user_id=request.user_id
@@ -82,7 +83,7 @@ class RequestsController < ApplicationController
     end
   end
 
-  def do_cancel
+  def do_maker_cancel
     request = Request.find(params[:id])
     if (request.user_id==session[:user_id])
       request.maker_cancel(params[:reason])
@@ -105,13 +106,13 @@ class RequestsController < ApplicationController
   def do_submit
     request = Request.find(params[:id])
     if request.latest_approved_submit.nil? || request.latest_approved_submit.process< params[:process].to_i
-      request_file = params.require(:request_file).permit(:file,:request_id)
-      if(request.user_id ==session[:user_id])
+      request_file = params.require(:request_file).permit(:file, :request_id)
+      if (request.user_id ==session[:user_id])
         request_file[:is_maker_upload]=true
       else
         request_file[:is_maker_upload]=false
       end
-      if(params[:process].to_i<100)
+      if (params[:process].to_i<100)
         request_file[:description] = "#{params[:process]}%完成度预览"
       else
         request_file[:description] = "最终版本任务作业上传"
@@ -119,22 +120,22 @@ class RequestsController < ApplicationController
 
       request_file[:user_id] =session[:user_id]
       file = RequestFile.create(request_file)
-       if file.save
+      if file.save
         request_submit = RequestSubmit.new
         request_submit.user_id = session[:user_id]
         request_submit.request_id = params[:id]
         request_submit.request_file_id= file.id
         request_submit.process=params[:process]
-        request_submit.is_approved=false;
+        request_submit.is_approved=nil;
         request_submit.is_latest_version=1;
         request_log = RequestLog.new
-        request_log.user_id =  session[:user_id]
+        request_log.user_id = session[:user_id]
         request_log.action = RequestAction::SUBMIT_PROCESS
         request_log.request_id= params[:id]
         request.transaction do
           if (request.taker.id == session[:user_id])
             if (submit_to_us)
-              if(params[:process].to_i==100)
+              if (params[:process].to_i==100)
                 request.status=RequestStatus::HANDED_IN
                 request.save
               end
@@ -142,12 +143,15 @@ class RequestsController < ApplicationController
           end
           if !request.latest_submit.nil?
             request.latest_submit.is_latest_version=0
+            if request.latest_submit.is_approved.nil?
+              request.latest_submit.is_approved=false
+            end
             request.latest_submit.save
           end
           request_log.save
           request_submit.save
         end
-       end
+      end
     end
     redirect_to :action => 'show', :id => params[:id]
   end
@@ -202,6 +206,26 @@ class RequestsController < ApplicationController
     redirect_to :action => 'show', :id => params[:id]
   end
 
+  def approve_process
+    if params[:approve_action]=="approve"
+      approve_submit
+    elsif params[:approve_action]=="decline"
+      decline_submit
+    end
+    render :text=>'1', :layout=>false
+  end
+
+
+  def approve_submit
+    request_submit = RequestSubmit.find(params[:id])
+    request_submit.approve
+  end
+
+  def decline_submit
+    request_submit = RequestSubmit.find(params[:id])
+    request_submit.decline
+  end
+
   private
   def request_params
     params.require(:request).permit(:title, :requirement, :expected_score, :subject_area_id, :start_date, :end_date, :words, :request_type_id, :price)
@@ -216,15 +240,15 @@ class RequestsController < ApplicationController
   end
 
   def send_email_to_appropriate_write(request)
-     user_list = User.joins("left join educations on educations.id = users.education_id").where("educations.level>#{request.user.education.level} and users.subject_area_id=#{request.subject_area_id} and users.user_type_id=2")
-     user_list.each do |user|
-       WriterMailer.send_new_task_mail(user,request).deliver
-     end
+    user_list = User.joins("left join educations on educations.id = users.education_id").where("educations.level>#{request.user.education.level} and users.subject_area_id=#{request.subject_area_id} and users.user_type_id=2")
+    user_list.each do |user|
+      WriterMailer.send_new_task_mail(user, request).deliver
+    end
   end
 
   def send_paid_email_to_taker_and_maker(request)
-    WriterMailer.send_request_paid_mail_maker(request.user,request).deliver
-    WriterMailer.send_request_paid_mail_taker(request.taker,request).deliver
+    WriterMailer.send_request_paid_mail_maker(request.user, request).deliver
+    WriterMailer.send_request_paid_mail_taker(request.taker, request).deliver
   end
 
 

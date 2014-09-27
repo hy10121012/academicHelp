@@ -1,0 +1,19 @@
+<div class="welcome_container">
+  <div class="welcome_bg">
+    <div class="image_blinder welcome_header">
+      <h1>助学网 -- 帮你找到学海中引路的灯塔</h1>
+    </div>
+  </div>
+  <div class="welcome_bottom">
+    <div class="login_box" style="text-align: left">
+      <% if @success==true %>
+          邮件已经发送，请<a href="/">返回主页</a>。如要重新发送，请点击<a href="/resend_email">这里</a>
+      <% else %>
+          发送失败，邮箱或其他信息不正确
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
+

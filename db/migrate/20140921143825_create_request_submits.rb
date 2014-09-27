@@ -7,7 +7,6 @@ class CreateRequestSubmits < ActiveRecord::Migration
       t.integer :process
       t.boolean :is_latest_version
       t.boolean :is_approved
-
       t.timestamps
     end
   end

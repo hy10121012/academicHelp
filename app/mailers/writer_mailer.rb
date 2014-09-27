@@ -10,8 +10,7 @@ class WriterMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    digest = Digest::MD5.hexdigest(user.email+user.first+user.last)
-    @url  = "#{default_url_options[:host]}/activate/#{user.id}_#{digest}"
+    @url  = "#{default_url_options[:host]}/user_activate/?email=#{user.email}&token=#{Digest::MD5.hexdigest(user.id.to_s+user.email)}"
     mail(:to => user.email, :subject => "你好#{user.first} #{user.last}， 感谢您注册助学网")
   end
 

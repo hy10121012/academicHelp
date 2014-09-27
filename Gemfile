@@ -20,7 +20,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'jquery-fileupload-rails'
-gem 'sidekiq', '~> 2.17.7'
 gem 'paypal-sdk-merchant'
 
 gem 'cocaine'

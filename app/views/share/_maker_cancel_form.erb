@@ -1,0 +1,16 @@
+<div id="blind" class="blind">
+  <div id="message_form_container" class="central_form_container">
+    <%= form_tag url_for(:controller => 'requests', :action => 'taker_cancel'), :method => 'post' do %>
+        <div id="file_upload_form_box" class="central_form">
+          <div id="click_able">
+            <div style="text-align: left">
+              <p>你确定你要放弃任务么？</p> <p><span style="color: red">如果放弃任务，会对您的信用造成不好的影响。</span></p><% if !@request.latest_approved_submit.nil? && @request.latest_approved_submit.process>0 %><p><span style="color: red">您仍然需要支付<b><%=@request.latest_approved_submit.process%></b>%的报酬，因为承接人已经完成了任务的<%=@request.latest_approved_submit.process%>%.</span><%end%></p>
+            </div>
+            <div>
+              <%= submit_tag :放弃任务,:class=>"button_red" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def writer
-    @request_allocations = RequestAllocation.where("request_allocations.taker_id = #{session[:user_id]}")
+    @request_allocations = RequestAllocation.where("request_allocations.taker_id = #{session[:user_id]} and is_approved=1 and (is_success is null)")
     @summary = {'total'=>0,'outstanding_amount'=>0,'argue'=>0,'processing'=>0};
     @summary['total'] =@request_allocations.count
     @request_allocations.each do |request_allocation|

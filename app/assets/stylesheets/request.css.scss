@@ -44,8 +44,8 @@
 .request_show_area{
   background-color: #fcfcfe;
   border: 1px solid #dce0e0;
-  box-shadow: 5px 5px 5px #dcdcdc;
-
+  //box-shadow: 5px 5px 5px #dcdcdc;
+  margin-bottom: 70px;
 }
 
 .request_show_form{
@@ -104,7 +104,8 @@
   border-top: 1px solid #c9cdcd;
   border-left: 1px solid #c9cdcd;
   border-right: 1px solid #c9cdcd;
-  box-shadow: 5px 5px 5px #dcdcdc;
+  border: 1px solid #dcdcdc;
+  //box-shadow: 5px 5px 5px #dcdcdc;
 
 }
 .request_list_row{
@@ -202,6 +203,7 @@
 .file_list_title_row{
   padding: 5px;
   background-color:  #dcdcdc;
+  margin-bottom: 10px;
 }
 
 .file_list_list_row{

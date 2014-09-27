@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AcdemicHelp</title>
+  <title>助学网</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -11,6 +11,8 @@
 
 <div class="head_nav">
   <div class="head_nav_logo"><a href="/home">助学网</a></div>
+  <div class="head_nav_right"><div style="display: table-cell;vertical-align: middle;">你好  <%=session[:user_last]%> <%=session[:user_first]%>，  今天是  <%=DateTime.now.to_date%> | <a href="/logout">登出</a></div></div>
+  <div class="clear"></div>
 </div>
 <% if !(controller.controller_name=="welcome" && controller.action_name=="register") %>
     <div class="top_bar">

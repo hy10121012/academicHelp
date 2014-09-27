@@ -1,3 +1,4 @@
+require 'digest/md5'
 class User < ActiveRecord::Base
   belongs_to :education
   belongs_to :country

@@ -17,8 +17,19 @@ class Request < ActiveRecord::Base
   end
 
   def self.find_request_for_taker(user_id)
-    @requests = Request.joins("left join request_allocations on request_allocations.request_id = requests.id").where("request_allocations.taker_id=#{user_id} and (request_allocations.is_success is null || request_allocations.is_success=1)").order("requests.id desc")
+    @requests = Request.joins("left join request_allocations on request_allocations.request_id = requests.id").where("request_allocations.taker_id=#{user_id} and (request_allocations.is_success is null || request_allocations.is_success=1) and is_approved=1").order("requests.id desc")
   end
+
+  def get_taker_upload_files
+    return_files=Array.new
+    taker_upload_files.each do |file|
+      if file.valid_submit?
+        return_files.push(file)
+      end
+    end
+    return_files
+  end
+
 
   def assign_to_user(user_id)
     transaction do

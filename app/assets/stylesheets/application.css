@@ -81,6 +81,24 @@ h1 { font-size: 2.5rem; } /*40px*/
 .head_nav_logo a{
     color:#FFFFFF;
 }
+.head_nav_right{
+    width: 50%;
+    max-width:400px;
+    color:#FFFFFF;
+    font-size: 1em;
+    position: relative;
+    float: right;
+    display: table;
+    padding-right: 40px;
+    text-align: right;
+    height: 100%;
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+.head_nav_right a{
+    font-weight: bold;
+    color:#FFFFFF;
+}
 .clear{
     clear: both;
 }
@@ -128,13 +146,10 @@ h1 { font-size: 2.5rem; } /*40px*/
     color: #FFFFFF;
     border: 1px solid #1d80cf;
     padding: 5px;
-
 }
-
 .button_red {
     background-color: rgb(198, 7, 0);
     color: #FFFFFF;
     border: 1px solid #800015;
     padding: 5px;
-
 }
