@@ -4,6 +4,7 @@ class CreateUniversities < ActiveRecord::Migration
       t.string :name
       t.integer :country_id
       t.integer :level
+      t.boolean :is_writer_university
 
       t.timestamps
     end

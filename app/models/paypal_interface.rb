@@ -39,7 +39,7 @@ class PaypalInterface
                       currencyID:  @request.user.country.currency.currency_code,
                       value: total
                   },
-                  ItemCategory: "Digital"
+                  ItemCategory: "Physical"
                }],
                PaymentAction: "Sale"
             }]
@@ -48,12 +48,13 @@ class PaypalInterface
 
     # Make API call & get response
     @express_checkout_response = @api.set_express_checkout(@set_express_checkout)
-
+    puts  @express_checkout_response.inspect
     # Access Response
     if @express_checkout_response.success?
       @request.payment_token=@express_checkout_response.Token
       @request.save
     else
+      puts  @express_checkout_response.Errors.inspect
       @express_checkout_response.Errors
     end
   end
@@ -73,10 +74,8 @@ class PaypalInterface
             }]
         }
     })
-    puts "do the checkout"
     # Make API call & get response
     @do_express_checkout_payment_response = @api.do_express_checkout_payment(@do_express_checkout_payment)
-    puts @do_express_checkout_payment_response.Errors.inspect
     # Access Response
     if @do_express_checkout_payment_response.success?
       details = @do_express_checkout_payment_response.DoExpressCheckoutPaymentResponseDetails
@@ -84,7 +83,7 @@ class PaypalInterface
       return true,details
     else
       errors = @do_express_checkout_payment_response.Errors # => Array
-      return false,errors
+      return false,errors[0]
     end
   end
 

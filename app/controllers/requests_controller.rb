@@ -44,6 +44,7 @@ class RequestsController < ApplicationController
     if @paypal.express_checkout_response.success?
       @paypal_url = @paypal.api.express_checkout_url(@paypal.express_checkout_response)
     else
+      puts @paypal.express_checkout_response.inspect
       @error=true;
     end
   end
@@ -64,7 +65,8 @@ class RequestsController < ApplicationController
       send_paid_email_to_taker_and_maker(request)
       redirect_to :action => 'show', :id => params[:id]
     else
-      @error_message = details[:details]
+      puts details.inspect
+      @error_message = details.LongMessage
     end
 
   end
@@ -93,10 +95,17 @@ class RequestsController < ApplicationController
 
   def do_take_request
     if (session[:user_type_id]==2)
-      request = Request.find(params[:id])
-      request.assign_to_user(session[:user_id])
+      self_user = User.find(session[:user_id])
+      if(self_user.is_validated==true)
+        request = Request.find(params[:id])
+        request.assign_to_user(session[:user_id])
+        MakerMailer.send_taker_take_task(self_user,request).deliver
+        redirect_to '/my_request'
+      else
+        @error_message = "fa"
+        redirect_to :controller => "requests", :action => "show", :params => {:id=> params[:id],:status=>@error_message}
+      end
     end
-    redirect_to '/my_request'
   end
 
   def submit
@@ -240,7 +249,7 @@ class RequestsController < ApplicationController
   end
 
   def send_email_to_appropriate_write(request)
-    user_list = User.joins("left join educations on educations.id = users.education_id").where("educations.level>#{request.user.education.level} and users.subject_area_id=#{request.subject_area_id} and users.user_type_id=2")
+    user_list = User.joins("left join educations on educations.id = users.education_id").where("educations.level>=#{request.user.education.level} and users.subject_area_id=#{request.subject_area_id} and users.user_type_id=2")
     user_list.each do |user|
       WriterMailer.send_new_task_mail(user, request).deliver
     end

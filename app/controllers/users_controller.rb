@@ -1,6 +1,6 @@
 #coding: utf-8
 class UsersController < ApplicationController
-  skip_before_filter :authorize, :only => ['create','activate_user']
+  skip_before_filter :authorize, :only => ['create']
 
   def create
     if (!User.exist?(params[:user][:email]))
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         session[:user_type_id] = user.user_type_id
         WriterMailer.welcome_email(user).deliver
-        redirect_to '/home'
+        redirect_to '/register_success'
       else
         redirect_to '/'
       end
@@ -42,27 +42,30 @@ class UsersController < ApplicationController
   def new
   end
 
-  def activate_user
-    email = params[:email]
-    user = User.find_by_email(email)
-    if(Digest::MD5.hexdigest(user.id.to_s+user.email)==params[:token])
-      if(user.is_active.nil? || user.is_active==false)
-        user.is_active=true;
-        user.save
-      else
-        puts "already activated"
-      end
-    else
-      puts "incorrect_token #{Digest::MD5.hexdigest(user.id.to_s+user.email)}== #{params[:token]}"
-    end
-    redirect_to :controller => "welcome", :action => "welcome"
+  def validate_user
+    @writer_validation = WriterValidation.new
   end
+
+  def do_validate_user
+    validation = validation_params
+    validation[:user_id] = session[:user_id];
+    if WriterValidation.create(validation)
+      redirect_to :action => "validate_user", :params => {:id=> params[:id],:success=>true}
+    else
+      redirect_to :action => "validate_user", :params => {:id=> params[:id],:success=>false}
+    end
+  end
+
 
 
 
   private
   def user_params
-    params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :university, :country_id, :user_type_id, :subject_area_id)
+    params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :university_id, :country_id, :user_type_id, :subject_area_id)
+  end
+
+  def validation_params
+    params.require(:writer_validation).permit(:file)
   end
 
   def do_user_stats(user_id)

@@ -1,13 +1,15 @@
 class HomeController < ApplicationController
   def writer
     @request_allocations = RequestAllocation.where("request_allocations.taker_id = #{session[:user_id]} and is_approved=1 and (is_success is null)")
-    @summary = {'total'=>0,'outstanding_amount'=>0,'argue'=>0,'processing'=>0};
+    @summary = {'total'=>0,'outstanding_amount'=>0,'argue'=>0,'processing'=>0,'closed'=>0};
     @summary['total'] =@request_allocations.count
     @request_allocations.each do |request_allocation|
       if(request_allocation.request.status ==(RequestStatus::HANDED_IN ) )
         @summary['outstanding_amount']+=request_allocation.request.price
       elsif(request_allocation.is_approved==true && request_allocation.request.status == RequestStatus::ARGUE)
         @summary['argue']+1
+      elsif(request_allocation.is_approved==true && request_allocation.request.status == RequestStatus::CLOSED)
+        @summary['closed']+1
       elsif(request_allocation.is_approved==true && (request_allocation.request.status == RequestStatus::HANDED_IN || request_allocation.request.status == RequestStatus::AWAITING_PAYMENT ||request_allocation.request.status ==  RequestStatus::IN_PROCESS ))
         @summary['processing']+=1
       end

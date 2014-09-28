@@ -2,6 +2,7 @@ require 'digest/md5'
 class User < ActiveRecord::Base
   belongs_to :education
   belongs_to :country
+  belongs_to :university
   belongs_to :user_type
   belongs_to :subject_area
 

@@ -1,0 +1,18 @@
+<div class="profile_top_bg">
+  <div style="padding: 30px;box-sizing: border-box">
+    <% if params[:success].nil? %>
+        <%= form_for(@writer_validation, id: "file_upload_form", html: {multipart: true}) do |f| %>
+            <div><b>请上传学生证，学校证明或者任何能够证明您学历的证件照片或者截图来证明您的资料真实性，我们会在最快时间内核实并通过您的身份认证</b></div>
+            <div style="margin-top: 30px;margin-bottom: 30px;">上传证明文件: <%= f.label :uploaded_file, t('上传文件') %>
+              ：<%= f.file_field :file %></div>
+            <div><%= f.submit '上传文件', class: "button_blue" %></div>
+        <% end %>
+    <% elsif params[:success]=='true' %>
+        <div style="text-align: center"><b>上传成功，工作人员正在核对您的信息，请耐心等待。<a href="/home"><<返回主页</a></b> </div>
+    <% elsif params[:success]=='false' %>
+        <div style="text-align: center"><b>上传失败，请联系管理员。 <a href="/home"><<返回主页</a></b> </div>
+  <% end %>
+
+  </div>
+</div>
+

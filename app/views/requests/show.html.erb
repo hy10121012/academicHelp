@@ -26,6 +26,10 @@
     <% end %>
   </div>
   <div class="clear"></div>
+  <% if params[:status]=="fa" %>
+      <div style="padding-left: 5px;"><b style="color: red"> 您必须先成为验证任务承接人才能承接任务，请先<a href="/validate_user">申请验证</a></b>
+      </div>
+  <% end %>
 </div>
 <div class="request_show_area">
   <div class="request_form_left">
@@ -37,11 +41,11 @@
       <div> <%= label_tag :目前状态 %>
         <div>
           <% if @request.status==RequestStatus::IN_PROCESS %>
-              <%= get_request_status(@request.status) %> <span style="color: #929295">(完成度:<%= @request.latest_approved_submit.nil? ? "0" : @request.latest_approved_submit.process %>
+              <%=get_request_status(@request.status)%>  <span style="color: #929295">(完成度: <%= @request.latest_approved_submit.nil? ? "0" : @request.latest_approved_submit.process %>
                 %)</span>
-          <%elsif @request.status==RequestStatus::CANCELLED %>
-             <span style="color: red"> <%= get_request_status(@request.status) %></span>
-          <%else%>
+          <% elsif @request.status==RequestStatus::CANCELLED %>
+              <span style="color: red"> <%= get_request_status(@request.status) %></span>
+          <% else %>
               <%= get_request_status(@request.status) %>
           <% end %></div>
       </div>
@@ -52,6 +56,18 @@
       <hr>
       <div> <%= label_tag :任务类型 %>
         <div class="request_cell_row"><%= @request.request_type.name %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :国家 %>
+        <div class="request_cell_row"><%= @request.user.country.country_name %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :学校 %>
+        <div class="request_cell_row"><%= @request.user.university.name %></div>
+      </div>
+      <hr>
+      <div> <%= label_tag :学位类型 %>
+        <div class="request_cell_row"><%= @request.user.education.name %></div>
       </div>
       <hr>
       <div> <%= label_tag :学科 %>
@@ -80,21 +96,6 @@
       <div>
         <% if @request.is_owner?(session[:user_id]) %>
 
-
-            <% if @request.status==RequestStatus::ACCEPTED %>
-                <p>
-                  <%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
-                      <input type="hidden" value="1" name="a" id="a">
-                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
-                      <%= submit_tag :确认写手,:id=>'approve' %>
-                  <% end %>
-                  <%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
-                      <input type="hidden" value="0" name="a" id="a">
-                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
-                      <%= submit_tag :否决写手,:id=>'decline' %>
-                  <% end %>
-                </p>
-            <% end %>
             <% if @request.status==RequestStatus::HANDED_IN %>
                 <%= form_tag url_for(:controller => 'requests', :action => 'do_complete'), :method => 'post' do %>
                     <p>
@@ -124,8 +125,6 @@
                 <% else %>
                     <span style="color: #929295">你已经申请承接过本项目，不能再次申请</span>
                 <% end %>
-
-
             <% end %>
         <% end %>
       </div>
@@ -140,10 +139,18 @@
         <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :来自 %></div>
           <div class="row_content"><%= label_tag @request.taker.country.country_name %></div>
+        </div>                                       -234-+
+.       <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :学校 %></div>
+          <div class="row_content"><%= label_tag @request.taker.university.name %></div>
         </div>
         <div class="request_form_right_row">
-          <div class="row_title"><%= label_tag :学校 %></div>
-          <div class="row_content"><%= label_tag @request.taker.university %></div>
+          <div class="row_title"><%= label_tag :学历 %></div>
+          <div class="row_content"><%= label_tag @request.taker.education.name %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :学科 %></div>
+          <div class="row_content"><%= label_tag @request.taker.subject_area.name %></div>
         </div>
         <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :任务完成率 %></div>
@@ -161,14 +168,32 @@
           <div>发布者上传的文件：<%= @request.get_taker_upload_files.size %>
             <a id="load_file_list_taker" href="javascript:void(0)">查看</a></div>
         </div>
-        <% if (!@request.latest_submit.nil? && @request.latest_submit.is_approved.nil? && @request.is_owner?(session[:user_id])) %>
+        <% if @request.is_owner?(session[:user_id]) %>
+            <% if @request.status==RequestStatus::ACCEPTED %>
+                <div style="margin-top: 7px;margin-bottom: 7px">
+                <div style="display: inline-block; float: left;margin-right: 10px"><%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
+                      <input type="hidden" value="1" name="a" id="a">
+                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
+                      <%= submit_tag :确认写手,:id=>'approve',:class=>'button_blue' %>
+                  <% end %>
+                </div>
+                <div style="display: inline-block; float: left"><%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
+                      <input type="hidden" value="0" name="a" id="a">
+                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
+                      <%= submit_tag :否决写手,:id=>'decline',:class=>'button_red' %>
+                  <% end %> </div>
+                <div class="clear"></div>
+                </div>
+      <% end %>
+        <% end %>
+        <% if (!@request.latest_submit.nil? && !@request.latest_submit.is_approved && @request.is_owner?(session[:user_id])) %>
             <div class="request_form_right_row">
               <div class="request_cell_row">
                 <a style="color: red" id="maker_approve_form" href="javascript:void(0)">有未审核进度报告</a>
               </div>
             </div>
         <% end %>
-        <% if @request.is_owner?(session[:user_id]) %>
+        <% if @request.is_owner?(session[:user_id]) &&  @request.status==RequestStatus::IN_PROCESS %>
             <div>
               <a href="javascript:void(0)" id="message_button">发送信息</a>
             </div>

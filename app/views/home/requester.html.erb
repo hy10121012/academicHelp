@@ -49,11 +49,11 @@
 
 <div class="dashboard_half_right">
   <div class="dashboard_item">
-    <div class="dashboard_item_title">任务记录</div>
+    <div class="dashboard_item_title">任务动态</div>
     <div class="dashboard_item_content">
       <% if @request_logs.size==0 %>
           <div class="dashboard_item_content_row">
-            暂时没有历史记录
+            暂时没有历史动态
           </div>
       <% else %>
           <% @request_logs.each do |request_log| %>

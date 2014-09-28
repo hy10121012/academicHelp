@@ -1,41 +1,47 @@
 <div class="register_box">
-  <h3>注册 -     请准确的填写以下信息，他们对帮助您寻找合适的帮助者非常重要</h3>
-  <%= form_for :user,url: users_path do |user| %>
+  <h3>注册 - 请准确的填写以下信息，他们对帮助您寻找合适的帮助者非常重要</h3>
+  <%= form_for :user, url: users_path do |user| %>
       <p>
         <%= user.label :姓 %><br>
         <%= user.text_field :first %>
       </p>
+
       <p>
         <%= user.label :名 %><br>
         <%= user.text_field :last %>
       </p>
+
       <p>
         <%= user.label :邮箱 %><br>
         <%= user.text_field :email %>
       </p>
       <p>
-        <%= user.label :目前就读学历 %><br>
-        <%= user.select :education_id, Education.all.collect {|e| [ e.name, e.id ] } %>
-      </p>
-      <p>
-        <%= user.label :科目 %><br>
-        <%= user.select :subject_area_id, SubjectArea.all.collect {|e| [ e.name, e.id ] } %>
-      </p>
-      <p>
-        <%= user.label :国家 %><br>
-        <%= user.select :country_id, Country.all.collect {|e| [ e.country_name, e.id ] } %>
-
-      </p>
-      <p>
-        <%= user.label :学校 %><br>
-        <%= user.text_field :university %>
-      </p>
-      <p>
-        <%= user.label :我要做 %><br>
+        <%= user.label :我要做 %>
+        <br>
         <select id="user_user_type_id" name="user[user_type_id]">
           <option value="1">我要做任务发布人</option>
           <option value="2">我要做任务承接人</option>
         </select>
+      </p>
+      <p>
+        <%= user.label :目前就读学历 %><br>
+        <%= user.select :education_id, Education.all.collect { |e| [e.name, e.id] } %>
+      </p>
+
+      <p>
+        <%= user.label :科目 %><br>
+        <%= user.select :subject_area_id, SubjectArea.all.collect { |e| [e.name, e.id] } %>
+      </p>
+
+      <p>
+        <%= user.label :国家 %><br>
+        <%= user.select :country_id, Country.all.collect { |e| [e.country_name, e.id] }, :include_blank => true %>
+
+      </p>
+
+      <p>
+        <%= user.label :学校 %><br>
+        <%= user.select :university_id, ['请先选择国家'] %>
       </p>
       <p>
         <%= user.label :密码 %><br>
@@ -46,5 +52,37 @@
         <%= user.submit :注册, :class=>'login_button' %>
       </p>
   <% end %>
-
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#user_country_id, #user_user_type_id').on('change', function () {
+            var countryObj =$('#user_country_id');
+            var url = 'get_university_by_country';
+            if($('#user_user_type_id').val()==2){
+                url = 'get_writer_university_by_country';
+            }
+            $.ajax({
+                url: '/'+url,
+                type: 'get',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                },
+                data: {id: countryObj.val()},
+                dataType: 'json',
+                success: function (data) {
+                    var newOptions = data;
+                    var $el = $('#user_university_id');
+                    $el.html(' ');
+                    $.each(newOptions, function(key, value) {
+                        $el.append($("<option></option>")
+                                .attr("value", value.id).text(value.name));
+                    });
+                }
+            });
+        })
+    })
+
+
+</script>
+

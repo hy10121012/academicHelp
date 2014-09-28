@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926220946) do
+ActiveRecord::Schema.define(version: 20140928085157) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20140926220946) do
     t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_wirter_university"
   end
 
   create_table "user_types", force: true do |t|
@@ -171,7 +172,7 @@ ActiveRecord::Schema.define(version: 20140926220946) do
     t.string   "email"
     t.string   "password"
     t.integer  "education_id"
-    t.string   "university"
+    t.integer  "university_id"
     t.integer  "country_id"
     t.integer  "user_type_id"
     t.datetime "created_at"
@@ -180,6 +181,7 @@ ActiveRecord::Schema.define(version: 20140926220946) do
     t.integer  "subject_area_id"
     t.boolean  "is_active"
     t.boolean  "is_validated"
+    t.string   "employer"
   end
 
   create_table "votes", force: true do |t|

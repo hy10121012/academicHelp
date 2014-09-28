@@ -15,6 +15,36 @@ class WelcomeController < ApplicationController
     redirect_to '/'
   end
 
+  def register_success
+
+  end
+
+  def activate_user
+    email = params[:email]
+    user = User.find_by_email(email)
+    if(Digest::MD5.hexdigest(user.id.to_s+user.email)==params[:token])
+      if(user.is_active.nil? || user.is_active==false)
+        user.is_active=true;
+        user.save
+      else
+        puts "already activated"
+      end
+      session[:user_id]= user.id;
+      session[:user_first]= user.first;
+      session[:user_last]= user.last;
+      session[:user_type_id]= user.user_type_id;
+      if(user.is_validated)
+        redirect_to '/home'
+      else
+        redirect_to '/validate_user'
+      end
+    else
+      puts "incorrect_token #{Digest::MD5.hexdigest(user.id.to_s+user.email)}== #{params[:token]}"
+    end
+
+  end
+
+
   def resend_email
 
   end
@@ -65,6 +95,15 @@ class WelcomeController < ApplicationController
 
   def register
     render layout: 'application'
+  end
+
+  def get_university_by_country_id
+    @university = University.where(:country_id => params[:id])
+    render :json => @university, :layout => false
+  end
+  def get_writer_university_by_country_id
+    @university = University.where(:country_id => params[:id])
+    render :json => @university, :layout => false
   end
 
 end

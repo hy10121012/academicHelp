@@ -27,3 +27,9 @@ development:
 production:
   <<: *default
   mode: live
+  app_id: APP-3RM86725R1389634C
+  username: hy10121012_api1.gmail.com
+  password: CB86S89H2HKWP7TS
+  signature: AFcWxV21C7fd0v3bYYYRCpSSRl31AJTi9hKoF7SIjuPgnEK15axCj2QY
+
+

@@ -50,14 +50,18 @@ AcdemicHelp::Application.routes.draw do
   post 'request/:id/take'=>'requests#do_take_request'
   post 'request/:id/approve'=>'requests#confirm_taker'
   get 'request/:id/payment'=>'requests#payment'
-  get 'user_activate/'=>'users#activate_user'
+  get 'user_activate/'=>'welcome#activate_user'
   get 'resend_email'=>'welcome#resend_email'
   get 'forgot'=>'welcome#forgot'
   post 'resend_email'=>'welcome#do_resend_email'
+  get 'validate_user'=>'users#validate_user'
+  get 'register_success'=>'welcome#register_success'
 
-
+  get 'get_university_by_country'=>'welcome#get_university_by_country_id'
+  get 'get_writer_university_by_country'=>'welcome#get_writer_university_by_country_id'
 
   post 'request_files'=>'request_files#do_upload_file'
+  post 'writer_validations'=>'users#do_validate_user'
   post 'request_files_delete'=>'request_files#do_delete_file'
 
 
