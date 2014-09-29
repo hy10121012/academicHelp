@@ -9,7 +9,7 @@
            有用户发布了新的适合您的新任务，任务详情如下:
 </p>
 <p>
-  来自:  <%=@request.user.country.country_name%> <%=@request.user.university%>    <br />
+  来自:  <%=@request.user.country.country_name%> <%=@request.user.university.name%>    <br />
   任务性质： <%=@request.user.education.name%> <%=@request.request_type.name%>     <br />
   任务名称：<%=@request.title%>    <br />
   任务详情：<%=@request.requirement%>    <br />

@@ -8,6 +8,11 @@ class UsersController < ApplicationController
       u  = user_params
       u[:password] = Digest::MD5.hexdigest(u[:password])
       u[:is_active] =false
+      puts "---->#{u.inspect}"
+      if !is_valid_user_data?(u)
+        redirect_to '/'
+      end
+      redirect_to '/'
       user = User.create(u)
       if user.save
         session[:user_id] = user.id
@@ -63,6 +68,19 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :university_id, :country_id, :user_type_id, :subject_area_id)
   end
+
+  def is_valid_user_data?(user_data)
+
+    user_data.each do |value|
+      puts "---->#{value.inspect}"
+      puts "---->#{value.length}"
+      if(value.nil? || value.length==0)
+        return false
+      end
+    end
+    return true
+  end
+
 
   def validation_params
     params.require(:writer_validation).permit(:file)

@@ -16,7 +16,7 @@
 
 <p>
   用户： <%= @taker.id %>    <br/>
-  来自：  <%= @taker.country.country_name %> <%= @taker.university %>    <br/>
+  来自：  <%= @taker.country.country_name %> <%= @taker.university.name %>    <br/>
   申请人学历： <%= @taker.education.name %>  <br/>
   诚信度：<%= @taker.get_reputation %> <br/>
   好评率：<%= @taker.get_rating %>      <br/>
@@ -30,7 +30,7 @@
 </p>
 
 <p>
-  来自:  <%= @request.user.country.country_name %> <%= @request.user.university %>    <br/>
+  来自:  <%= @request.user.country.country_name %> <%= @request.user.university.name %>    <br/>
   任务性质： <%= @request.user.education.name %> <%= @request.request_type.name %>     <br/>
   任务名称：<%= @request.title %>    <br/>
   任务详情：<%= @request.requirement %>    <br/>
