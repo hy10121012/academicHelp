@@ -34,7 +34,10 @@ AcdemicHelp::Application.routes.draw do
   get 'request_market'=>'requests#market_index' ,constraints: IsWriter
   get 'request/:id/cancel'=>'requests#cancel'
   get 'request/:id/submit'=>'requests#submit'
+  get 'request/:id/submitted'=>'requests#submitted'
   get 'request/:id/complaint'=>'requests#complaint'
+  get 'request/:id/created'=>'requests#created'
+  get 'request/has_paid'=>'requests#has_paid'
   get 'my_profile'=>'users#my_profile'
   post 'request/:id/complaint'=>'requests#do_complaint'
   post 'messages/send_message'=>'messages#send_message'

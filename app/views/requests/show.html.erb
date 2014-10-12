@@ -21,7 +21,28 @@
             <a style="color: #FFFFFF" class="button_blue" href="javascript:void(0)" id="maker_upload_file">上传文件</a>
         <% end %>
         <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::COMPLETED %>
-            <a style="color: #FFFFFF" class="button_red" href="javascript:void(0)" id="taker_cancel_task">取消任务</a>
+            <a style="color: #FFFFFF" class="button_red" href="javascript:void(0)" id="taker_cancel_task">放弃任务</a>
+        <% end %>
+    <% end %>
+
+    <% if session[:user_type_id]==2 %>
+        <% if  @request.status==(RequestStatus::SUBMITTED || RequestStatus::ACCEPTED) %>
+            <%  k= RequestAllocation.where(:taker_id => session[:user_id], :request_id => @request.id)%>
+            <% if k.count==0 %>
+                <% if @user.current_task_count>=3 %>
+                    <span class="text_gray">你已经承接了3个任务，不能再接受更多任务了</span>
+                <% elsif @user.is_validated.nil? || @user.is_validated==false %>
+                    <span class="text_gray">您必须先成为验证任务承接人才能承接任务，请先<a href="/validate_user">申请验证</a></span>
+                <% else %>
+                    <a href="javascript:void(0)" style="color: white" class="button_blue" id="taker_apply_form">参与任务竞标</a>
+                <% end %>
+            <% else %>
+                <%if k[0].is_approved.nil?%>
+                    <span class="text_gray">正在竞标中，请等待发布人回应 (竞标价 <%=k[0].bid%>)</span>
+                <%else%>
+                    <span class="text_gray">你已经申请过本项目，不能再次申请</span>
+                <%end%>
+            <% end %>
         <% end %>
     <% end %>
   </div>
@@ -41,13 +62,20 @@
       <div> <%= label_tag :目前状态 %>
         <div>
           <% if @request.status==RequestStatus::IN_PROCESS %>
-              <%=get_request_status(@request.status)%>  <span style="color: #929295">(完成度: <%= @request.latest_approved_submit.nil? ? "0" : @request.latest_approved_submit.process %>
+              <%= get_request_status(@request.status) %>
+              <span style="color: #929295">(完成度: <%= @request.latest_approved_submit.nil? ? "0" : @request.latest_approved_submit.process %>
                 %)</span>
           <% elsif @request.status==RequestStatus::CANCELLED %>
               <span style="color: red"> <%= get_request_status(@request.status) %></span>
           <% else %>
               <%= get_request_status(@request.status) %>
-          <% end %></div>
+          <% end %>
+          <% if @request.is_owner?(session[:user_id]) %>
+              <% if RequestAllocation.awaiting_allocation(@request.id).count>0 %>
+                  <span class="text_gray">(已有<%= RequestAllocation.awaiting_allocation(@request.id).count %>人竞标)</span> <a href="javascript:void(0)" id="taker_bid_list">查看竞标情况</a>
+              <% end %>
+          <% end %>
+        </div>
       </div>
       <hr>
       <div> <%= label_tag :任务描述 %>
@@ -89,17 +117,16 @@
       <div> <%= label_tag :交稿时间 %>
         <div class="request_cell_row"><%= int_to_date(@request.end_date) %></div>
       </div>
-
-      <div>发布者上传的文件：<%= @request.maker_upload_files.size %> <a id="load_file_list" href="javascript:void(0)">查看</a>
+      <div>
+        发布者上传的文件：<%= @request.maker_upload_files.size %> <a id="load_file_list" href="javascript:void(0)">查看</a>
       </div>
 
       <div>
         <% if @request.is_owner?(session[:user_id]) %>
-
             <% if @request.status==RequestStatus::HANDED_IN %>
                 <%= form_tag url_for(:controller => 'requests', :action => 'do_complete'), :method => 'post' do %>
                     <p>
-                      <%= submit_tag :我对质量感到满意，审核通过 %>
+                      <%= submit_tag :'我对质量感到满意，审核通过', :data => {disable_with: 'Saving...'}, :class => 'button_blue' %>
                       <%= link_to '我对质量不满意，我要投诉', :controller => 'requests', :action => 'complaint' %>
                     </p>
                 <% end %>
@@ -107,31 +134,26 @@
             <% if @request.status==RequestStatus::COMPLETED %>
                 <%= form_tag url_for(:controller => 'requests', :action => 'close_down'), :method => 'post' do %>
                     <p>
-                      <%= submit_tag :成绩要求达标，结束任务 %>
+                      <%= submit_tag :'成绩要求达标，结束任务', :data => {disable_with: 'Saving...'}, :class => 'button_blue' %>
                       <%= link_to '成绩未能达到要求，我要投诉', :controller => 'requests', :action => 'complaint' %>
                     </p>
-                <% end %>
-            <% end %>
-        <% end %>
-
-        <% if session[:user_type_id]==2 %>
-            <% if  @request.status==RequestStatus::SUBMITTED %>
-                <% if RequestAllocation.where(:taker_id => session[:user_id], :request_id => @request.id).count==0 %>
-                    <%= form_tag url_for(:controller => 'requests', :action => 'do_take_request'), :method => 'post' do %>
-                        <p>
-                          <%= submit_tag :领取任务 %>
-                        </p>
-                    <% end %>
-                <% else %>
-                    <span style="color: #929295">你已经申请承接过本项目，不能再次申请</span>
                 <% end %>
             <% end %>
         <% end %>
       </div>
     </div>
   </div>
-  <% if !@request.taker.nil? && (@request.is_owner?(session[:user_id]) || @request.taker.id==(session[:user_id])) %>
-      <div class="request_form_right">
+
+  <div class="request_form_right">
+    <% if !@request.taker.nil? && (@request.is_owner?(session[:user_id]) || @request.taker.id==(session[:user_id])) %>
+        <% if (!@request.latest_submit.nil? && !@request.latest_submit.is_approved && @request.is_owner?(session[:user_id])) %>
+            <div class="request_form_right_row">
+              <div class="request_cell_row text_gray">
+                <div><a class="text_red" id="maker_approve_form" href="javascript:void(0)">有未审核进度报告</a></div>
+                <div>请您立刻审核，如不在<b class="text_red"><%=3-(Time.now.strftime("%Y%m%d").to_i-@request.latest_submit.created_at.strftime("%Y%m%d").to_i)%></b>天内审核，系统将默认您对提交的报告满意</div>
+              </div>
+            </div>
+        <% end %>
         <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :承接人ID %></div>
           <div class="row_content"><%= link_to @request.taker.id, :controller => 'users', :action => 'show', :id => @request.taker.id %></div>
@@ -139,8 +161,8 @@
         <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :来自 %></div>
           <div class="row_content"><%= label_tag @request.taker.country.country_name %></div>
-        </div>                                       -234-+
-.       <div class="request_form_right_row">
+        </div>
+        <div class="request_form_right_row">
           <div class="row_title"><%= label_tag :学校 %></div>
           <div class="row_content"><%= label_tag @request.taker.university.name %></div>
         </div>
@@ -165,46 +187,24 @@
           <div class="row_content"><%= label_tag @request.taker.get_reputation %></div>
         </div>
         <div class="request_form_right_row">
-          <div>发布者上传的文件：<%= @request.get_taker_upload_files.size %>
+          <div>承接人上传的文件：<%= @request.get_taker_upload_files.size %>
             <a id="load_file_list_taker" href="javascript:void(0)">查看</a></div>
         </div>
-        <% if @request.is_owner?(session[:user_id]) %>
-            <% if @request.status==RequestStatus::ACCEPTED %>
-                <div style="margin-top: 7px;margin-bottom: 7px">
-                <div style="display: inline-block; float: left;margin-right: 10px"><%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
-                      <input type="hidden" value="1" name="a" id="a">
-                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
-                      <%= submit_tag :确认写手,:id=>'approve',:class=>'button_blue' %>
-                  <% end %>
-                </div>
-                <div style="display: inline-block; float: left"><%= form_tag url_for(:controller => 'requests', :action => 'confirm_taker'), :method => 'post' do %>
-                      <input type="hidden" value="0" name="a" id="a">
-                      <input type="hidden" value="<%= @request.taker.id %>" name="taker_id" id="taker_id">
-                      <%= submit_tag :否决写手,:id=>'decline',:class=>'button_red' %>
-                  <% end %> </div>
-                <div class="clear"></div>
-                </div>
-      <% end %>
-        <% end %>
-        <% if (!@request.latest_submit.nil? && !@request.latest_submit.is_approved && @request.is_owner?(session[:user_id])) %>
-            <div class="request_form_right_row">
-              <div class="request_cell_row">
-                <a style="color: red" id="maker_approve_form" href="javascript:void(0)">有未审核进度报告</a>
-              </div>
-            </div>
-        <% end %>
-        <% if @request.is_owner?(session[:user_id]) &&  @request.status==RequestStatus::IN_PROCESS %>
-            <div>
-              <a href="javascript:void(0)" id="message_button">发送信息</a>
-            </div>
-        <% end %>
-      </div>
-  <% end %>
+    <% end %>
+
+
+    <!--
+        <% if @request.is_owner?(session[:user_id]) && @request.status==RequestStatus::IN_PROCESS %>-->
+        <!--<div>-->
+        <!--<a href="javascript:void(0)" id="message_button">发送信息</a>-->
+        <!--</div>-->
+        <!--
+        <% end %>-->
+  </div>
+
   <div class="clear"></div>
 </div>
-<% if !@request.taker_allocation.nil? %>
-    <%= render partial: '/share/load_form.js', locals: {request: @request, request_file: @request_file, request_submits: @request_submits} %>
-<% end %>
+<%= render partial: '/share/load_form.js', locals: {request: @request, request_file: @request_file, request_submits: @request_submits} %>
 <script>
     $(document).ready(function () {
         $('#message_button').on('click', function (event) {
@@ -239,6 +239,15 @@
             $('body').prepend("<div id='blind_area'>" + get_maker_approve_form() + '</div>');
             clickFix(event)
         });
+        $('#taker_bid_list').on('click', function (event) {
+            $('body').prepend("<div id='blind_area'>" + get_taker_bid_list() + '</div>');
+            clickFix(event)
+        });
+        $('#taker_apply_form').on('click', function (event) {
+            $('body').prepend("<div id='blind_area'>" + get_taker_apply_form() + '</div>');
+            clickFix(event)
+        });
+
 
         function clickFix(event) {
             event.stopPropagation();

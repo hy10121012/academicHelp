@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<p>你好,<%= @user.first %> <%= @user.last %></p>
+<p>
+恭喜您！任务发布人接受了你的报价并同意让您承接任务<%=@request.title%> （编号：<%=@request.id%>）<br />
+</p>
+<p>
+  我们会在任务发布者付款后通知您，亲您届时开始任务 <br />
+</p>
+
+<p>
+ 具体情况请登入查看  <%= @url %>
+</p>
+<p>感谢您的支持！</p>
+</body>
+</html>

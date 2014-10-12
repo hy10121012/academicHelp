@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<p>你好,<%=@user.first %> <%=@user.last %></p>
+
+<p>
+  用户<%=@taker.id %>已经标记任务<%=@request.id %>（<%=@request.id %>）为<%=@progress%>%完成，请您查收。
+</p>
+
+<p>
+  任务详情
+</p>
+
+<p>
+  来自:  <%= @request.user.country.country_name %> <%= @request.user.university.name %>    <br/>
+  任务名称：<%= @request.title %>    <br/>
+  科目： <%= @request.subject_area.name %>    <br/>
+  成绩要求：<%= @request.expected_score %>    <br/>
+  字数要求：<%= @request.expected_score %>    <br/>
+  交稿日期：<%= @request.end_date %>    <br/>
+</p>
+
+<span style="color: red"><b>若您3天内没有异议，系统将默认您对完成质量没有异议。</b></span>
+<p>
+  具体情况请登入查看  <%= @url %>
+</p>
+
+<p>助学网团队</p>
+</body>
+</html>

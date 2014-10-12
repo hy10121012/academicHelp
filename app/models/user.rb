@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     self.user_type_id==2
   end
 
+  def current_task_count
+    RequestAllocation.where(:taker_id => self.id,:is_approved => true,:is_success => nil,:is_user_cancelled => nil).count
+  end
+
   def get_reputation
     if(user_type_id==1)
       total_count =Request.where(:user_id=>id).count;

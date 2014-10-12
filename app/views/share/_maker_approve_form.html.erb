@@ -19,6 +19,7 @@
             </div>
             <%end%>
         <% end %>
+        <div class="file_list_list_row" id="file_row_common"><b>请注意，您通过审核之后，承接人将锁定相对比例的报酬，若您之后取消了任务，该比例将仍然将被支付给承接人。</b></div>
       </div>
     </div>
 
@@ -34,6 +35,7 @@
             type: 'post',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+
             },
             data: {id:obj.attr("data-id"),approve_action:obj.attr("data-action")},
             dataType: 'json',

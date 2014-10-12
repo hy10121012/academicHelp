@@ -8,7 +8,7 @@
         <div class="clear"></div>
       </div>
       <div class="dashboard_item_content_row">
-        <div class="dashboard_item_row_title">未结算账款</div>
+        <div class="dashboard_item_row_title">未结算金额</div>
         <div class="dashboard_item_row_figure"><%= @summary['outstanding_amount'] %></div>
         <div class="clear"></div>
       </div>
@@ -18,34 +18,39 @@
         <div class="clear"></div>
       </div>
       <div class="dashboard_item_content_row">
-        <div class="dashboard_item_row_title">进行中任务</div>
-        <div class="dashboard_item_row_figure"><%= @summary['processing'] %></div>
+        <div class="dashboard_item_row_title">正在竞标的任务</div>
+        <div class="dashboard_item_row_figure"><%= @summary['applying'] %></div>
         <div class="clear"></div>
       </div>
       <div class="dashboard_item_content_row">
-        <div class="dashboard_item_row_title">复议中任务</div>
-        <div class="dashboard_item_row_figure"><%= @summary['argue'] %></div>
+        <div class="dashboard_item_row_title">进行中任务</div>
+        <div class="dashboard_item_row_figure"><%= @summary['processing'] %></div>
         <div class="clear"></div>
       </div>
     </div>
   </div>
 
   <div class="dashboard_item">
-    <div class="dashboard_item_title">现有任务</div>
+    <div class="dashboard_item_title">未结算账款</div>
     <div class="dashboard_item_content">
-      <% if @request_allocations.size==0 %>
-          <div class="dashboard_item_content_row">
-            暂时没有任务
+      <div class="dashboard_item_content_row">
+        <div class="dashboard_item_row_title">任务名称</div>
+        <div class="dashboard_item_row_figure">金额</div>
+        <div class="clear"></div>
+      </div>
+      <% if @pay_request==0 %>
+          <div class="dashboard_item_content_row text_gray">
+            没有未结算任务
           </div>
       <% else %>
           <% @request_allocations.each do |request_allocation| %>
-              <% if (request_allocation.is_approved==true &&  request_allocation.request.status!=(RequestStatus::CANCELLED || RequestStatus::CLOSED)) %>
+              <%if(!request_allocation.request.latest_approved_submit.nil? && request_allocation.request.latest_approved_submit.process>0 )%>
                   <div class="dashboard_item_content_row">
                     <div class="dashboard_item_row_title"><%= link_to request_allocation.request.title, :controller => 'requests', :action => 'show', :id => request_allocation.request.id %></div>
-                    <div class="dashboard_item_row_figure"><%= get_request_status(request_allocation.request.status) %></div>
+                    <div class="dashboard_item_row_figure"><%=request_allocation.get_pay_amount%></div>
                     <div class="clear"></div>
                   </div>
-              <% end %>
+              <%end%>
           <% end %>
       <% end %>
     </div>
@@ -57,40 +62,45 @@
     <div class="dashboard_item_title">任务动态</div>
     <div class="dashboard_item_content">
       <% if @request_logs.size==0 %>
-          <div class="dashboard_item_content_row">
+          <div class="dashboard_item_content_row text_gray">
             暂时没有历史动态
           </div>
       <% else %>
           <% @request_logs.each do |request_log| %>
-              <div class="dashboard_item_content_row">
-                <%= get_taker_request_action(request_log) %>
-              </div>
+              <%if get_taker_request_action(request_log).length>0%>
+                  <div class="dashboard_item_content_row">
+                    <%= get_taker_request_action(request_log) %>
+                  </div>
+              <%end%>
           <% end %>
       <% end %>
     </div>
   </div>
   <div class="dashboard_item">
-    <div class="dashboard_item_title">消息列表</div>
+    <div class="dashboard_item_title">进行中任务</div>
     <div class="dashboard_item_content">
-      <% if @messages.size==0 %>
+      <% if @request_allocations.size==0 %>
           <div class="dashboard_item_content_row">
             暂时没有消息
           </div>
       <% else %>
           <div class="dashboard_item_content_row">
-            <div class="dashboard_message_user">用户</div>
-            <div class="dashboard_message_content">内容</div>
-            <div class="dashboard_message_request">任务</div>
+            <div class="dashboard_message_user">任务</div>
+            <div class="dashboard_message_content">进度</div>
+            <div class="dashboard_message_request">截止日期</div>
             <div class="clear"></div>
           </div>
-          <% @messages.each do |message| %>
-              <div class="dashboard_item_content_row">
-                <div class="dashboard_message_user"><%= link_to message.taker_id, controller: "users", action: "show", id: message.maker_id %></div>
-                <div class="dashboard_message_content"><%= link_to message.message, controller: "messages", action: "show", request_id: message.request_id  %></div>
-                <div class="dashboard_message_request"><%= link_to message.request.title, controller: "requests", action: "show", id: message.request.id %></div>
-                <div class="clear"></div>
-              </div>
+          <% @request_allocations.each do |request_allocation| %>
+              <% if (request_allocation.is_approved==true &&  (request_allocation.request.status==RequestStatus::IN_PROCESS ||request_allocation.request.status== RequestStatus::AWAITING_PAYMENT) ) %>
+                  <div class="dashboard_item_content_row">
+                    <div class="dashboard_message_user"><%= link_to request_allocation.request.title, controller: "requests", action: "show", id: request_allocation.request_id %></div>
+                    <div class="dashboard_message_content"><%=request_allocation.request.latest_approved_submit.nil? ? 0 : request_allocation.request.latest_approved_submit.process %>%</div>
+                    <div class="dashboard_message_request"><%=int_to_date request_allocation.request.end_date %></div>
+                    <div class="clear"></div>
+                  </div>
+              <% end %>
           <% end %>
+
       <% end %>
     </div>
 

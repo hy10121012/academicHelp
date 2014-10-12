@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -30,6 +31,11 @@ a:link, a:visited, a:hover, a:focus, a:active {
     text-decoration:none;
     color: #1c94c4;
 }
+
+input[type="text"],input[type="password"],select, textarea{
+    border: 1px solid #c9cdcd;
+}
+
 
 body{
     padding: 0px;
@@ -152,4 +158,12 @@ h1 { font-size: 2.5rem; } /*40px*/
     color: #FFFFFF;
     border: 1px solid #800015;
     padding: 5px;
+}
+
+.text_gray{
+    color:  #929295;
+}
+
+.text_red{
+    color: red;
 }

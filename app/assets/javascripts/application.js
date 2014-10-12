@@ -24,7 +24,9 @@ $(document).ready(function () {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
+    $('form').on('submit',function(){
+        $('input[type="submit"]').attr("disabled",'true')
+    })
 })
 
  function close_blind(){

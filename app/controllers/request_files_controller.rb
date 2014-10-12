@@ -7,7 +7,6 @@ class RequestFilesController < ApplicationController
     else
       request_file[:is_maker_upload]=false
     end
-
     request_file[:user_id] =session[:user_id]
     file = RequestFile.create(request_file)
     file.save
@@ -18,7 +17,7 @@ class RequestFilesController < ApplicationController
     request_log.value = file.file_file_name
     request_log.value2= file.id
     request_log.save
-    redirect_to :action => 'show', :id => request_file[:request_id]
+    redirect_to :controller => 'requests', :action => 'show', :id => request_file[:request_id]
   end
 
 

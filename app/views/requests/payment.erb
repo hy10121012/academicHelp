@@ -12,22 +12,30 @@
       %)：<%= @request.user.country.currency.currency_code %> <%= (@request.price*SysProperty.get_maker_benchmark.to_f).round(2) %></p>
 
     <p>总共支付：<%= @request.user.country.currency.currency_code %> <%= (@request.price.round(2)+@request.price*SysProperty.get_maker_benchmark.to_f).round(2) %></p>
-
-   <hr />
+    <hr/>
+    <p>
+      <b>支付规则</b>
+      <p>- 您所付款项将由本平台代管</p>
+      <p>- 在任务完成前，付款不会被支付给承接人</p>
+      <p>- 任务承接人如果放弃任务，您的付款将被全款退还</p>
+      <p>- 若果您在任务期间取消了任务，任务承接人仍将根据任务完成度得到部分报酬</p>
+    </p>
+    <hr/>
     <p>
       <b>立即通过Paypal支付</b>
     </p>
     <p>
-        <span style="color: red">请注意！一旦支付费用您将无法更改任务报酬，请先确认金额再付款！</span><br/>
+      <span style="color: red">请注意！一旦支付费用您将无法更改任务报酬，请先确认金额再付款！</span><br/>
       <%= link_to @paypal_url do %>
           <img src="https://www.paypalobjects.com/it_IT/IT/Marketing/i/bnr/bnr_horizontal_solutiongraphic_335x80.gif" style="margin-right:7px;"/>
       <% end %>
     </p>
-    <%if @error%>
-    <p style="font-weight: bolder;color: red">
-     支付细节出现异常，请联系管理员
-    </p>
-    <%end%>
+    <% if @error %>
+        <p class="text_red">
+          支付细节出现异常，请联系管理员
+        </p>
+        <%=@error_message.inspect%>
+    <% end %>
     <p>
       <%= link_to "先不支付，回到上一页", :controller => 'requests', :action => 'show', :id => @request.id %>
     </p>

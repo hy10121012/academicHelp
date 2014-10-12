@@ -34,4 +34,13 @@ class WriterMailer < ActionMailer::Base
     @url  = "#{default_url_options[:host]}/requests/#{request.id}"
     mail(:to => user.email, :subject => "用户发布人#{request.user_id}，已经了任务支付#{request.id}的报酬")
   end
+
+  def send_taker_accept_mail(user,request)
+    @user = user
+    @request = request
+    @url  = "#{default_url_options[:host]}/requests/#{request.id}"
+    mail(:to => user.email, :subject => "恭喜你！你已经赢得了任务#{request.id}的竞标！")
+  end
+
+
 end

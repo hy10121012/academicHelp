@@ -1,20 +1,23 @@
 <h1>我的任务列表</h1>
+<p class="text_gray">
+  我们强烈建议您在完成部分任务后立即提交任务，已锁定您的酬劳
+</p>
 <div class="request_list_table">
   <div class="request_list_row title_row">
     <div style="width: 10%" class="request_list_cell">编号</div>
-    <div style="width: 50%" class="request_list_cell">标题</div>
-    <div style="width: 14%" class="request_list_cell">类型</div>
+    <div style="width: 49%" class="request_list_cell">标题</div>
+    <div style="width: 10%" class="request_list_cell">类型</div>
     <div style="width: 13%" class="request_list_cell">截止日期</div>
-    <div style="width: 10%; white-space: nowrap;" class="request_list_cell">状态</div>
+    <div style="width: 15%; white-space: nowrap;" class="request_list_cell">状态</div>
   </div>
   <% @requests.each do |request| %>
       <a class="" href="/requests/<%=request.id%>">
         <div class="request_list_row normal_row">
           <div style="width: 10%"  class="request_list_cell"><%= request.id %></div>
-          <div style="width: 50%"  class="request_list_cell"><%= request.title %></div>
-          <div style="width: 14%"  class="request_list_cell"><%= request.request_type.name %></div>
+          <div style="width: 49%"  class="request_list_cell"><%= request.title %></div>
+          <div style="width: 10%"  class="request_list_cell"><%= request.request_type.name %></div>
           <div style="width: 13%"  class="request_list_cell"><%= int_to_date(request.end_date) %></div>
-          <div style="width: 11%;"  class="request_list_cell"><%= get_request_status(request.status) %></div>
+          <div style="width: 15%;"  class="request_list_cell"><%= get_request_status(request.status) %><%if request.status==RequestStatus::IN_PROCESS%> (<%=request.latest_approved_submit.nil? ? "0" : request.latest_approved_submit.process %>%)<%else%><%end%></div>
         </div>
       </a>
   <% end %>

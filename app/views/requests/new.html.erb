@@ -2,39 +2,39 @@
   <div>
     <h2>发布新的任务</h2>
   </div>
-  <%= form_for :request, url: requests_path do |request| %>
+  <span id="warning" style="color: red;font-weight: bolder"></span>
+  <%= form_for :request, url: requests_path,:html => {:id => "request_form"} do |request| %>
       <div class="request_form_row">
         <div class="form_label">任务标题</div>
-        <%= request.text_field :title %>
+        <%= request.text_field :title,:class=>'mandatory',:placeholder=>'请输入任务标题' %>
       </div>
       <div class="request_form_row">
         <div class="form_label">任务详细要求</div>
-        <%= request.text_area :requirement, :style => 'height: 300px' %>
+        <%= request.text_area :requirement, :style => 'height: 300px',:class=>'mandatory',:placeholder=>'请输入任务的详细描述' %>
       </div>
       <div class="request_form_row">
         <div class="form_label">任务类型</div>
-        <%= request.select :request_type_id, RequestType.all.collect { |e| [e.name, e.id] } %>
+        <%= request.select :request_type_id, RequestType.all.collect { |e| [e.name, e.id] },:class=>'mandatory' %>
       </div>
       <div class="request_form_row">
         <div class="form_label">科目</div>
-        <%= request.text_field :subject %>
+        <%= request.text_field :subject,:class=>'mandatory',:placeholder=>'请输入本任务的所属科目' %>
       </div>
 
       <div class="request_form_row">
         <div class="form_label">学科</div>
-        <%= request.select :subject_area_id, SubjectArea.all.collect { |e| [e.name, e.id] } %>
+        <%= request.select :subject_area_id, SubjectArea.all.collect { |e| [e.name, e.id] },:class=>'mandatory' %>
       </div>
       <div class="request_form_row">
         <div class="form_label">字数要求</div>
-        <%= request.text_field :words %>
+        <%= request.radio_button :words,0,:name=>'word_req',:onclick=>'$("#request_words").val("").attr("disabled","disabled")' %> 没有要求 <%= request.radio_button :words,1,:name=>'word_req',:onclick=>'$("#request_words").removeAttr("disabled")',:checked =>true %> 字数：  <%= request.text_field :words,:class=>'mandatory',:style=>'width:30%' %>
       </div>
       <div class="request_form_row">
+        <div class="form_label">分数要求</div>
         <% if @user.country.country_code=='US' %>
-            <div class="form_label">分数要求</div>
-            <%= request.text_field :expected_score, :style=>'width:50px;',:maxlength=>"4" %>/4
+            <%= request.text_field :expected_score, :style=>'width:50px;',:maxlength=>"4",:class=>'mandatory',:style=>'width:30%' %>/4
         <% elsif @user.country.country_code=='GB' %>
-            <div class="form_label">分数要求</div>
-            <select name="request[expected_score]" id='request_expected_score'>
+            <select name="request[expected_score]" id='request_expected_score' class="mandatory" style='width:30%'>
               <option>
                 First
               </option>
@@ -52,22 +52,24 @@
               </option>
             </select>
         <% elsif @user.country.country_code=='AUS' %>
-            <div class="form_label">分数要求</div>
-            <%= request.text_field :expected_score,:style=>'width:50px;',:maxlength=>"3"  %> %
-        <% end %>
+            <%= request.text_field :expected_score,:style=>'width:50px;',:maxlength=>"3",:class=>'mandatory'  %> %
+        <% end %>  <span>请注意：分数要求越高，酬金预期就越较高</span>
       </div>
       <div class="request_form_row">
         <div class="form_label">价格（<%= @user.country.currency.currency_code %>）</div>
-        <%= request.text_field :price %>
+        <%= request.text_field :price,:class=>'mandatory',:placeholder=>'请输入任务的报酬',:style=>'width:30%' %>
       </div>
       <div class="request_form_row">
         <div class="form_label">交稿时间</div>
-        <%= request.text_field :end_date%>
+        <%= request.text_field :end_date,:class=>'mandatory',:placeholder=>'请输入任务的截止日期' %>
       </div>
       <div class="request_form_row">
-        <%= request.submit :提交 %>
+        <div class="form_label"></div>
+        <span class="text_red">提示：您可以在提交任务后使用上传附件功能上传作业的材料以及附加信息</span>
       </div>
-
+      <div class="request_form_row">
+        <%= request.submit :'发布任务',:id=>'submit', :class => 'button_blue', name: 'confirm', disable_with: 'Saving...' %>
+      </div>
   <% end %>
 
 
@@ -81,7 +83,51 @@
                 window.location = "?from=" + $('#from').val() + "&to=" + $('#to').val();
             }
             else {
+
                 alert("输入日期不合法")
+            }
+        })
+        $('#request_form').on('submit',function(){
+            var pass=true;
+            var form  = $(this)
+            $('.mandatory').each(function(){
+                if ($(this).val()=='' || $(this).val()=='undefined' || $(this).val()=='0'|| $(this).val()=='请先选择国家'){
+                    if($(this).attr('id')=='request_words'){
+                        if($('input[name=word_req]:checked').val()=='1'){
+                            $(this).css('border','1px solid red')
+                            pass=false;
+                        }else{
+                            $(this).css('border','1px solid #c9cdcd')
+                        }
+                    }else{
+                        $(this).css('border','1px solid red')
+                        pass=false;
+                    }
+
+                }else{
+                    $(this).css('border','1px solid #c9cdcd')
+                }
+            });
+            if($('#request_price, #request_words').each(function(){
+                if($(this).val().length>0 && !$.isNumeric($(this).val())){
+                    $(this).css('border','1px solid red')
+                    $(this).val("此栏必须为数字")
+                    pass=false;
+                }else{
+                    if($(this).val().length==0){
+
+                    }else{
+                        $(this).css('border','1px solid #c9cdcd')
+                    }
+                }
+            }))
+            if(pass==true){
+                $('#warning').text('')
+                form.submit()
+            }else{
+                $('#warning').text("请填写所有信息")
+                $('#submit').removeAttr("disabled")
+                return false;
             }
         })
     });

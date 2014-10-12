@@ -13,12 +13,19 @@ class RequestsController < ApplicationController
     if request.create_request
       send_email_to_appropriate_write(request)
     end
-    redirect_to '/my_request'
+    redirect_to :action => 'created', :id=>request.id
   end
-
+  def created
+    @id=params[:id]
+    request = Request.find(@id);
+    if request.user_id != session[:user_id]
+      redirect_to '/home'
+    end
+  end
 
   def show
     @request = Request.find(params[:id])
+    @user= User.find(session[:user_id])
     if (!@request.taker.nil?)
       @votes = Vote.find_vote(@request.taker.id)
     end
@@ -34,6 +41,11 @@ class RequestsController < ApplicationController
     @requests = Request.find_request_for_taker(session[:user_id])
   end
 
+  def submitted
+
+  end
+
+
   def cancel
   end
 
@@ -44,7 +56,7 @@ class RequestsController < ApplicationController
     if @paypal.express_checkout_response.success?
       @paypal_url = @paypal.api.express_checkout_url(@paypal.express_checkout_response)
     else
-      puts @paypal.express_checkout_response.inspect
+      @error_message = @paypal.express_checkout_response
       @error=true;
     end
   end
@@ -63,11 +75,13 @@ class RequestsController < ApplicationController
       payment_history.payerID = params[:PayerID]
       payment_history.save
       send_paid_email_to_taker_and_maker(request)
-      redirect_to :action => 'show', :id => params[:id]
+      redirect_to :action => 'has_paid'
     else
-      puts details.inspect
       @error_message = details.LongMessage
     end
+  end
+
+  def has_paid
 
   end
 
@@ -98,7 +112,11 @@ class RequestsController < ApplicationController
       self_user = User.find(session[:user_id])
       if(self_user.is_validated==true)
         request = Request.find(params[:id])
-        request.assign_to_user(session[:user_id])
+        bid =request.price
+        if params[:bid].to_i>0
+          bid = params[:bid]
+        end
+        request.assign_to_user(session[:user_id],bid)
         MakerMailer.send_taker_take_task(self_user,request).deliver
         redirect_to '/my_request'
       else
@@ -144,10 +162,10 @@ class RequestsController < ApplicationController
         request.transaction do
           if (request.taker.id == session[:user_id])
             if (submit_to_us)
-              if (params[:process].to_i==100)
-                request.status=RequestStatus::HANDED_IN
-                request.save
-              end
+              #if (params[:process].to_i==100)
+              #  request.status=RequestStatus::HANDED_IN
+              #  request.save
+              #end
             end
           end
           if !request.latest_submit.nil?
@@ -160,9 +178,10 @@ class RequestsController < ApplicationController
           request_log.save
           request_submit.save
         end
+        MakerMailer.send_taker_mark_progress(User.find(session[:user_id]),request,request_submit.process).deliver
       end
     end
-    redirect_to :action => 'show', :id => params[:id]
+    redirect_to :action => 'submitted', :id => params[:id]
   end
 
   def do_complete
@@ -202,11 +221,12 @@ class RequestsController < ApplicationController
     if (request.is_owner?(session[:user_id]))
       if (params[:a].to_i==1)
         request.accept_taker(params[:taker_id])
+        WriterMailer.send_taker_accept_mail(User.find(params[:taker_id]),request).deliver
       elsif (params[:a].to_i==0)
         request.reject_taker(params[:taker_id])
       end
     end
-    redirect_to '/my_request'
+    redirect_to :action=>'payment',:id=>params[:id]
   end
 
   def taker_cancel
@@ -218,6 +238,7 @@ class RequestsController < ApplicationController
   def approve_process
     if params[:approve_action]=="approve"
       approve_submit
+
     elsif params[:approve_action]=="decline"
       decline_submit
     end
@@ -228,6 +249,11 @@ class RequestsController < ApplicationController
   def approve_submit
     request_submit = RequestSubmit.find(params[:id])
     request_submit.approve
+    if (request_submit.process.to_i==100)
+      request = Request.find(request_submit.request_id)
+      #request.update(status: RequestStatus::HANDED_IN)
+      request.mark_as_accepted
+    end
   end
 
   def decline_submit

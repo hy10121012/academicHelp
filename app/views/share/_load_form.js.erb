@@ -33,5 +33,12 @@ get_maker_cancel_form = function(){
         var html = "<%=j render(:partial => '/share/maker_cancel_form',locals: { request: request,request_submits: request_submits}) %>";
         return html;
         }
-
+get_taker_bid_list = function(){
+        var html = "<%=j render(:partial => '/share/taker_bid_list',locals: { request: request,request_allocations: request.request_allocations}) %>";
+        return html;
+        }
+get_taker_apply_form = function(){
+        var html = "<%=j render(:partial => '/share/taker_apply_form',locals: { request: request}) %>";
+        return html;
+        }
 </script>

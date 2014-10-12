@@ -6,17 +6,17 @@ module RequestHelper
       when RequestStatus::DRAFT
         "草稿"
       when RequestStatus::SUBMITTED
-        "已提交，等待接受"
+        "接受竞标中"
       when RequestStatus::ACCEPTED
         "已被接受，等待委托人确认"
       when RequestStatus::AWAITING_PAYMENT
-        "已确认，等待付款"
+        "等待付款中"
       when RequestStatus::IN_PROCESS
         "正在进行"
       when RequestStatus::CANCELLED
         "已被取消"
       when RequestStatus::HANDED_IN
-        "已交货"
+        "已经提交所有任务"
       when RequestStatus::CLOSED
         "交易关闭"
       when RequestStatus::COMPLETED
@@ -69,19 +69,27 @@ module RequestHelper
 
   def get_taker_request_action(request_log)
     request_action =request_log.action
+    content="";
     case request_action
       when RequestAction::CREATE
         content =""
       when RequestAction::APPLY
-        content ="你以申请承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        if request_log.user_id.to_i==session[:user_id].to_i
+          content ="你已申请承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        end
       when RequestAction::ACCEPT
-        content = "发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>接受了你承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        puts "#{request_log.value}==#{session[:user_id]}";
+        if request_log.value.to_i==session[:user_id]
+          content = "发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>接受了你承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        end
       when RequestAction::REJECT
-        content ="发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>拒绝了你承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        if request_log.value.to_i==session[:user_id]
+          content ="发布人<a href='/users/#{request_log.user_id}'>#{request_log.user_id}</a>拒绝了你承接任务<a href='/requests/#{request_log.request.id}'>#{request_log.request.title}</a>"
+        end
       when RequestAction::UPLOAD
-        if (request_log.user_id==session[:user_id])
+        if request_log.user_id.to_i==session[:user_id].to_i
           content ="你在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
-        elsif (request_log.request.user_id==request_log.user_id)
+        elsif request_log.request.user_id==request_log.user_id
           content ="发布人在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"
         else
           content ="承接人在任务<a href='/requests/#{request_log.request_id}'>#{request_log.request.title}</a>上传了文件<a target='_blank' href='/request_doc/#{request_log.request_id}/#{request_log.value2}_#{request_log.value}'>#{request_log.value}</a>"

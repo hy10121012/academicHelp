@@ -129,14 +129,14 @@
 }
 
 .dashboard_message_user {
-  width: 10%;
+  width: 25%;
   float: left;
   height: 100%;
 
 }
 
 .dashboard_message_content {
-  width: 75%;
+  width: 25%;
   float: left;
   height: 100%;
 }
@@ -178,6 +178,7 @@
     width: 100%;
     max-width: 1045px;
     position: relative;
+    margin-bottom: 20px;
   }
 
 }
@@ -203,6 +204,8 @@
     width: 100%;
     max-width: 1045px;
     position: relative;
+    margin-bottom: 20px;
+
   }
 
 }

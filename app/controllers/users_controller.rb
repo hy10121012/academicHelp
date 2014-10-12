@@ -5,22 +5,22 @@ class UsersController < ApplicationController
   def create
     if (!User.exist?(params[:user][:email]))
       puts params[:user].except(:submit).inspect
-      u  = user_params
+      u = user_params
       u[:password] = Digest::MD5.hexdigest(u[:password])
-      u[:is_active] =false
       puts "---->#{u.inspect}"
       if !is_valid_user_data?(u)
         redirect_to '/'
-      end
-      redirect_to '/'
-      user = User.create(u)
-      if user.save
-        session[:user_id] = user.id
-        session[:user_type_id] = user.user_type_id
-        WriterMailer.welcome_email(user).deliver
-        redirect_to '/register_success'
       else
-        redirect_to '/'
+        u[:is_active] =false
+        user = User.create(u)
+        if user.save
+          session[:user_id] = user.id
+          session[:user_type_id] = user.user_type_id
+          WriterMailer.welcome_email(user).deliver
+          redirect_to '/register_success'
+        else
+          redirect_to '/'
+        end
       end
     else
       redirect_to '/'
@@ -55,13 +55,11 @@ class UsersController < ApplicationController
     validation = validation_params
     validation[:user_id] = session[:user_id];
     if WriterValidation.create(validation)
-      redirect_to :action => "validate_user", :params => {:id=> params[:id],:success=>true}
+      redirect_to :action => "validate_user", :params => {:id => params[:id], :success => true}
     else
-      redirect_to :action => "validate_user", :params => {:id=> params[:id],:success=>false}
+      redirect_to :action => "validate_user", :params => {:id => params[:id], :success => false}
     end
   end
-
-
 
 
   private
@@ -70,11 +68,9 @@ class UsersController < ApplicationController
   end
 
   def is_valid_user_data?(user_data)
-
     user_data.each do |value|
-      puts "---->#{value.inspect}"
-      puts "---->#{value.length}"
-      if(value.nil? || value.length==0)
+      puts value.inspect
+      if (value[1].nil? || value[1].length==0)
         return false
       end
     end
@@ -89,8 +85,8 @@ class UsersController < ApplicationController
   def do_user_stats(user_id)
     @user = User.find(user_id)
     @votes = Vote.find_vote(user_id)
-    @comments = Comment.where(:to_user_id=>user_id)
-    if(session[:user_type_id]==2)
+    @comments = Comment.where(:to_user_id => user_id)
+    if (session[:user_type_id]==2)
       @request_count =Request.count_request_by_type_taker(user_id)
     else
       @request_count = Request.count_request_by_type_maker(user_id)

@@ -1,5 +1,6 @@
 <div class="register_box">
-  <h3>注册 - 请准确的填写以下信息，他们对帮助您寻找合适的帮助者非常重要</h3>
+  <h3>注册</h3>
+  <b>请如实填写以下信息。您的信息将受到严格保密，不会透露给任何第三方，请放心填写。</b>
   <span id="warning" style="color: red;font-weight: bolder"></span>
   <%= form_for :user, url: users_path,:html => {:id => "register_form"} do |user| %>
       <p>
@@ -17,11 +18,11 @@
         <%= user.text_field :email,:class=>'mandatory' %>
       </p>
       <p>
-        <%= user.label :我要做 %>
+        <%= user.label :我要 %>
         <br>
         <select id="user_user_type_id" class="mandatory" name="user[user_type_id]">
-          <option value="1">我要做任务发布人</option>
-          <option value="2">我要做任务承接人</option>
+          <option value="1">发布任务</option>
+          <option value="2">承接任务</option>
         </select>
       </p>
       <p>
@@ -37,7 +38,6 @@
       <p>
         <%= user.label :国家 %><br>
         <%= user.select :country_id, Country.all.collect { |e| [e.country_name, e.id] }, {:include_blank => true},{:class=>'mandatory'} %>
-
       </p>
 
       <p>
@@ -50,82 +50,8 @@
       </p>
 
       <p>
-        <%= user.submit :注册, :class=>'login_button' %>
+        <%= user.submit :注册,:id=>'submit', :class=>'login_button', disable_with: 'Saving...' %>
       </p>
   <% end %>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $('#user_country_id, #user_user_type_id').on('change', function () {
-            var countryObj =$('#user_country_id');
-            var url = 'get_university_by_country';
-            if($('#user_user_type_id').val()==2){
-                url = 'get_writer_university_by_country';
-            }
-            $.ajax({
-                url: '/'+url,
-                type: 'get',
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-                },
-                data: {id: countryObj.val()},
-                dataType: 'json',
-                success: function (data) {
-                    var newOptions = data;
-                    var $el = $('#user_university_id');
-                    $el.html(' ');
-                    $.each(newOptions, function(key, value) {
-                        $el.append($("<option></option>")
-                                .attr("value", value.id).text(value.name));
-                    });
-                }
-            });
-        }) ;
-
-        $('#user_email').on('blur',function(){
-            if( !isValidEmailAddress($(this).val()) ) {
-                $('#email_warning').text('邮箱格式不正确')
-            }else{
-                $('#email_warning').text('');
-            }
-        });
-
-//        $('#register_form').on('submit',function(){
-//            var pass=true;
-//            var form  = $(this)
-//            $('.mandatory').each(function(){
-//                if ($(this).val()=='' || $(this).val()=='undefined' || $(this).val()=='0'|| $(this).val()=='请先选择国家'){
-//                    $(this).css('border','1px solid red')
-//                    pass=false;
-//                }else{
-//                    $(this).css('border','0px')
-//                }
-//            })
-//            if( !isValidEmailAddress($('#user_email').val()) ) {
-//                $('#email_warning').text('邮箱格式不正确')
-//                pass=false;
-//            }else{
-//                $('#email_warning').text('');
-//            }
-//            if(pass==true){
-//                $('#warning').text('')
-//                form.submit()
-//            }else{
-//                $('#warning').text("请填写所有信息")
-//                return false;
-//            }
-//        })
-//
-//        function isValidEmailAddress(emailAddress) {
-//            var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-//            return pattern.test(emailAddress);
-//        };
-//
-
-
-    })
-
-
-</script>
-
+<%= javascript_include_tag "register_form", "data-turbolinks-track" => true %>

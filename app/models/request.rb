@@ -7,7 +7,7 @@ class Request < ActiveRecord::Base
   has_many :request_submits
   has_one :latest_submit, -> { where "is_latest_version=true" }, :class_name => 'RequestSubmit'
   has_one :latest_approved_submit, -> { where("is_approved=true").order("process desc, id desc")}, :class_name => 'RequestSubmit'
-  has_one :taker_allocation, -> { where "(is_approved is null or is_approved=true) and (is_success is null or is_success=1)" }, :class_name => 'RequestAllocation'
+  has_one :taker_allocation, -> { where "(is_approved=true) and (is_success is null or is_success=1)" }, :class_name => 'RequestAllocation'
   has_one :taker, :class_name => 'User', :through => :taker_allocation
   has_many :maker_upload_files, -> { where "is_maker_upload = true and (is_deleted=false or is_deleted is null)" }, :class_name => 'RequestFile'
   has_many :taker_upload_files, -> { where "is_maker_upload = false and (is_deleted=false or is_deleted is null)" }, :class_name => 'RequestFile'
@@ -15,9 +15,11 @@ class Request < ActiveRecord::Base
   def is_owner?(user_id)
     self.user_id== user_id
   end
-
+  def is_taker?(user_id)
+    self.taker.id== user_id
+  end
   def self.find_request_for_taker(user_id)
-    @requests = Request.joins("left join request_allocations on request_allocations.request_id = requests.id").where("request_allocations.taker_id=#{user_id} ").order("requests.id desc")
+    @requests = Request.joins("left join request_allocations on request_allocations.request_id = requests.id").where("request_allocations.taker_id=#{user_id} and (request_allocations.is_approved=1 or request_allocations.is_approved is null) ").order("requests.id desc")
   end
 
   def get_taker_upload_files
@@ -31,18 +33,17 @@ class Request < ActiveRecord::Base
   end
 
 
-  def assign_to_user(user_id)
+  def assign_to_user(user_id,bid)
     transaction do
       request_allocation = RequestAllocation.new;
       request_allocation.request_id = self.id
       request_allocation.taker_id = user_id
+      request_allocation.bid = bid
       request_log = RequestLog.new
       request_log.user_id = user_id
       request_log.action = RequestAction::APPLY
       request_log.request_id=self.id
       request_log.save
-      self.status = RequestStatus::ACCEPTED
-      self.save
       request_allocation.save
     end
   end
@@ -68,19 +69,34 @@ class Request < ActiveRecord::Base
 
   def accept_taker(user_id)
     transaction do
-      request_log = RequestLog.new
-      request_log.user_id = self.user_id
-      request_log.action = RequestAction::ACCEPT
-      request_log.request_id=self.id
-      request_log.value=user_id
-      request_log.save
       self.status=RequestStatus::AWAITING_PAYMENT
-      self.save
-
-      if (!self.taker_allocation.nil?)
-        self.taker_allocation.is_approved=1
-        self.taker_allocation.save
+      reqeust_allocations = RequestAllocation.where(:request_id => self.id)
+      if (reqeust_allocations.size>0)
+        reqeust_allocations.each do |allocation|
+          puts "#{allocation.taker_id}---#{user_id}";
+          if allocation.taker_id.to_i ==user_id.to_i
+            request_log = RequestLog.new
+            request_log.user_id = self.user_id
+            request_log.action = RequestAction::ACCEPT
+            request_log.request_id=self.id
+            request_log.value=user_id
+            request_log.save
+            self.price = allocation.bid
+            allocation.is_approved=1
+            allocation.save
+          else
+            request_log = RequestLog.new
+            request_log.user_id = self.user_id
+            request_log.action = RequestAction::REJECT
+            request_log.request_id=allocation.request_id
+            request_log.value=allocation.taker_id
+            request_log.save
+            allocation.is_approved=0
+            allocation.save
+          end
+        end
       end
+      self.save
     end
   end
 
@@ -214,7 +230,7 @@ class Request < ActiveRecord::Base
 
 
   def self.find_suitable_open_request(user)
-    Request.where(subject_area_id: user.subject_area_id, status: RequestStatus::SUBMITTED)
+    Request.where(subject_area_id: user.subject_area_id, status: RequestStatus::SUBMITTED).order("created_at desc")
   end
 
   def get_fee

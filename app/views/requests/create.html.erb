@@ -1,2 +1,8 @@
-<h1>Request#create</h1>
-<p>Find me in app/views/request/create.html.erb</p>
+<div class="profile_top_bg">
+  <div style="padding: 30px;box-sizing: border-box">
+    <div style="text-align: center"><b>您的任务已经发布，系统已经将你的任务详情发送给适合这个任务的承接人，请您耐心等待承接人的竞标。届时我们会通过Email通知您，请注意查收。</b> </div>
+    <div class="text_red"  style="text-align: center"><p><b>请在<%=link_to '这里',:controller => 'requests',:action=>'show',:id=>@request.id %>上传任何与任务有关的附件，以方便潜在任务承接人了解任务详情<a href="/home"></b></p></div>
+    <div><a href="/home"><p><<返回主页</a></p></div>
+  </div>
+</div>
+

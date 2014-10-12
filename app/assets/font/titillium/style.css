@@ -4,7 +4,7 @@
 font-family: 'TitilliumText22L-Thin';
 font-style: normal;
 font-weight: normal;
-src: local('TitilliumText22L-Thin'), url('TitilliumText22L001.woff') format('woff');
+src: local('TitilliumText22L-Thin'), url('/assets/TitilliumText22L001.woff') format('woff');
 }
 
 
@@ -12,7 +12,7 @@ src: local('TitilliumText22L-Thin'), url('TitilliumText22L001.woff') format('wof
 font-family: 'TitilliumText22L-Light';
 font-style: normal;
 font-weight: normal;
-src: local('TitilliumText22L-Light'), url('TitilliumText22L002.woff') format('woff');
+src: local('TitilliumText22L-Light'), url('/assetsTitilliumText22L002.woff') format('woff');
 }
 
 
@@ -20,7 +20,7 @@ src: local('TitilliumText22L-Light'), url('TitilliumText22L002.woff') format('wo
 font-family: 'TitilliumText22L-Regular';
 font-style: normal;
 font-weight: normal;
-src: local('TitilliumText22L-Regular'), url('TitilliumText22L003.woff') format('woff');
+src: local('TitilliumText22L-Regular'), url('/assetsTitilliumText22L003.woff') format('woff');
 }
 
 
@@ -28,7 +28,7 @@ src: local('TitilliumText22L-Regular'), url('TitilliumText22L003.woff') format('
 font-family: 'TitilliumText22L-Medium';
 font-style: normal;
 font-weight: normal;
-src: local('TitilliumText22L-Medium'), url('TitilliumText22L004.woff') format('woff');
+src: local('TitilliumText22L-Medium'), url('/assetsTitilliumText22L004.woff') format('woff');
 }
 
 

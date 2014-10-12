@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928085157) do
+ActiveRecord::Schema.define(version: 20141001191544) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140928085157) do
     t.boolean  "is_approved"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bid"
   end
 
   create_table "request_files", force: true do |t|

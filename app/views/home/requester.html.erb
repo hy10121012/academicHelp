@@ -17,27 +17,27 @@
         <div class="dashboard_item_row_figure"><%= @summary['processing'] %></div>
         <div class="clear"></div>
       </div>
-      <div class="dashboard_item_content_row">
-        <div class="dashboard_item_row_title">复议中任务</div>
-        <div class="dashboard_item_row_figure"><%= @summary['argue'] %></div>
-        <div class="clear"></div>
-      </div>
     </div>
   </div>
 
   <div class="dashboard_item">
-    <div class="dashboard_item_title">现有任务</div>
+    <div class="dashboard_item_title">未付款任务</div>
     <div class="dashboard_item_content">
-      <% if @requests.size==0 %>
+      <div class="dashboard_item_content_row">
+        <div class="dashboard_item_row_title">任务</div>
+        <div class="dashboard_item_row_figure">金额 (<%=@user.country.currency.currency_code%>)</div>
+        <div class="clear"></div>
+      </div>
+      <% if @awaiting_pay==0 %>
           <div class="dashboard_item_content_row">
-            暂时没有任务
+            暂时没有未付款任务
           </div>
       <% else %>
           <% @requests.each do |request| %>
-              <% if (request.status!="CANCELLED") %>
+              <% if (request.status==RequestStatus::AWAITING_PAYMENT) %>
                   <div class="dashboard_item_content_row">
                     <div class="dashboard_item_row_title"><%= link_to request.title, :controller => 'requests', :action => 'show', :id => request.id %></div>
-                    <div class="dashboard_item_row_figure"><%= get_request_status(request.status) %></div>
+                    <div class="dashboard_item_row_figure"><%= request.price %></div>
                     <div class="clear"></div>
                   </div>
               <% end %>
@@ -64,31 +64,37 @@
       <% end %>
     </div>
   </div>
+
   <div class="dashboard_item">
-    <div class="dashboard_item_title">消息列表</div>
+    <div class="dashboard_item_title">进行中任务</div>
     <div class="dashboard_item_content">
-      <% if @messages.size==0 %>
+      <% if @requests.size==0 %>
           <div class="dashboard_item_content_row">
             暂时没有消息
           </div>
       <% else %>
           <div class="dashboard_item_content_row">
-            <div class="dashboard_message_user">用户</div>
-            <div class="dashboard_message_content">内容</div>
-            <div class="dashboard_message_request">任务</div>
+            <div class="dashboard_message_user">任务</div>
+            <div class="dashboard_message_content">进度</div>
+            <div class="dashboard_message_content">状态</div>
+            <div class="dashboard_message_request">截止日期</div>
             <div class="clear"></div>
           </div>
-          <% @messages.each do |message| %>
-              <div class="dashboard_item_content_row">
-                  <div class="dashboard_message_user"><%= link_to message.taker_id, controller: "users", action: "show", id: message.taker_id %></div>
-                  <div class="dashboard_message_content"><%= link_to message.message, controller: "messages", action: "show", request_id: message.request_id  %></div>
-                  <div class="dashboard_message_request"><%= link_to message.request.title, controller: "requests", action: "show", id: message.request.id %></div>
-                <div class="clear"></div>
-              </div>
+          <%k=0; @requests.each do |request| %>
+              <% break if k>=10%>
+              <% if (request.status!=RequestStatus::CLOSED) %>
+                  <%k+=1%>
+                  <div class="dashboard_item_content_row">
+                    <div class="dashboard_message_user"><%= link_to request.title, controller: "requests", action: "show", id: request.id %></div>
+                    <div class="dashboard_message_content"><%= request.latest_approved_submit.nil? ? 0 : request.latest_approved_submit.process %>%</div>
+                    <div class="dashboard_message_content"><%= get_request_status(request.status) %></div>
+                    <div class="dashboard_message_request"><%= int_to_date request.end_date %></div>
+                    <div class="clear"></div>
+                  </div>
+              <% end %>
           <% end %>
       <% end %>
     </div>
-
   </div>
 </div>
 

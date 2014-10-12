@@ -3,6 +3,7 @@
     <%= form_for(request_file,id: "file_upload_form", html: { multipart: true }) do |f| %>
         <div id="file_upload_form_box" class="central_form">
           <div id="click_able">
+            <p class="file_upload_title"><b>上传文件必须为doc,docx,xls,xlsx,pdf,jpg,big或者WPS系列文件类型为后缀</b></p>
             <div class="file_upload_title">
               描述：<%= f.text_field :description ,class: "file_description"%>
               <%= f.hidden_field :request_id ,value:request.id %>
