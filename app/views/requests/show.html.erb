@@ -6,10 +6,10 @@
         <% if @request.status==RequestStatus::AWAITING_PAYMENT %>
             <a style="color: #FFFFFF" class="button_blue" href="/request/<%= @request.id %>/payment">付款</a>
         <% end %>
-        <% if @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
+        <% if @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::COMPLETED  && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
             <a style="color: #FFFFFF" class="button_blue" href="javascript:void(0)" id="maker_upload_file">上传文件</a>
         <% end %>
-        <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
+        <% if  @request.status!=RequestStatus::HANDED_IN && @request.status!=RequestStatus::COMPLETED  && @request.status!=RequestStatus::CLOSED && @request.status!=RequestStatus::CANCELLED %>
             <a style="color: #FFFFFF" class="button_red" href="javascript:void(0)" id="maker_cancel_task">取消任务</a>
         <% end %>
     <% end %>
@@ -32,13 +32,13 @@
                 <% if @user.current_task_count>=3 %>
                     <span class="text_gray">你已经承接了3个任务，不能再接受更多任务了</span>
                 <% elsif @user.is_validated.nil? || @user.is_validated==false %>
-                    <span class="text_gray">您必须先成为验证任务承接人才能承接任务，请先<a href="/validate_user">申请验证</a></span>
+                    <span class="text_red">您必须先成为验证任务承接人才能承接任务，请先<a href="/validate_user">申请验证</a></span>
                 <% else %>
                     <a href="javascript:void(0)" style="color: white" class="button_blue" id="taker_apply_form">参与任务竞标</a>
                 <% end %>
             <% else %>
                 <%if k[0].is_approved.nil?%>
-                    <span class="text_gray">正在竞标中，请等待发布人回应 (竞标价 <%=k[0].bid%>)</span>
+                    <span class="text_gray"><b>正在竞标中，请等待发布人回应 (竞标价 <%=k[0].bid%>)</b></span>
                 <%else%>
                     <span class="text_gray">你已经申请过本项目，不能再次申请</span>
                 <%end%>
@@ -114,7 +114,7 @@
         <div class="request_cell_row"><%= @request.price %> <%= @request.user.country.currency.currency_code %></div>
       </div>
       <hr>
-      <div> <%= label_tag :交稿时间 %>
+      <div> <%= label_tag :截止时间 %>
         <div class="request_cell_row"><%= int_to_date(@request.end_date) %></div>
       </div>
       <div>
@@ -132,6 +132,8 @@
                 <% end %>
             <% end %>
             <% if @request.status==RequestStatus::COMPLETED %>
+                <div class="text_gray">请您在任务完成完成后根据结果对任务承接人的提供反馈，谢谢您的帮助！</div>
+                <div><a style="color: #FFFFFF" href="javascript:void(0)" id ="maker_feedback_form" class="button_blue">提交回馈结束任务</a></div>
                 <%= form_tag url_for(:controller => 'requests', :action => 'close_down'), :method => 'post' do %>
                     <p>
                       <%= submit_tag :'成绩要求达标，结束任务', :data => {disable_with: 'Saving...'}, :class => 'button_blue' %>
@@ -145,8 +147,8 @@
   </div>
 
   <div class="request_form_right">
-    <% if !@request.taker.nil? && (@request.is_owner?(session[:user_id]) || @request.taker.id==(session[:user_id])) %>
-        <% if (!@request.latest_submit.nil? && !@request.latest_submit.is_approved && @request.is_owner?(session[:user_id])) %>
+    <% if !@request.taker.nil? && @request.is_owner?(session[:user_id]) %>
+        <% if (!@request.latest_submit.nil? && @request.latest_submit.is_approved.nil? && @request.is_owner?(session[:user_id])) %>
             <div class="request_form_right_row">
               <div class="request_cell_row text_gray">
                 <div><a class="text_red" id="maker_approve_form" href="javascript:void(0)">有未审核进度报告</a></div>
@@ -190,8 +192,42 @@
           <div>承接人上传的文件：<%= @request.get_taker_upload_files.size %>
             <a id="load_file_list_taker" href="javascript:void(0)">查看</a></div>
         </div>
+    <% else %>
+        <% if !@request.is_owner?(session[:user_id])%>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :发布人ID %></div>
+          <div class="row_content"><%= link_to @request.user.id, :controller => 'users', :action => 'show', :id => @request.user.id %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :来自 %></div>
+          <div class="row_content"><%= label_tag @request.user.country.country_name %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :学校 %></div>
+          <div class="row_content"><%= label_tag @request.user.university.name %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :学历 %></div>
+          <div class="row_content"><%= label_tag @request.user.education.name %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :学科 %></div>
+          <div class="row_content"><%= label_tag @request.user.subject_area.name %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :任务完成率 %></div>
+          <div class="row_content"><%= label_tag @request.user.request_complete_rate %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :好评率 %></div>
+          <div class="row_content"><%= label_tag @request.user.get_rating %></div>
+        </div>
+        <div class="request_form_right_row">
+          <div class="row_title"><%= label_tag :诚信度 %></div>
+          <div class="row_content"><%= label_tag @request.user.get_reputation %></div>
+        </div>
+        <% end %>
     <% end %>
-
 
     <!--
         <% if @request.is_owner?(session[:user_id]) && @request.status==RequestStatus::IN_PROCESS %>-->
@@ -247,7 +283,10 @@
             $('body').prepend("<div id='blind_area'>" + get_taker_apply_form() + '</div>');
             clickFix(event)
         });
-
+        $('#maker_feedback_form').on('click', function (event) {
+            $('body').prepend("<div id='blind_area'>" + get_maker_feedback_form() + '</div>');
+            clickFix(event)
+        });
 
         function clickFix(event) {
             event.stopPropagation();

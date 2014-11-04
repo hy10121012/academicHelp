@@ -5,8 +5,8 @@
           <div id="click_able">
             <div style="text-align: left">
               <div class="submit_form_option"><b>请您选择竞标价格</b></div>
-              <div class="submit_form_option"><input type="radio" name="bid_mode" value="default" checked="true" onclick="$('#bid').val(<%=request.price%>).attr('disabled','disabled')"> 接受发布人报价(<%=request.user.country.currency.currency_code%> <%=request.price%>) </div>
-              <div class="submit_form_option"><input type="radio" name="bid_mode" value="custom" onclick="$('#bid').val('').removeAttr('disabled')"> 报价： <input  value="<%=request.price%>" type="text" name="bid" id="bid" disabled='disabled' /> <%=request.user.country.currency.currency_code%></div>
+              <div class="submit_form_option"><input id="default_bid" type="radio" name="bid_mode" value="default" checked="true"> 接受发布人报价(<%=request.user.country.currency.currency_code%> <%=request.price%>) </div>
+              <div class="submit_form_option"><input id="custom_bid" class="bid_mode" type="radio" name="bid_mode" value="custom"> 报价： <input  value="<%=request.price%>" type="text" name="bid" id="bid" disabled="disabled"  /> <%=request.user.country.currency.currency_code%></div>
             </div>
             <div>
               <%= submit_tag :参加竞标,:data=>{disable_with: 'Saving...'},:class=>'button_blue' %>
@@ -16,3 +16,17 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+      $('#default_bid').on('click',function(){
+          $('#bid').val(<%=request.price%>)
+          $('#bid').attr('disabled','disabled')
+      })
+      $('#custom_bid').on('click',function(){
+          $('#bid').val('');
+          $('#bid').removeAttr('disabled') ;
+      })
+  })
+
+</script>

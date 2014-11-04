@@ -50,6 +50,7 @@ body{
 html { padding: 0px; } /*16px*/
 body { font-size: 1rem;background-color: #f3f3f5;padding: 0px; } /*16px*/
 h1 { font-size: 2.5rem; } /*40px*/
+h2 { font-size: 2rem; } /*40px*/
 
 @media only screen and (min-device-width: 480px) and (max-device-width: 640px) {
     html { font-size: 130%; } /*body=12px and h1=30px*/
@@ -65,6 +66,7 @@ h1 { font-size: 2.5rem; } /*40px*/
     background-color:rgba(0,0,0,0.5);
     width: 100%;
     height: 100%;
+    z-index: 100;
 }
 
 .head_nav{
@@ -127,6 +129,26 @@ h1 { font-size: 2.5rem; } /*40px*/
     font-weight: bolder;
     color: #1c94c4;
 }
+
+.in_line_block_row{
+    text-align: left;
+    display: block;
+    position: relative;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.in_line_block_title{
+    display: inline-block;
+    width: 120px;
+}
+
+.in_line_block{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px
+}
+
 
 .file_description{
     width: 80%;

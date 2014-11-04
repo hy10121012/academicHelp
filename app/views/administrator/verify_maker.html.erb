@@ -1,0 +1,28 @@
+<table border="1" >
+  <tr>
+    <th>姓</th>
+    <th>名</th>
+    <th>EMAIL</th>
+    <th>国家</th>
+    <th>大学</th>
+    <th>材料</th>
+    <th>通过验证</th>
+    <th>不通过验证</th>
+  </tr>
+  <% @users.each do |user| %>
+      <% if !user.writer_validation.nil? %>
+          <tr>
+            <td> <%= user.last %> </td>
+            <td><%= user.first %></td>
+            <td><%= user.email %></td>
+            <td><%= user.country.country_name %></td>
+            <td> <%= user.university.name %></td>
+            <td>
+              <a target="_blank" href="/writer_validations/<%= user.id %>/<%= user.writer_validation.id %>_<%= user.writer_validation.file_file_name %>"><%= user.writer_validation.file_file_name %></a>
+            </td>
+            <td><%=form_for(user,id: "file_upload_form",:url => {:controller=> :administrator,:action => :do_verify_maker}) do |f|%><%= f.hidden_field :id ,value:user.id %><%= f.hidden_field :action ,value:'1' %> <%= f.submit '通过验证' %><%end%></td>
+            <td><%=form_for(user,id: "file_upload_form", :url => {:controller=> :administrator,:action => :do_verify_maker}) do |f|%><%= f.hidden_field :id ,value:user.id %><%= f.hidden_field :action ,value:'0' %> <%= f.submit '不通过验证' %><br /> 原因： <input type="text" name="user[reason]" id="user_reason"> <%end%></td>
+          </tr>
+      <% end %>
+  <% end %>
+</table>

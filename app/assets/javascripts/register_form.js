@@ -44,6 +44,30 @@ $(document).ready(function () {
         }
     });
 
+    $('#university_box').on('change',function(){
+        $.ajax({
+            url: '/find_country',
+            type: 'get',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            data: {input: $(this).val()},
+            dataType: 'json',
+            success: function (data) {
+                var newOptions = data;
+                var $el = $('#university_box');
+
+                $.each(newOptions, function(key, value) {
+                    $el.append($("<div>")
+                        .attr("value", value.id).text(value.name));
+                });
+            }
+        });
+    });
+
+
+
+
     $('#register_form').on('submit',function(){
         var pass=true;
         var form  = $(this)

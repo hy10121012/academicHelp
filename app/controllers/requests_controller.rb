@@ -27,7 +27,6 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @user= User.find(session[:user_id])
     if (!@request.taker.nil?)
-      @votes = Vote.find_vote(@request.taker.id)
     end
     @request_file = RequestFile.new
     @request_submits = RequestSubmit.request_grouped_submits(@request.id)
@@ -178,7 +177,7 @@ class RequestsController < ApplicationController
           request_log.save
           request_submit.save
         end
-        MakerMailer.send_taker_mark_progress(User.find(session[:user_id]),request,request_submit.process).deliver
+        MakerMailer.send_taker_mark_progress(User.find(session[:user_id]),request,params[:process]).deliver
       end
     end
     redirect_to :action => 'submitted', :id => params[:id]
@@ -195,6 +194,18 @@ class RequestsController < ApplicationController
   def close_down
     request = Request.find(params[:id])
     if (request.is_owner?(session[:user_id]))
+      vote = Vote.new
+      comment = Comment.new
+      comment.comment =params[:comment]
+      comment.from_user_id=session[:user_id]
+      comment.to_user_id= params[:taker_id]
+      vote.vote_type=params[:rate]
+      vote.from_user_id = session[:user_id]
+      vote.to_user_id=params[:taker_id]
+      request.taker_allocation.is_success=false
+      request.taker_allocation.save
+      vote.save
+      comment.save
       request.close_request
     end
     redirect_to :action => 'show', :id => params[:id]

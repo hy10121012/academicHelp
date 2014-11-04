@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     if (!User.exist?(params[:user][:email]))
       puts params[:user].except(:submit).inspect
       u = user_params
+      u[:phone] =params[:user][:country_code].to_s+'-'+params[:user][:phone].to_s
       u[:password] = Digest::MD5.hexdigest(u[:password])
       puts "---->#{u.inspect}"
       if !is_valid_user_data?(u)
@@ -13,6 +14,9 @@ class UsersController < ApplicationController
       else
         u[:is_active] =false
         user = User.create(u)
+        if(user.user_type_id==2)
+          user.is_validated=true
+        end
         if user.save
           session[:user_id] = user.id
           session[:user_type_id] = user.user_type_id
@@ -60,7 +64,6 @@ class UsersController < ApplicationController
       redirect_to :action => "validate_user", :params => {:id => params[:id], :success => false}
     end
   end
-
 
   private
   def user_params

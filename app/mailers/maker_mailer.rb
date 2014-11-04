@@ -14,7 +14,7 @@ class MakerMailer < ActionMailer::Base
     @request=request
     @url  = "#{default_url_options[:host]}/requests/#{request.id}"
     @request_count =Request.count_request_by_type_taker(taker.id)
-    mail(:to => @user.email, :subject => "用户#{taker.first} #{taker.last}申请承接任务: #{request.title}")
+    mail(:to => @user.email, :subject => "用户#{taker.id}申请承接任务: #{request.title}")
   end
 
   def send_taker_mark_progress(taker,request,process)
@@ -24,7 +24,7 @@ class MakerMailer < ActionMailer::Base
     @procgress=process
     @url  = "#{default_url_options[:host]}/requests/#{request.id}"
     @request_count =Request.count_request_by_type_taker(taker.id)
-    mail(:to => @user.email, :subject => "用户#{taker.first} #{taker.last}已经完成任务#{request.title}的#{process}%，请验收")
+    mail(:to => @user.email, :subject => "用户#{taker.id}已经完成任务#{request.title}的#{process}%，请验收")
   end
 
 end

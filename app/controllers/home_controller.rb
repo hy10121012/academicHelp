@@ -9,11 +9,11 @@ class HomeController < ApplicationController
     end
     @summary = {'total' => 0, 'outstanding_amount' => 0, 'processing' => 0, 'closed' => 0, 'applying' => 0};
     @summary['total'] =@request_allocations.count
+    @summary['applying'] = RequestAllocation.where("request_allocations.taker_id = #{session[:user_id]} and is_approved is null and is_user_cancelled is null").size
     @request_allocations.each do |request_allocation|
       if (!request_allocation.request.latest_approved_submit.nil? && request_allocation.request.latest_approved_submit.process>0)
         @summary['outstanding_amount']+=request_allocation.get_pay_amount
       end
-      @summary['applying'] = RequestAllocation.where("request_allocations.taker_id = #{session[:user_id]} and is_approved is null and is_user_cancelled is null").size
       if (request_allocation.is_approved==true && request_allocation.request.status == RequestStatus::CLOSED)
         @summary['closed']+1
       elsif (request_allocation.is_approved==true && (request_allocation.request.status == RequestStatus::AWAITING_PAYMENT ||request_allocation.request.status == RequestStatus::IN_PROCESS))

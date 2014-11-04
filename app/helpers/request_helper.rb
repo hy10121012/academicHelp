@@ -2,28 +2,30 @@
 module RequestHelper
 
   def get_request_status(requestStaus)
+    status=""
     case requestStaus
       when RequestStatus::DRAFT
-        "草稿"
+        status="草稿"
       when RequestStatus::SUBMITTED
-        "接受竞标中"
+        status="接受竞标中"
       when RequestStatus::ACCEPTED
-        "已被接受，等待委托人确认"
+        status="已被接受，等待委托人确认"
       when RequestStatus::AWAITING_PAYMENT
-        "等待付款中"
+        status="等待付款中"
       when RequestStatus::IN_PROCESS
-        "正在进行"
+        status="正在进行"
       when RequestStatus::CANCELLED
-        "已被取消"
+        status="已被取消"
       when RequestStatus::HANDED_IN
-        "已经提交所有任务"
+        status="已经提交所有任务"
       when RequestStatus::CLOSED
-        "交易关闭"
+        status="交易关闭"
       when RequestStatus::COMPLETED
-        "任务结束，等待最终结果"
+        status= "任务结束，等待最终结果"
       when RequestStatus::ARGUE
-        "任务复议中"
+        status="任务复议中"
     end
+    status.html_safe
   end
 
   def get_maker_request_action(request_log)

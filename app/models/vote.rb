@@ -5,7 +5,9 @@ class Vote < ActiveRecord::Base
   def self.find_vote(user_id)
     votes = where(:to_user_id=>user_id)
     vote_counts = {VoteType::POSITIVE=>0, VoteType::NATURE=>0, VoteType::NEGATIVE=>0}
+    logger.info "#{votes.size}--------"
     votes.each do |vote|
+      puts "#{VoteType::POSITIVE} - #{vote.vote_type}"
       case vote.vote_type
         when VoteType::POSITIVE
           vote_counts[VoteType::POSITIVE]+=1

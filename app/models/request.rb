@@ -194,6 +194,16 @@ class Request < ActiveRecord::Base
     return true
   end
 
+  def self.get_home_page_request
+    where(:status=>RequestStatus::SUBMITTED).order('DATE(created_at) desc, price desc').limit(5)
+  end
+
+  def self.get_home_page_amount_count
+    request =where("status in ('COMPLETED','CLOSED')")
+    count = request.count(:id)
+    sum = request.sum(:price)
+    return count,sum
+  end
 
   def submit_request
 
@@ -224,7 +234,6 @@ class Request < ActiveRecord::Base
         vote_counts['pay']+=1
       end
     end
-    puts  vote_counts.inspect
     return vote_counts;
   end
 

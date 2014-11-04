@@ -28,7 +28,9 @@
     <div class="profile_detail_rate"><span>差评</span> ( <%= @votes[VoteType::NEGATIVE] %> )</div>
   </div>
 </div>
-
+<%if  @user.id=session[:user_id] &&  @user.is_validated!=true%>
+    <div style="padding-left: 5px;"><b style="color: red"> 您还未通过验证，立即<a href="/validate_user">申请验证</a></b>
+<%end%>
 <div class="profile_bottom">
   <div class="profile_bottom_half left_half">
     <div class="profile_bottom_box">
@@ -81,6 +83,7 @@
             <div class="comment_row">
               <div class="comment_user"><%= comment.commenter.id %></div>
               <div class="comment_content"><%= comment.comment %></div>
+              <div class="comment_date"><%= comment.created_at.to_date %></div>
             </div>
         <% end %>
         <% if(@comments.size==0) %>

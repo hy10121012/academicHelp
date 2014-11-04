@@ -1,5 +1,9 @@
 AcdemicHelp::Application.routes.draw do
 
+  get "administrator/verifyMaker"
+  get "administrator/verifyTaker"
+  get "home_page/verifyMaker"
+  get "home_page/verifyTaker"
   get "request_files/do_upload_file"
   get "request_logs/index"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -25,6 +29,7 @@ AcdemicHelp::Application.routes.draw do
   get 'logout'=>'welcome#logout'
   post 'login'=>'welcome#login_check'
   get 'register'=>'welcome#register'
+  get 'find_country'=>'welcome#find_university_by_input'
   post 'register'=>'users#create'
 
   get 'home'=>'home#requester',constraints: IsRequester
@@ -42,6 +47,8 @@ AcdemicHelp::Application.routes.draw do
   post 'request/:id/complaint'=>'requests#do_complaint'
   post 'messages/send_message'=>'messages#send_message'
   get 'messages/:request_id'=>'messages#show'
+
+
   post 'messages/:request_id'=>'messages#send_message_in_list'
 
   post 'request/:id/submit'=>'requests#do_submit'
@@ -59,6 +66,10 @@ AcdemicHelp::Application.routes.draw do
   post 'resend_email'=>'welcome#do_resend_email'
   get 'validate_user'=>'users#validate_user'
   get 'register_success'=>'welcome#register_success'
+  get '/forgot_password'=>'welcome#reset_pass'
+  post '/reset_pass'=>'welcome#do_reset_pass'
+ get 'reset_sucess'=>'welcome#reset_sucess'
+
 
   get 'get_university_by_country'=>'welcome#get_university_by_country_id'
   get 'get_writer_university_by_country'=>'welcome#get_writer_university_by_country_id'
@@ -66,6 +77,29 @@ AcdemicHelp::Application.routes.draw do
   post 'request_files'=>'request_files#do_upload_file'
   post 'writer_validations'=>'users#do_validate_user'
   post 'request_files_delete'=>'request_files#do_delete_file'
+
+
+
+
+
+  #admin
+  get 'heyi_admin'=>'administrator#home'
+  get 'heyi_admin/home'=>'administrator#home'
+  get 'heyi_admin/verify_maker'=>'administrator#verify_maker'
+  get 'heyi_admin/verify_taker'=>'administrator#verify_taker'
+  patch 'heyi_admin/verify_maker'=>'administrator#do_verify_maker'
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   resources :users

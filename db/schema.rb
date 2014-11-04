@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001191544) do
+ActiveRecord::Schema.define(version: 20141021211203) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
@@ -183,12 +183,13 @@ ActiveRecord::Schema.define(version: 20141001191544) do
     t.boolean  "is_active"
     t.boolean  "is_validated"
     t.string   "employer"
+    t.string   "phone"
   end
 
   create_table "votes", force: true do |t|
     t.integer  "from_user_id"
     t.integer  "to_user_id"
-    t.string   "vote_type"
+    t.string   "vote_type",    limit: 20
     t.datetime "created_at"
     t.datetime "updated_at"
   end

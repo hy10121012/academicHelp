@@ -14,6 +14,13 @@ class WriterMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "你好#{user.first} #{user.last}， 感谢您注册助学网")
   end
 
+  def send_forgot_password(user)
+    @user = user
+    @url  = "#{default_url_options[:host]}/forgot_password/?email=#{user.email}&token=#{Digest::MD5.hexdigest(user.id.to_s+user.password)}"
+    puts @url
+    mail(:to => user.email, :subject => "助学网找回密码")
+  end
+
   def send_new_task_mail(user,request)
     @user = user
     @request = request
@@ -40,6 +47,20 @@ class WriterMailer < ActionMailer::Base
     @request = request
     @url  = "#{default_url_options[:host]}/requests/#{request.id}"
     mail(:to => user.email, :subject => "恭喜你！你已经赢得了任务#{request.id}的竞标！")
+  end
+
+  def send_taker_validation_mail(user,accept,reason)
+    @user = user
+    if accept==1
+      @subject = "恭喜你！你已经通过了助学网的认证，成为认证承接人！";
+      @content = "恭喜你！你已经通过了助学网的认证，成为认证承接人。现在您将可以接受助学网上适合您的任务了。如有适合您的任务，我们将会以Email通知您。";
+      @url =  "#{default_url_options[:host]}/"
+    elsif accept==0
+      @subject = "对不起，您在助学网的审核未能被通过。";
+      @content = "对不起，您在助学网的审核未能被通过。原因是: <b>#{reason}</b>如有疑问请回复Email。";
+    end
+    logger.info "from:hy10121012@hotmail.com :to #{user.email}";
+    mail(:to => user.email, :subject =>@subject)
   end
 
 

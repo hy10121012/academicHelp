@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>你好,<%= @user.first %> <%= @user.last %></h1>
+<p>
+  <%=@content.html_safe%>
+</p>
+<p>
+  请使用下面的链接登录 <%=@url%>
+</p>
+<p>谢谢使用！</p>
+</body>
+</html>

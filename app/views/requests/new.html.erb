@@ -27,41 +27,41 @@
       </div>
       <div class="request_form_row">
         <div class="form_label">字数要求</div>
-        <%= request.radio_button :words,0,:name=>'word_req',:onclick=>'$("#request_words").val("").attr("disabled","disabled")' %> 没有要求 <%= request.radio_button :words,1,:name=>'word_req',:onclick=>'$("#request_words").removeAttr("disabled")',:checked =>true %> 字数：  <%= request.text_field :words,:class=>'mandatory',:style=>'width:30%' %>
+        <%= request.radio_button :words,0,:name=>'word_req',:onclick=>'$("#request_words").val("").attr("disabled","disabled")',:class=>'est' %> 没有要求 <%= request.radio_button :words,1,:name=>'word_req',:onclick=>'$("#request_words").removeAttr("disabled")',:checked =>true,:class=>'est' %> 字数：  <%= request.text_field :words,:class=>'mandatory est',:style=>'width:30%' %>
       </div>
       <div class="request_form_row">
         <div class="form_label">分数要求</div>
         <% if @user.country.country_code=='US' %>
-            <%= request.text_field :expected_score, :style=>'width:50px;',:maxlength=>"4",:class=>'mandatory',:style=>'width:30%' %>/4
+            <%= request.text_field :expected_score, :maxlength=>"4",:class=>'mandatory est',:style=>'width:30%' %>/4
         <% elsif @user.country.country_code=='GB' %>
-            <select name="request[expected_score]" id='request_expected_score' class="mandatory" style='width:30%'>
-              <option>
-                First
+            <select name="request[expected_score]" id='request_expected_score' class="mandatory est" style='width:30%'>
+              <option value="70">
+                >70 (First)
               </option>
-              <option>
-                2:1
+              <option value="60">
+                >60 (2:1)
               </option>
-              <option>
-                2:2
+              <option value="50">
+               >50 (2:2)
               </option>
-              <option>
-                Third
+              <option value="45">
+                >45 (Third)
               </option>
-              <option>
-                Pass
+              <option value="40">
+                >40 (Pass)
               </option>
             </select>
         <% elsif @user.country.country_code=='AUS' %>
-            <%= request.text_field :expected_score,:style=>'width:50px;',:maxlength=>"3",:class=>'mandatory'  %> %
+            <%= request.text_field :expected_score,:style=>'width:50px;',:maxlength=>"3",:class=>'mandatory est'  %> %
         <% end %>  <span>请注意：分数要求越高，酬金预期就越较高</span>
       </div>
       <div class="request_form_row">
         <div class="form_label">价格（<%= @user.country.currency.currency_code %>）</div>
-        <%= request.text_field :price,:class=>'mandatory',:placeholder=>'请输入任务的报酬',:style=>'width:30%' %>
+        <%= request.text_field :price,:class=>'mandatory',:placeholder=>'请输入任务的报酬',:style=>'width:30%' %>  <b> 建议价格(与字数，成绩要求，截止时间有关): <span id="estimiate_price">--</span></b>
       </div>
       <div class="request_form_row">
-        <div class="form_label">交稿时间</div>
-        <%= request.text_field :end_date,:class=>'mandatory',:placeholder=>'请输入任务的截止日期' %>
+        <div class="form_label">截止时间</div>
+        <%= request.text_field :end_date,:class=>'mandatory est',:placeholder=>'请输入任务的截止日期' %>
       </div>
       <div class="request_form_row">
         <div class="form_label"></div>
@@ -87,6 +87,12 @@
                 alert("输入日期不合法")
             }
         })
+
+        $('.est').on('change',function(){
+            estimate_price()
+        })
+
+
         $('#request_form').on('submit',function(){
             var pass=true;
             var form  = $(this)
@@ -131,4 +137,50 @@
             }
         })
     });
+    function estimate_price(){
+        var base = 100;
+        var k = 1;
+        var score =  $('#request_expected_score').val()
+        <%if @user.country.country_code=='US'%>
+        if(score*1>3.7){
+            k=k+0.3
+        } else if (score*1>3.5){
+            k=k+0.2
+        } else if (score*1>3.3){
+            k=k+0.1
+        }
+        <% elsif @user.country.country_code=='GB' %>
+        if(score*1==70){
+            k=k+0.3
+        } else if(score*1==60){
+            k=k+0.2
+        }
+        <% elsif @user.country.country_code=='AUS' %>
+        if(score*1>80){
+            k=k+0.3
+        } else if(score*1>70){
+            k=k+0.2
+        }  else if(score*1>60){
+            k=k+0.1
+        }
+        <% end %>
+
+        if($('#request_end_date').val()!=''){
+            var end_date =new Date($('#request_end_date').val()).getTime()/1000;
+            var current = new Date().getTime()/1000;
+            var day =  Math.floor((end_date-current)/86400)
+            if(day<20){
+                k=k+0.5
+            }
+            var estimate=0;
+            if($('input[name=word_req]:checked').val()=='1'){
+                estimate = Math.floor((base*0.001)*k*($('#request_words').val()*1));
+            }else{
+                estimate = base*k*0.5;
+            }
+            if(estimate==0)estimate=1;
+            $('#estimiate_price').text(estimate);
+        }
+    }
+
 </script>

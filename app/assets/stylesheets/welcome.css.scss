@@ -8,36 +8,205 @@
   font-family: 'TitilliumText22L-Thin','微软雅黑';;
 }
 
-
-.welcome_bg{
-  background-color: #000000;
-  background-image: url("/images/bg.jpg");
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
+.welcome_header{
+  z-index: 300;
 }
-@media only screen and (min-device-width: 380px) and (max-device-width: 640px){
-  .welcome_header{
-    font-size: 3em;
-    color: #FFFFFF;
-    line-height: 300%;
+
+.welcome_header_left_h1{
+  font-size: 1.8em;
+  font-weight: bolder;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.welcome_header_left_h2{
+  font-size: 1.4em;
+  font-weight: bolder;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.welcome_header_left_h3{
+  font-size: 1em;
+}
+
+
+
+@media only screen and (min-width: 1px) and (max-width: 740px){
+  .welcome_header {
+    color: #000000;
+    line-height: 250%;
     vertical-align: middle;
-    height: 200px;
+  }
+
+  .welcome_container_centre {
+    width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 200;
+    position: relative;
+    font-family: 'TitilliumText22L-Regular','微软雅黑';;
+  }
+
+  .welcome_box_left {
+    width: 100%;
+  }
+  .welcome_box_right {
+    width: 100%;
+  }
+
+  .welcome_bg{
+    display: none;
+  }
+
+  .login_text_reg a{
+    display: inline-block;
+    float: right;
+    color: #000000;
+    font-weight: bolder;
+    text-decoration: none;
+  }
+
+  .welcome_box_left_area {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dbdbde;
+  }
+
+
+  .login_box{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dbdbde;
+  }
+
+
+  .cell_1{
+    width: 100%;
+  }
+  .cell_2{
+    width: 100%;
+  }
+  .cell_3{
+    width: 100%;
+  }
+  .cell_4{
+    width: 100%;
+  }
+  .cell_5{
+    width: 100%;
+  }
+}
+.welcome_box_left_row{
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-bottom: 1px solid #dbdbde;
+}
+
+.welcome_box_right_row{
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-bottom: 1px solid #dbdbde;
+}
+
+.welcome_box_left_row_cell{
+  display: inline-block;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+
+@media only screen and (min-width: 741px) {
+  .welcome_header{
+    color: #FFFFFF;
+    line-height: 250%;
+    vertical-align: middle;
+    height: 100%;
+    box-sizing: border-box;
     padding-top: 100px;
     padding-bottom: 100px;
   }
-}
 
-@media only screen and (min-width: 641px) {
-  .welcome_header{
-    font-size: 3em;
-    color: #FFFFFF;
-    line-height: 300%;
-    vertical-align: middle;
-    height: 300px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+  .welcome_container_centre
+  {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 200;
+    position: relative;
+    font-family: 'TitilliumText22L-Regular','微软雅黑';;
   }
+
+  .welcome_box_left {
+    float: left;
+    text-align: left;
+    width: 60%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .welcome_box_right {
+    float: right;
+    text-align: left;
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .welcome_bg{
+    background-color: #000000;
+    background-image: url("/images/bg.jpg");
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 430px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .login_text_reg a{
+    display: inline-block;
+    float: right;
+    color: #FFFFFF;
+    font-weight: bolder;
+    text-decoration: none;
+  }
+
+  .welcome_box_left_area {
+    padding-bottom: 20px;
+  }
+  .welcome_box_left_row_cell{
+    text-align: left;
+  }
+
+  .cell_1{
+    width: 20%;
+  }
+  .cell_2{
+    width: 78%;
+  }
+  .cell_3{
+    width: 53%;
+  }
+  .cell_4{
+    width: 20%;
+  }
+  .cell_5{
+    width: 25%;
+  }
+
+  .cell_1r{
+    width: 100%;
+  }
+  .cell_2r{
+    width: 47%;
+  }
+  .cell_3r{
+    width: 47%;
+  }
+
 }
 
 .welcome_bottom{
@@ -73,23 +242,22 @@
 
 .login_title{
   text-align: left;
-  margin-bottom: 15px;
 }
 
 .login_text{
   display: inline-block;
 }
 
-.login_text_reg,.login_text_reg a {
+.login_text_reg {
   display: inline-block;
   float: right;
-  color: #000000;
+  color: #FFFFFF;
   font-weight: bolder;
   text-decoration: none;
 }
 .login_box_row{
-  padding-top: 5px;
-  padding-bottom: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 .section_gap{
   height: 200px;
@@ -137,4 +305,8 @@
   margin-right: auto;
   padding-top: 30px;
   padding-bottom:19%;
+}
+
+.register_lable{
+  margin-top: 10px;
 }
