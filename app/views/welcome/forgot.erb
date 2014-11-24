@@ -1,30 +1,18 @@
-<div class="welcome_container">
-  <div class="welcome_bg">
-    <div class="image_blinder welcome_header">
-      <h1>助学网 -- 帮你找到学海中引路的灯塔</h1>
-    </div>
-  </div>
-  <div class="welcome_bottom">
-    <div class="login_box" style="text-align: left">
-      <div><p><b>忘记密码？请输入以下信息重新设置密码</b></p></div>
-      <%= form_tag("/resend_email", method: "post") do %>
-          <div>
-            <div><%= label_tag('邮箱', nil, style: 'min-width:300px;') %>：</div>
-            <div><%= text_field_tag :email %></div>
-          </div>
-          <div>
-            <div><%= label_tag('姓', nil, style: 'min-width:300px;') %>：</div>
-            <div><%= text_field_tag :last %></div>
-          </div>
-          <div>
-            <div><%= label_tag('名', nil, style: 'min-width:300px;') %>：</div>
-            <div> <%= text_field_tag :first %></div>
-          </div>
-          <p><%= submit_tag('找回密码') %>       或者 <a href="/">返回主页</a></p>
-      <% end %>
-    </div>
-  </div>
-
-
+<div class="login_box" style="text-align: left">
+  <div><p><b>忘记密码？请输入以下信息重新设置密码</b></p></div>
+  <%= form_tag("/resend_email", method: "post") do %>
+      <div>
+        <div><%= label_tag('邮箱', nil, style: 'min-width:300px;') %>：</div>
+        <div><%= text_field_tag :email %></div>
+      </div>
+      <div>
+        <div><%= label_tag('姓', nil, style: 'min-width:300px;') %>：</div>
+        <div><%= text_field_tag :last %></div>
+      </div>
+      <div>
+        <div><%= label_tag('名', nil, style: 'min-width:300px;') %>：</div>
+        <div> <%= text_field_tag :first %></div>
+      </div>
+      <p><%= submit_tag('找回密码') %>       或者 <a href="/">返回主页</a></p>
+  <% end %>
 </div>
-

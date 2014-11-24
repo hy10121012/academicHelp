@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>助写网</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="wrapper">
+  <div class="welcome_container">
+    <div class="welcome_bg">
+      <div class="image_blinder"></div>
+    </div>
+    <div>
+      <div class="welcome_container_centre">
+        <div class="welcome_header">
+          <div class="welcome_box_left welcome_box_left_area">
+            <div class="welcome_header_left_h1">助写网</div>
+            <div class="welcome_header_left_h2">帮你找到学海中引路的灯塔</div>
+          </div>
+          <div class="welcome_box_right">
+            <div class="login_box">
+              <%= form_tag("/login", method: "post") do %>
+                  <div class="login_title">
+                    <div class="login_text"><%= label_tag '登录助写网' %></div>
+                    <div class="login_text_reg"><%= link_to "立即注册!", controller: "welcome", action: "register" %></div>
+                  </div>
+                  <div class="login_box_row">
+                    <%= text_field_tag :email, nil, placeholder: "输入邮箱", class: "login_input" %>
+                  </div>
+                  <div class="login_box_row">
+                    <%= password_field_tag :password, nil, placeholder: "输入密码", class: "login_input" %>
+                  </div>
+                  <div style="text-align: right">
+                    <div class="login_text_reg"><a href="/forgot">忘记密码?</a></div>
+                    <div class="clear"></div>
+                  </div>
+                  <div class="login_box_row" style="text-align: center">
+                    <%= submit_tag('登 录', class: "login_input login_button") %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="welcome_bottom">
+      <%=yield%>
+    </div>
+
+  </div>
+
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53454163-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>
+
+

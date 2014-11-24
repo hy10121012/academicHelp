@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>助学网</title>
+  <title>助写网</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 <body>
 
 <div class="head_nav">
-  <div class="head_nav_logo"><a href="/home">助学网</a></div>
+  <div class="head_nav_logo"><a href="/home">助写网</a></div>
   <div class="head_nav_right"><div style="display: table-cell;vertical-align: middle;">你好  <%=session[:user_last]%> <%=session[:user_first]%>，  今天是  <%=DateTime.now.to_date%> | <a href="/logout">登出</a></div></div>
   <div class="clear"></div>
 </div>
@@ -52,6 +52,9 @@
 <div class="top_gap"></div>
 <div class="wrapper">
   <div class="main_container">
+    <%if SysProperty.get_env_stage==1%>
+        <div style="margin-bottom: 15px;" class="text_red"><b>感谢您加入助写网。目前本平台处于写手注册阶段所以尚未开始发布助写任务，当平台开放发布任务时我们会对您进行通知，请耐心等待。谢谢您的合作！</b></div>
+    <%end%>
     <%= yield %>
   </div>
 </div>

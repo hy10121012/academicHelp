@@ -18,4 +18,23 @@ class SysProperty < ActiveRecord::Base
     end
   end
 
+  def self.get_env_stage
+    obj = where(:name=>'env_stage');
+    if(obj.size>0)
+      return obj[0].value.to_i
+    else
+      return 1
+    end
+  end
+
+  def self.get_instance_email_address
+    obj = where(:name=>'instance_email_address');
+    if(obj.size>0)
+      return obj[0].value
+    else
+      return'info@zhuxiewang.com'
+    end
+
+  end
+
 end

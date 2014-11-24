@@ -28,49 +28,70 @@
     <div class="profile_detail_rate"><span>差评</span> ( <%= @votes[VoteType::NEGATIVE] %> )</div>
   </div>
 </div>
-<%if  @user.id=session[:user_id] &&  @user.is_validated!=true%>
-    <div style="padding-left: 5px;"><b style="color: red"> 您还未通过验证，立即<a href="/validate_user">申请验证</a></b>
-<%end%>
+
 <div class="profile_bottom">
   <div class="profile_bottom_half left_half">
+    <% if  @user.id==session[:user_id] && @user.is_validated!=true %>
+        <div class="profile_bottom_box">
+          <div class="user_request_list">
+            <div style="padding-left: 5px;"><b style="color: red"> 您还未通过验证，立即<a href="/validate_user">申请验证</a></b>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
     <div class="profile_bottom_box">
       <div class="user_request_list">
-        <div ><%=link_to "发信息",nil, class: "user_action",style:"color: #1c94c4;font-weight: bolder;" %></div>
+        <div style="font-weight: bolder">
+          <% if @user.user_type_id==1 %>任务发布人
+          <% else %>任务承接人
+          <% end %>
+          <% if  @user.is_validated==true %>
+                <span class="text_green"><b>已通过尽责调查验证</b></span>
+          <%else%>
+              <span class="text_gray"><b>尚未通过验证</b></span>
+          <%end%>
+        </div>
       </div>
       <div class="user_request_list">
-        <div ><%=link_to "举报用户",nil, class: "user_action",style:"color: #1c94c4;font-weight: bolder;"  %></div>
-      </div>
-    </div>
-    <div class="profile_bottom_box">
-      <div class="user_request_list">
-        <div style="font-weight: bolder"><% if @user.user_type_id==1%>任务发布人<%else%>任务承接人 <%end%></div>
+        <div>所在地</div>
+        <div><%= @user.country.country_name %></div>
       </div>
       <div class="user_request_list">
-        <div >所在地</div>
-        <div ><%=@user.country.country_name%></div>
+        <div>院校</div>
+        <div><%= @user.university.name %></div>
       </div>
       <div class="user_request_list">
-        <div >院校</div>
-        <div ><%=@user.university.name%></div>
+        <div>学科领域</div>
+        <div><%= @user.subject_area.name %></div>
       </div>
-      <div class="user_request_list">
-        <div >学科领域</div>
-        <div ><%=@user.subject_area.name%></div>
-      </div>
+
+
+
     </div>
     <div class="profile_bottom_box">
       <h3>任务情况</h3>
+
       <div class="user_request_list">
-        <div ><% if(@user.is_taker?) %>承接任务<%else%>发布任务<%end%></div>
-        <div ><%=@request_count['create']%></div>
+        <div>
+          <% if (@user.is_taker?) %>承接任务
+          <% else %>发布任务
+          <% end %></div>
+        <div><%= @request_count['create'] %></div>
       </div>
       <div class="user_request_list">
-        <div ><% if(@user.is_taker?) %>完成任务<%else%>完成支付<%end%></div>
-        <div ><%=@request_count['pay']%></div>
+        <div>
+          <% if (@user.is_taker?) %>完成任务
+          <% else %>完成支付
+          <% end %></div>
+        <div><%= @request_count['pay'] %></div>
       </div>
       <div class="user_request_list">
-        <div ><% if(@user.is_taker?) %>放弃任务<%else%>取消任务<%end%></div>
-        <div ><%=@request_count['cancel']%></div>
+        <div>
+          <% if (@user.is_taker?) %>放弃任务
+          <% else %>取消任务
+          <% end %></div>
+        <div><%= @request_count['cancel'] %></div>
       </div>
     </div>
 
@@ -78,6 +99,7 @@
   <div class="profile_bottom_half right_half">
     <div class="profile_bottom_box">
       <h3>用户评价</h3>
+
       <div class="comment_box">
         <% @comments.each do |comment| %>
             <div class="comment_row">
@@ -86,9 +108,9 @@
               <div class="comment_date"><%= comment.created_at.to_date %></div>
             </div>
         <% end %>
-        <% if(@comments.size==0) %>
-        <span style="color: #929295;font-weight: bold">暂时没有用户评价</span>
-        <% end%>
+        <% if (@comments.size==0) %>
+            <span style="color: #929295;font-weight: bold">暂时没有用户评价</span>
+        <% end %>
       </div>
     </div>
   </div>

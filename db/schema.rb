@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021211203) do
+ActiveRecord::Schema.define(version: 20141104003731) do
 
   create_table "comments", force: true do |t|
     t.integer  "from_user_id"
@@ -159,6 +159,14 @@ ActiveRecord::Schema.define(version: 20141021211203) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_wirter_university"
+  end
+
+  create_table "user_references", force: true do |t|
+    t.integer  "referrer_id"
+    t.integer  "referee_id"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_types", force: true do |t|

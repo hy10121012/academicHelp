@@ -1,5 +1,6 @@
 <div class="register_box">
-  <h3>注册</h3>
+  <h3>注册<% if (SysProperty.get_env_stage==1) %>成为任务承接人
+    <% end %></h3>
   <b>请如实填写以下信息。您的信息将受到严格保密，不会透露给任何第三方，请放心填写。</b>
   <span id="warning" style="color: red;font-weight: bolder"></span>
   <%= form_for :user, url: users_path,:html => {:id => "register_form"} do |user| %>
@@ -21,12 +22,20 @@
       </div>
       <div class="register_lable"><%= user.label :我要 %>  </div>
       <div>
-        <select id="user_user_type_id" class="mandatory" name="user[user_type_id]" style="width: 50%">
-          <option value="1">发布任务</option>
-          <option value="2">承接任务</option>
-        </select><span> <img style="cursor: pointer;padding-left: 10px;padding-top: 5px;" src="/images/info.png"></span><div id='more_info'>发布任务是指发布新的任务，承接任务是指承接新的任务</div>
+        <% if (SysProperty.get_env_stage==1) %>
+            <select id="user_user_type_id" class="mandatory" name="user[user_type_id]" style="width: 50%">
+              <option selected="selected" value="2">承接任务</option>
+            </select>
+        <% else %>
+            <select id="user_user_type_id" class="mandatory" name="user[user_type_id]" style="width: 50%">
+              <option value="1">发布任务</option>
+              <option value="2">承接任务</option>
+            </select><span> <img style="cursor: pointer;padding-left: 10px;padding-top: 5px;" src="/images/info.png"></span><div id='more_info'>发布任务是指发布新的任务，承接任务是指承接新的任务</div>
+        <% end %>
+
+
       </div>
-      <div class="register_lable"><%= user.label :目前就读学历 %> </div>
+      <div class="register_lable"><%= user.label :最高学历 %> </div>
       <div>
         <%= user.select :education_id, Education.all.collect { |e| [e.name, e.id] },{:class=>'mandatory'} %>
       </div>
@@ -40,12 +49,18 @@
       </div>
       <div class="register_lable"> <%= user.label :学校 %> </div>
       <div>
-        <%= user.text_field :university,:class=>'mandatory',:id=>'university_box' %>
-        <%= user.select :university_id, ['请先选择国家'],{:include_blank => true},{:class=>'mandatory'} %>
+       <%= user.text_field :university_box,:class=>'mandatory maker_only' %>
+        <div id="register_uni_dropdown" class="register_uni_dropdown">
+        </div>
+        <%= user.select :university_id, ['请先选择国家'],{:include_blank => true},{:class=>'mandatory taker_only'} %>
       </div>
       <div class="register_lable"><%= user.label :密码 %> </div>
       <div>
         <%= user.password_field :password,:class=>'mandatory' %>
+      </div>
+      <div class="register_lable"><%= user.label :'推荐人邮箱: 您的推荐人在您初次完成任务时能获得推荐费奖励！(可选)' %> </div>
+      <div>
+        <%= user.text_field :referrer_email %>
       </div>
       <div class="register_lable">
         <%= user.submit :注册,:id=>'submit', :class=>'login_button', disable_with: 'Saving...' %>

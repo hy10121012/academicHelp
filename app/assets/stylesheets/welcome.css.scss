@@ -39,11 +39,12 @@
   }
 
   .welcome_container_centre {
-    width: 740px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     z-index: 200;
     position: relative;
+    box-sizing: border-box;
     font-family: 'TitilliumText22L-Regular','微软雅黑';;
   }
 
@@ -288,6 +289,8 @@
 .register_box input[type="text"],.register_box input[type="password"],.register_box select{
   width: 100%;
   padding: 5px;
+  margin-bottom: 0px;
+  box-sizing: border-box;
 }
 
 .login_button{
@@ -310,3 +313,38 @@
 .register_lable{
   margin-top: 10px;
 }
+
+.university_box{
+  max-width: 500px;
+}
+
+.register_uni_dropdown{
+  display: block;
+  position: absolute;
+  width: 100%;
+  max-width: 498px;
+  background-color: #FFFFFF;
+  border-left: 1px solid #c9cdcd;
+  border-right: 1px solid #c9cdcd;
+}
+
+.register_uni_row{
+  border-bottom: 1px solid #c9cdcd;
+  padding: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.register_uni_row:hover{
+  background-color: #e7e7ea;
+}
+
+.taker_only{
+  display: none;
+}
+
+.maker_only{
+  display: none;
+}
+
+
+

@@ -4,9 +4,9 @@ class MakerMailer < ActionMailer::Base
   before_filter :set_mailer_host
 
   def set_mailer_host
-    ActionMailer::Base.default_url_options[:host] = "http://zhuxuewang.co.uk"
+    ActionMailer::Base.default_url_options[:host] = "http://www.zhuxiewang.com"
   end
-  default from: "hy10121012@hotmail.com"
+  default from: SysProperty.get_instance_email_address
 
   def send_taker_take_task(taker,request)
     @user = User.find(request.user_id)

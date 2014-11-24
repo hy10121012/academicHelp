@@ -189,3 +189,7 @@ h2 { font-size: 2rem; } /*40px*/
 .text_red{
     color: red;
 }
+
+.text_green{
+    color: #229823;
+}

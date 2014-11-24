@@ -7,7 +7,12 @@ class UsersController < ApplicationController
       puts params[:user].except(:submit).inspect
       u = user_params
       u[:phone] =params[:user][:country_code].to_s+'-'+params[:user][:phone].to_s
-      u[:password] = Digest::MD5.hexdigest(u[:password])
+      u[:password] = Digest::MD5.hexdigest(u[:password]);
+      if(params[:user][:user_type_id].to_i==2)
+        u[:university_id] =  params[:user][:university_id]
+      else
+        u[:university_id]=get_university_id(params[:user][:university_box],u[:country_id])
+      end
       puts "---->#{u.inspect}"
       if !is_valid_user_data?(u)
         redirect_to '/'
@@ -21,6 +26,15 @@ class UsersController < ApplicationController
           session[:user_id] = user.id
           session[:user_type_id] = user.user_type_id
           WriterMailer.welcome_email(user).deliver
+
+          if(!params[:user][:referrer_email].nil? && User.exist?(params[:user][:referrer_email]))
+            ref = UserReference.new
+            ref.referee_id=user.id
+            ref.referrer_id= User.find_by_email(params[:user][:referrer_email]).id
+            ref.is_active=true
+            ref.save
+          end
+
           redirect_to '/register_success'
         else
           redirect_to '/'
@@ -67,7 +81,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :university_id, :country_id, :user_type_id, :subject_area_id)
+    params.require(:user).permit(:first, :last, :password, :email, :subject, :education_id, :country_id, :user_type_id, :subject_area_id)
   end
 
   def is_valid_user_data?(user_data)
@@ -78,6 +92,22 @@ class UsersController < ApplicationController
       end
     end
     return true
+  end
+
+  def get_university_id(uni,country)
+    uni_record = University.find_uni_by_name_and_country(uni,country)
+    if (uni_record)
+      return uni_record.id.to_s
+    else
+      u = University.new
+      u.name=uni
+      u.country_id=country
+      u.level=9
+      u.save
+      return u.id.to_s
+    end
+
+
   end
 
 

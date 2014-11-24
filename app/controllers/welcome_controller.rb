@@ -19,7 +19,7 @@ class WelcomeController < ApplicationController
   end
 
   def register_success
-
+    render layout: 'welcome_info_layout'
   end
 
   def activate_user
@@ -81,11 +81,11 @@ class WelcomeController < ApplicationController
   end
 
   def reset_sucess
-
+    render layout: 'welcome_info_layout'
   end
 
   def resend_email
-
+    render layout: 'welcome_info_layout'
   end
 
   def do_resend_email
@@ -128,7 +128,7 @@ class WelcomeController < ApplicationController
   end
 
   def forgot
-
+    render layout: 'welcome_info_layout'
   end
 
   def register
@@ -136,18 +136,18 @@ class WelcomeController < ApplicationController
   end
 
   def get_university_by_country_id
-    @university = University.where(:country_id => params[:id])
+    @university = University.where(:country_id => params[:id]).order('name')
     render :json => @university, :layout => false
   end
   def get_writer_university_by_country_id
-    @university = University.where(:country_id => params[:id])
+    @university = University.where(:country_id => params[:id]).order('name')
     render :json => @university, :layout => false
   end
 
   def find_university_by_input
     input = params[:input]
     country_id = params[:country_id]
-    universities = University.where("name like '%#{input}%' and country_id=#{country_id}").limit(8)
+    universities = University.find_unis_by_name_and_country(input,country_id)
     render :json => universities, :layout => false
   end
 
