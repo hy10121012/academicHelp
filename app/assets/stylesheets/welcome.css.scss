@@ -346,5 +346,24 @@
   display: none;
 }
 
+.subject_tick_box_item{
+  display: inline-block;
+  border: 1px solid #FFFFFF;
+  background-color: #74b2e7;
+  color: #FFFFFF;
+  padding: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+.subject_tick_box_item:hover{
+  background-color: #85c5fa;
+}
+.tick{
+  float: left;
+  font-weight: bolder;
+}
 
+.tick_name{
+  float: right;
+}
 

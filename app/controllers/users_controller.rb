@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   skip_before_filter :authorize, :only => ['create']
 
   def create
+    selected_area_str = params[:subject_selected].to_s
+    selected_area = selected_area_str.split(",");
+    puts "!!!---->#{selected_area_str}"
+    puts  selected_area.inspect
     if (!User.exist?(params[:user][:email]))
       puts params[:user].except(:submit).inspect
+
       u = user_params
       u[:phone] =params[:user][:country_code].to_s+'-'+params[:user][:phone].to_s
       u[:password] = Digest::MD5.hexdigest(u[:password]);
@@ -23,6 +28,12 @@ class UsersController < ApplicationController
           user.is_validated=true
         end
         if user.save
+          selected_area.each do |area|
+            user_subject_link = UserSubjectLink.new
+            user_subject_link.user_id=   user.id
+            user_subject_link.subject_area_id=area
+            user_subject_link.save
+          end
           session[:user_id] = user.id
           session[:user_type_id] = user.user_type_id
           WriterMailer.welcome_email(user).deliver

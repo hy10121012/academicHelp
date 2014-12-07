@@ -132,6 +132,7 @@ class WelcomeController < ApplicationController
   end
 
   def register
+    @subject_area = SubjectArea.all
     render layout: 'blank'
   end
 
